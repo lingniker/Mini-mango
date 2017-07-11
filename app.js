@@ -5,8 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+/*引用路由模块*/
 var index = require('./routes/index');
 var users = require('./routes/users');
+var questions = require('./routes/questions');
+var answers = require('./routes/answers');
+var tags = require('./routes/tags');
 
 var app = express();
 
@@ -24,6 +28,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use("/questions",questions);
+app.use("/answers",answers);
+app.use("/tags",tags);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

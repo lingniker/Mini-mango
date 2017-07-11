@@ -9,6 +9,12 @@ mongodb://mango:1@ds155132.mlab.com:55132/mini-mango
 git remote add origin https://github.com/lingniker/Mini-mango.git
 链接github链接
 
+git branch --set-upstream-to=origin/master master
+将本地分支与服务器分支链接
+
+git pull
+将源拉到本地
+
 git push -u origin master
 git提交到网站上
 

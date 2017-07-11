@@ -1,3 +1,8 @@
+## git 使用时需要注意的几点
+1. 远程提交时需要和组长协商，经过组长同意后方可提交;
+2. 远程提交之前必须先进行git pull 指令,调试后确认没有问题再进行远程提交;
+3. 远程提交之前需要查看当前的状态，看分支是否干净，确认已经本地提交过了再进行远程提交;
+
 ## 相关指令集合
 * 链接远程github源
 > git remote add origin https://github.com/lingniker/Mini-mango.git
@@ -25,6 +30,4 @@
 > git rm <文件名>
 * 恢复文件（但只有提交的文件 才可以恢复）
 > git checkout  <文件名>
-* 数据库路径
-> mongodb://mango:1@ds155132.mlab.com:55132/mini-mango
 

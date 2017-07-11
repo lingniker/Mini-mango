@@ -2,45 +2,45 @@
 Knowledge quick answer system
 
 
-* mongodb://mango:1@ds155132.mlab.com:55132/mini-mango
+> mongodb://mango:1@ds155132.mlab.com:55132/mini-mango
 
 * 数据库路径
 
 
 
-* git remote add origin https://github.com/lingniker/Mini-mango.git
+> git remote add origin https://github.com/lingniker/Mini-mango.git
 * 链接github链接
 
 
 
-* git branch --set-upstream-to=origin/master master
+> git branch --set-upstream-to=origin/master master
 * 将本地分支与服务器分支链接
 
 
 
-* git pull
+> git pull
 * 将源拉到本地
 
 
 
-* git push -u origin master
+> git push -u origin master
 * git提交到网站上
 
 
 
-* .gitignore
+> .gitignore
 * 忽略文件
 
 
 
-* gcc holle.c
+> gcc holle.c
 *  创建可执行文件
 
 
 
-* git log
+> git log
 * 查看提交
-* git reflog 
+> git reflog 
 * 查看提交
 
 

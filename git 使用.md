@@ -40,22 +40,22 @@
 
 
 
-* git rest --hard  as54646asda6s4da6sd4as56sdasd56
+> git rest --hard  as54646asda6s4da6sd4as56sdasd56
 * 版本回退
 
 
 
-* git add .
+> git add .
 *   添加到库里
 
 
 
-* git commit 
+> git commit 
 * 提交（只有执行git add 的文件才能提交到仓库里）
 
 
 
-* git rm <文件名>
+> git rm <文件名>
 * 删除文件名
-* git checkout  <文件名>
+> git checkout  <文件名>
 * 恢复文件（但只有提交的文件 才可以恢复）

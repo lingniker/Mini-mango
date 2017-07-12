@@ -13,8 +13,8 @@
 赵宏 | 回答页面 | 首席信息官 |CIO|
 黄文倩 | header和footer两部分 | 首席财务官 |CFO|
 肖金红 | 主页面 | 首席财务官 |CFO|
-邵旭 | 数据库设计以及登录注册页面 | 首席技术官 |CTO|
-林小龙 | 搭建后台环境个人信息页面 | 首席技术官 |CTO|
+邵旭 | 登录注册页面以及辅助其他组员的页面设计 | 首席技术官 |CTO|
+林小龙 | 搭建后台环境以及数据库设计 | 首席技术官 |CTO|
 ## 数据库设计
 #### 用户信息集合(users)
 | 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
@@ -37,7 +37,6 @@
 | 参与社区互动 | bbs | Object | 否 | {} | 如:{php:3} |
 | 创建时间 | ctime | Date | 是 |  | 在注册成功时写入 |
 | 最近登录时间 | ltime | Date | 是 |  | 在登录成功时写入 |
-| 是否已经激活 | isactive | Boolean | 否 | false |  |
 #### 问题集合(questions)
 | 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
 |------|------|------|-------|------|------|
@@ -56,8 +55,6 @@
 | 关注数 | focus | Number | 否 | 0 |  |
 | 收藏数 | collects | Number | 否 | 0 |  |
 | 是否解决 | issolve | Boolean | 否 | false |  |
-| 举报次数 | reports | Number | 否 | 0 |  |
-| 要求被关闭的次数 | closes | Number | 否 | 0 |  |
 
 #### 回答集合(answers)
 | 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
@@ -65,13 +62,13 @@
 | 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 | 
 | 问题ID | issuesid | String | 是 |  |  |
 | 回答内容 | content | String | 是 |  |  |
-| 回答时间 | ctime | Date | 是 |  |  |
+| 回答时间 | ctime | Number | 是 |  |  |
 | 回答用户 | ansuser | Array | 是 | [] | 用户_id nick |
 | 被评论数 | comments | Number | 否 | 0 |  |
 | 有价值数 | likes | Number | 否 | 0 |  |
 | 无价值数 | unlikes | Number | 否 | 0 |  |
 | 是否被采纳 | isaccept | Boolean | 否 | false |  |
-#### 标签集和(tags)
+#### 标签集合(tags)
 | 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
 |------|------|------|-------|------|------|
 | 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 | 

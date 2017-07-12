@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var questions = require('./routes/questions');
 var answers = require('./routes/answers');
 var tags = require('./routes/tags');
+// var login = require("./routes/login");
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/users', users);
 app.use("/questions",questions);
 app.use("/answers",answers);
 app.use("/tags",tags);
+// app.use("/login",login);
 
 
 // catch 404 and forward to error handler

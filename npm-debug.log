@@ -9,8 +9,8 @@
 6 silly lifecycle mini-mango@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle mini-mango@0.0.0~start: mini-mango@0.0.0
 8 verbose lifecycle mini-mango@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle mini-mango@0.0.0~start: PATH: /home/linux/.nvm/versions/node/v6.11.0/lib/node_modules/npm/bin/node-gyp-bin:/home/linux/nodejs/Mango/Mini-mango/node_modules/.bin:/home/linux/.nvm/versions/node/v6.11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/node-v6.10.2-linux-x64/bin:/snap/bin
-10 verbose lifecycle mini-mango@0.0.0~start: CWD: /home/linux/nodejs/Mango/Mini-mango
+9 verbose lifecycle mini-mango@0.0.0~start: PATH: /home/linux/.nvm/versions/node/v6.11.0/lib/node_modules/npm/bin/node-gyp-bin:/home/linux/桌面/Mango/node_modules/.bin:/home/linux/.nvm/versions/node/v6.11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/nodejs/bin
+10 verbose lifecycle mini-mango@0.0.0~start: CWD: /home/linux/桌面/Mango
 11 silly lifecycle mini-mango@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle mini-mango@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle mini-mango@0.0.0~start: Failed to exec start script
@@ -25,7 +25,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:891:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid mini-mango@0.0.0
-16 verbose cwd /home/linux/nodejs/Mango/Mini-mango
+16 verbose cwd /home/linux/桌面/Mango
 17 error Linux 4.4.0-83-generic
 18 error argv "/home/linux/.nvm/versions/node/v6.11.0/bin/node" "/home/linux/.nvm/versions/node/v6.11.0/bin/npm" "start"
 19 error node v6.11.0

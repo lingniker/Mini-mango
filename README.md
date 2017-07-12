@@ -88,8 +88,8 @@
 * 其它node第三方库(body-parser,mongodb,mongoose,socket.io)
 #### 数据库
 * mongodb数据库
-* 本地数据库url()
-* 远程数据库url()
+* 本地数据库url("mongodb://127.0.0.1:27017/Mango")
+* 远程数据库url("mongodb://mango:1@ds155132.mlab.com:55132/mini-mango")
 #### 前后端数据交互
 * socket.io
 * AJAX

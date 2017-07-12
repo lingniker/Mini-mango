@@ -9,8 +9,13 @@
 ## mongoose 使用方法和一些常用的命令
 * var answer = require("../db/answers.js");   //链接answes集合
 * var question = require("../db/questions.js");   //链接answes集合
-* var tog = require("../db/togs.js");   //链接answes集合
+* var tog = require("../db/togs.js");     //链接answes集合
 * var user = require("../db/users.js");   //链接answes集合
 
 user.findOne({"name":"lisi"},function(err,data){   //查找一个
 });  
+
+user.cour(function(err,n){   //
+
+})；
+

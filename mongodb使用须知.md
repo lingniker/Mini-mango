@@ -7,4 +7,9 @@
 1. 前后台数据交互用到数据库时，调试期间建议用本地数据库，在本地创建一个Mango数据库；
 2. 使用时，不要忘了在当前路由文件下引用数据库里相关的模块．
 ## mongoose 使用方法和一些常用的命令
+var answer = require("../db/answers.js");   //链接answes集合
+var question = require("../db/questions.js");   //链接answes集合
+var tog = require("../db/togs.js");   //链接answes集合
+var user = require("../db/users.js");   //链接answes集合
 
+user.findOne({"name":"lisi"});  查找一个

@@ -20,21 +20,20 @@
 | 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
 |------|------|------|-------|------|------|
 | 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 | 
-| 账号 | uid | String | 是 |  | 唯一，邮箱或者手机号 |
+| 账号 | phone | String | 是 |  | 唯一，手机号 |
 | 昵称 | nick | String | 是 |  |  |
 | 密码 | password | String | 是 |  |  | 
 | 被点赞数 | likes | Number | 否 | 0 |  |
 | 被关注数 | focus | Number | 否 | 0 |  | 
 | 关注列表 | focuslist | Array | 否 | [] | 关注用户的_id |
 | 关注的标签 | tagfocuslist | Array | 否 | [] | ['php'] |
-| 活跃度数 | actives | Number | 否 | 0 |  |
 | 被举报次数 | bads | Number | 否 | 0 |  |
 | 关注的问题 | issuesf | Array | 否 | [] | 问题的_id | 
 | 收藏的问题 | issuesc | Array | 否 | [] | 问题的_id |
 | 回答过的问题 | issuesr | Array | 否 | [] | 问题的_id |
 | 个人信息 | info | Object | 否 | {} | {address:,school:,company:,website:,des:''} | 
+| 个人账户余额 | balance | Number | 否 | 1000 |  |
 | 主页浏览次数 | times | Number | 否 | 0 |  |
-| 奖章 | badge | Array | 否 | [] |  | 
 | 参与社区互动 | bbs | Object | 否 | {} | 如:{php:3} |
 | 创建时间 | ctime | Date | 是 |  | 在注册成功时写入 |
 | 最近登录时间 | ltime | Date | 是 |  | 在登录成功时写入 |
@@ -48,6 +47,7 @@
 | 问题标签 | tags | Array | 是 | [] |  |
 | 发布人 | puber | Array | 是 | [] | 存入发布人_id nick |
 | 发布时间 | ctime | Date | 是 |  |  |
+| 问题悬赏 | offered | Number | 是 | 0 | 发布问题时存入 |
 | 最近回答用户 | ansuser | Array | 否 | [] | 最近回答用户_id nick time |
 | 最近操作时间 | ltime | Date | 是 |  | 最近的操作时间 |
 | 投票数 | votes | Number | 否 | 0 |  |

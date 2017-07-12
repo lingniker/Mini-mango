@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <title>login</title>
+    <style media="screen">
+        * {
+            box-sizing: border-box;
+        }
+
+
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+        /* form starting stylings ------------------------------- */
+
+        .group {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 5px 10px 10px 5px;
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+        }
+
+        input:focus {
+            outline: none;
+        }
+        /* LABEL ======================================= */
+
+        label {
+            color: #fff;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+        /* active state */
+
+        input:focus~label,
+        input:valid~label {
+            top: -20px;
+            font-size: 14px;
+            color: #fff;
+        }
+        /* BOTTOM BARS ================================= */
+
+        .bar {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        .bar:before,
+        .bar:after {
+            content: '';
+            height: 2px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            background: #fff;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        .bar:before {
+            left: 50%;
+        }
+
+        .bar:after {
+            right: 50%;
+        }
+        /* active state */
+
+        input:focus~.bar:before,
+        input:focus~.bar:after {
+            width: 50%;
+        }
+        /* HIGHLIGHTER ================================== */
+
+        .highlight {
+            position: absolute;
+            height: 60%;
+            width: 100px;
+            top: 25%;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        /* active state */
+
+        input:focus~.highlight {
+            -webkit-animation: inputHighlighter 0.3s ease;
+            -moz-animation: inputHighlighter 0.3s ease;
+            animation: inputHighlighter 0.3s ease;
+        }
+        /* ANIMATIONS ================ */
+
+        @-webkit-keyframes inputHighlighter {
+            from {
+                background: #fff;
+            }
+
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+        @-moz-keyframes inputHighlighter {
+            from {
+                background: #fff;
+            }
+
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+        @keyframes inputHighlighter {
+            from {
+                background: #fff;
+            }
+
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+
+        #panel {
+            border: 1px solid rgb(200, 200, 200);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+            background: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+            background: red;
+            /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+            /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+            /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+            /* For Firefox 3.6 to 15 */
+            background: linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+            /* Standard syntax (must be last) */
+            border-radius: 4px;
+            top: 50px;
+        }
+
+        #log-phone-err,
+        #log-passwd-err,
+        #log-confirmPasswd-err,
+        #log-yanzheng-err,
+        #reset-passwd-err,
+        #reset-mat-err,
+        #reset-phone-err {
+            color: #fffd05;
+            font: bolder 14px "黑体";
+            display: none;
+        }
+
+        #log-name,
+        #log-phone,
+        #log-passwd,
+        #log-confirm-passwd {
+            color: #fff;
+        }
+        /*#log-reg{
+          height: 478px;
+        }*/
+
+        #title {
+            height: 103px;
+            padding: 0 16px;
+        }
+
+        #title button {
+            height: 60%;
+            border: none;
+            border-bottom: 1px solid #f0ad4e;
+            background: none;
+            outline: none;
+            font: bolder 16px "宋体";
+            color: #bbb7a7;
+        }
+
+        #title button:nth-child(1) {
+            border-right: 1px solid #f0ad4e;
+        }
+
+        #log-reg {
+            display: none;
+        }
+
+        #log-res {
+            display: none;
+        }
+        /*#forget{
+          float: right;
+        }*/
+
+        #forget span,
+        #return-login {
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            padding-left: 4px;
+        }
+
+        #forget span:hover,
+        #return-login:hover {
+            color: #cecece;
+        }
+        /*#forget span:hover , span:focus{
+            text-decoration: none;
+        }*/
+
+        #yanzheng {
+            width: 70%;
+            display: inline-block;
+        }
+
+        #vcc {
+            width: 100px;
+            height: 40px;
+            border: 1px solid #fff;
+            line-height: 40px;
+            text-align: center;
+            float: right;
+            letter-spacing: 4px;
+            cursor: pointer;
+        }
+
+        #head {
+            color: black;
+            letter-spacing: 3px;
+            margin-bottom: 0px;
+            font-size: 40px;
+            color: rgb(28, 173, 255);
+        }
+
+        #panel {
+            background: linear-gradient(90deg, #532cb3 0%, #2c96b3 100%);
+        }
+
+        body {
+            background: #ececec;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- titele 标题  -->
+    <div class="container">
+
+        <h2 id="head">Mango 100%</h2>
+
+    </div>
+    <!-- 登录页面  -->
+    <div id="log-sig" class="container">
+
+        <div id="log-register">
+            <div class="col-lg-offset-4 col-lg-4" id="panel">
+                <div id="title" class="row">
+                    <button style="color:#ec8b00" ; id="sigo" class="col-md-6 col-sm-6 col-xs-6">Mango 登录</button><button id="regi" class="col-md-6 col-sm-6 col-xs-6">Mango 注册</button>
+                </div>
+                <!-- <h2> Mango 注册 </h2> -->
+
+                <form id="form1" action="#" method="post">
+
+                    <div class="group">
+                        <input name="nick" type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>昵称</label>
+                        <!-- <p><%= name %></p> 当账号重复时 添加的 ejs -->
+                    </div>
+
+
+                    <div class="group">
+                        <input name="posswd" type="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>密码</label>
+                        <!-- <p id="log-passwd-err">密码不能少于 6 位字符!</p> -->
+                    </div>
+
+                    <div class="group">
+                        <input id="yanzheng" name="con-passwd" type="text" maxlength="4" required>
+                        <div id="vcc">xxxx</div>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>验证码</label>
+                        <p id="log-yanzheng-err">验证码不正确!</p>
+                    </div>
+
+                    <p id="forget"><span id="reset">忘记密码</span></p>
+                    <div class="group">
+                        <center> <button type="submit" class="btn btn-warning">登录<span class="glyphicon glyphicon-send"></span></button></center>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 注册页面  -->
+    <div id="log-reg" class="container">
+        <div id="log-register">
+            <div class="col-lg-offset-4 col-lg-4" id="panel">
+                <div id="title" class="row">
+                    <button id="sigo1" class="col-md-6 col-sm-6 col-xs-6">Mango 登录</button><button id="regi2" class="col-md-6 col-sm-6 col-xs-6">Mango 注册</button>
+                </div>
+
+                <form id="form2" action="#" method="post">
+
+                    <div class="group">
+                        <input id="log-name" name="nick" type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>昵称</label>
+                        <!-- <p><%= name %></p> 当账号重复时 添加的 ejs -->
+                    </div>
+
+                    <div class="group">
+                        <input id="log-phone" name="passwd" type="text" pattern="[0-9]*" maxlength="11" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>手机</label>
+                        <p id="log-phone-err">请输入 11 位手机号码!</p>
+                    </div>
+
+                    <div class="group">
+                        <input id="log-passwd" name="posswd" type="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>密码</label>
+                        <p id="log-passwd-err">密码不能少于 6 位字符!</p>
+                    </div>
+
+                    <div class="group">
+                        <input id="log-confirm-passwd" name="con-passwd" type="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>确认密码</label>
+                        <p id="log-confirmPasswd-err">密码匹配不正确!</p>
+
+                    </div>
+                    <div class="group">
+                        <center> <button type="submit" class="btn btn-warning">注册<span class="glyphicon glyphicon-send"></span></button></center>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 忘记密码 -->
+    <div id="log-res" class="container">
+        <div id="log-register">
+            <div class="col-lg-offset-4 col-lg-4" id="panel">
+                <h2>修改密码</h2>
+
+                <form id="form3" action="#" method="post">
+
+                    <div class="group">
+                        <input id="reset-name" name="nick" type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>昵称</label>
+                        <!-- <p><%= name %></p> 当账号重复时 添加的 ejs -->
+                    </div>
+
+                    <div class="group">
+                        <input id="reset-phone" name="passwd" type="text" pattern="[0-9]*" maxlength="11" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>手机号</label>
+                        <p id="reset-phone-err">请输入 11 位手机号码!</p>
+                    </div>
+
+                    <div class="group">
+                        <input id="reset-new-passwd" name="posswd" type="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>新密码</label>
+                        <p id="reset-passwd-err">密码不能少于 6 位字符!</p>
+                    </div>
+
+                    <div class="group">
+                        <input id="reset-con-passwd" name="con-passwd" type="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>确认密码</label>
+                        <p id="reset-mat-err">密码匹配不正确!</p>
+
+                    </div>
+                    <p><span id="return-login">返回登录</span></p>
+                    <div class="group">
+                        <center>
+                            <button type="submit" class="btn btn-warning">修改完成<span class="glyphicon glyphicon-send"></span></button>
+
+                        </center>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="http://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            //验证码设置
+            function yanzheng() {
+                var arr = [0, 1, 2, 3, 4, 5, 6, "A", "B", "C", "D", "E", "F", "a", "b", "c", "d", "e", "f"];
+                var newArr = [];
+                for (var i = 0, len = arr.length; i < 4; i++) {
+                    var num = parseInt(Math.random() * len + 0);
+                    // console.log(num);
+                    //  console.log(num);
+                    newArr.push(arr[num]);
+                }
+                // console.log(newArr);
+                var yanzheng = newArr.join("");
+                // console.log(yanzheng);
+                $("#vcc").text(yanzheng);
+            }
+            yanzheng();
+
+            $("#vcc").click(function() {
+                yanzheng();
+            });
+
+
+            $("#form1").submit(function() {
+                //验证码匹配代码
+
+                var yanzheng = $("#yanzheng").val();
+                var vcc = $("#vcc").text();
+                if (yanzheng !== vcc) {
+
+                    $("#log-yanzheng-err").show();
+
+                    return false;
+                }
+            })
+
+            $("#form2").submit(function() {
+                var pho = $("#log-phone").val();
+
+                if (pho.length < 11) {
+                    $("#log-phone-err").show();
+
+                    return false;
+                };
+
+                var passwd = $("#log-passwd").val();
+
+                var con_passwd = $("#log-confirm-passwd").val();
+
+                var show = $("#log-passwd-err");
+
+                var show_err = $("#log-confirmPasswd-err");
+
+
+                if (passwd.length < 6) {
+
+                    show.show();
+
+                    return false;
+                }
+
+                if (passwd !== con_passwd) {
+
+                    show_err.show();
+
+                    return false;
+                }
+
+            });
+
+
+            $("#regi").click(function() { // 注册按钮
+
+                $("#log-sig").hide();
+                $("#log-reg").show();
+                $("#regi2").css("color", "#ec8b00");
+
+            });
+
+            $("#sigo1").click(function() { // 登录按钮
+
+                $("#log-sig").show();
+                $("#log-reg").hide();
+
+            });
+
+            $("#reset").click(function() {
+
+                $("#log-sig").hide();
+                $("#log-reg").hide();
+                $("#log-res").show();
+
+            });
+
+            $("#return-login").click(function() {
+
+                $("#log-sig").show();
+                $("#log-reg").hide();
+                $("#log-res").hide();
+
+            })
+
+            $("#form3").submit(function() {
+
+                var reset_phone = $("#reset-phone").val();
+
+                var resetPhoneErr = $("#reset-phone-err");
+
+                if (reset_phone.length < 11) {
+                    resetPhoneErr.show();
+                }
+
+
+                var resetNewPasswd = $("#reset-new-passwd").val(); //重置密码
+                //  console.log(resetNewPasswd);
+
+                var resetConPasswd = $("#reset-con-passwd").val(); //确认重置密码
+                //  console.log(resetConPasswd);
+
+                var resetPasswdErr = $("#reset-passwd-err"); // 密码过短错误
+
+                var resetMatErr = $("#reset-mat-err"); // 密码匹配错误
+
+                if (resetNewPasswd.length < 6) {
+
+                    resetPasswdErr.show();
+
+                    return false;
+
+                }
+
+                if (resetNewPasswd !== resetConPasswd) {
+
+                    resetMatErr.show();
+
+                    return false;
+
+                }
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,26 +1,26 @@
 var mongoose = require("./mongoose");
 var Schema = mongoose.Schema;
 var tagsSchema = new Schema({
-    name: String,
-    age: Number,
-    DOB: Date,
-    isAlive: Boolean
+    tag: String,
+    tagtags:{type:Array,default:[]},
+    focus:{type:Number,default:0},
+    describe: String
 });
 var tags = mongoose.model("tags",tagsSchema);
 
 /*测试代码*/
-var m = new tags({
-  name: "lisi",
-  age: 18,
-  DOB: "05-06-2017",
-  isAlive: true
-});
-m.save(function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("save is ok");
-  }
-})
+// var m = new tags({
+//   tag: "html",
+//   tagtags:["超文本标记语言"],
+//   focus:10,
+//   describe: "（英文：HyperText Markup Language，HTML）是为“网页创建和其它可在网页浏览器中看到的信息”设计的一种标记语言．"
+// });
+// m.save(function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("save is ok");
+//   }
+// });
 
 module.exports = tags;

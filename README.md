@@ -17,30 +17,30 @@
 林小龙 | 搭建后台环境以及数据库设计 | 首席技术官 |CTO|
 ## 数据库设计
 #### 用户信息集合(users)
-| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
+| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 |
 |------|------|------|-------|------|------|
-| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 | 
+| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 |
 | 账号 | phone | String | 是 |  | 唯一，手机号 |
 | 昵称 | nick | String | 是 |  |  |
-| 密码 | password | String | 是 |  |  | 
+| 密码 | password | String | 是 |  |  |
 | 被点赞数 | likes | Number | 否 | 0 |  |
-| 被关注数 | focus | Number | 否 | 0 |  | 
+| 被关注数 | focus | Number | 否 | 0 |  |
 | 关注列表 | focuslist | Array | 否 | [] | 关注用户的_id |
 | 关注的标签 | tagfocuslist | Array | 否 | [] | ['php'] |
 | 被举报次数 | bads | Number | 否 | 0 |  |
-| 关注的问题 | issuesf | Array | 否 | [] | 问题的_id | 
+| 关注的问题 | issuesf | Array | 否 | [] | 问题的_id |
 | 收藏的问题 | issuesc | Array | 否 | [] | 问题的_id |
 | 回答过的问题 | issuesr | Array | 否 | [] | 问题的_id |
-| 个人信息 | info | Object | 否 | {} | {address:,school:,company:,website:,des:''} | 
+| 个人信息 | info | Object | 否 | {} | {address:,school:,company:,website:,des:''} |
 | 个人账户余额 | balance | Number | 否 | 1000 |  |
 | 主页浏览次数 | times | Number | 否 | 0 |  |
 | 参与社区互动 | bbs | Object | 否 | {} | 如:{php:3} |
 | 创建时间 | ctime | Date | 是 |  | 在注册成功时写入 |
 | 最近登录时间 | ltime | Date | 是 |  | 在登录成功时写入 |
 #### 问题集合(questions)
-| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
+| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 |
 |------|------|------|-------|------|------|
-| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 | 
+| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 |
 | 标题 | title | String | 是 |  |  |
 | 内容 | content | String | 是 |  |  |
 | 问题标签 | tags | Array | 是 | [] |  |
@@ -57,9 +57,9 @@
 | 是否解决 | issolve | Boolean | 否 | false |  |
 
 #### 回答集合(answers)
-| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
+| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 |
 |------|------|------|-------|------|------|
-| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 | 
+| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 |
 | 问题ID | issuesid | String | 是 |  |  |
 | 回答内容 | content | String | 是 |  |  |
 | 回答时间 | ctime | Number | 是 |  |  |
@@ -69,9 +69,9 @@
 | 无价值数 | unlikes | Number | 否 | 0 |  |
 | 是否被采纳 | isaccept | Boolean | 否 | false |  |
 #### 标签集合(tags)
-| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 | 
+| 中文 | 英文 | 类型 | 是否必填 | 默认值 | 备注 |
 |------|------|------|-------|------|------|
-| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 | 
+| 记录ID | _id | ObjectId | 是 |  | 数据库自动生成 |
 | 标签名 | tag | String | 是 |  | 如javascript |
 | 标签属性 | tagtags | Array | 否 | [] | ['前端开发','javascript开发'] |
 | 关注量 | focus | Number | 否 | 0 |  |

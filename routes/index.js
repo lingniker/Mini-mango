@@ -27,8 +27,23 @@ console.log(data_que);
     }
 
   });
+  });
 
+router.get("/index-top",function(){
 
+  users.findOne({
+    nick:"shaoxu" // ======== ? 登录状态下的用户名
+  },function(err,data){
+    console.log(data);
+    res.render('homepage-header', { data : data});
+
+  })
+
+  if(typeof(req.session.name) == 'undefined'){
+    req.session.name = null;
+  }
 });
+
+
 
 module.exports = router;

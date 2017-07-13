@@ -12,10 +12,10 @@
 * var tog = require("../db/togs.js");     //链接answes集合
 * var user = require("../db/users.js");   //链接answes集合
 
-user.findOne({"name":"lisi"},function(err,data){   //查找一个
+* user.findOne({"name":"lisi"},function(err,data){   //查找一个
 });  
 
-user.cour(function(err,n){   //
+* user.cour({name:"lisi"}，function(err,n){   //查找数据
 
-})；
+});
 

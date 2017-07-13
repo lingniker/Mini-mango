@@ -33,8 +33,7 @@ var m = new users({
   phone: 18245869785,
   password: "123456",
   ltime:45565,
-  likes:29,
-  tagfocuslist:["css" ,"nihao","hahah"]
+
 });
 m.save(function(err){
   if(err){

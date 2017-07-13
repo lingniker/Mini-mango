@@ -175,6 +175,10 @@
             font: bolder 14px "黑体";
             display: none;
         }
+        .ppp{
+          color: #fffd05;
+          font: bolder 14px "黑体";
+        }
 
         #log-name,
         #log-phone,
@@ -283,23 +287,26 @@
                 </div>
                 <!-- <h2> Mango 注册 </h2> -->
 
-                <form id="form1" action="#" method="post">
+                <form id="form1" action="/login" method="post">
 
                     <div class="group">
                         <input name="nick" type="text" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>昵称</label>
-                        <!-- <p><%= name %></p> 当账号重复时 添加的 ejs -->
+                        <P class="ppp"><%= nick %></P>
+
+
                     </div>
 
 
                     <div class="group">
-                        <input name="posswd" type="password" required>
+                        <input name="passwd" type="password" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>密码</label>
-                        <!-- <p id="log-passwd-err">密码不能少于 6 位字符!</p> -->
+                        <P class="ppp"><%= passwd %></P>
+
                     </div>
 
                     <div class="group">
@@ -330,18 +337,18 @@
                     <button id="sigo1" class="col-md-6 col-sm-6 col-xs-6">Mango 登录</button><button id="regi2" class="col-md-6 col-sm-6 col-xs-6">Mango 注册</button>
                 </div>
 
-                <form id="form2" action="#" method="post">
+                <form id="form2" action="/register/" method="post">
 
                     <div class="group">
                         <input id="log-name" name="nick" type="text" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>昵称</label>
-                        <!-- <p><%= name %></p> 当账号重复时 添加的 ejs -->
+
                     </div>
 
                     <div class="group">
-                        <input id="log-phone" name="passwd" type="text" pattern="[0-9]*" maxlength="11" required>
+                        <input id="log-phone" name="phone" type="text" pattern="[0-9]*" maxlength="11" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>手机</label>
@@ -349,7 +356,7 @@
                     </div>
 
                     <div class="group">
-                        <input id="log-passwd" name="posswd" type="password" required>
+                        <input id="log-passwd" name="passwd" type="password" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>密码</label>
@@ -357,7 +364,7 @@
                     </div>
 
                     <div class="group">
-                        <input id="log-confirm-passwd" name="con-passwd" type="password" required>
+                        <input id="log-confirm-passwd" type="password" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>确认密码</label>
@@ -380,18 +387,18 @@
             <div class="col-lg-offset-4 col-lg-4" id="panel">
                 <h2>修改密码</h2>
 
-                <form id="form3" action="#" method="post">
+                <form id="form3" action="/reset" method="post">
 
                     <div class="group">
                         <input id="reset-name" name="nick" type="text" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>昵称</label>
-                        <!-- <p><%= name %></p> 当账号重复时 添加的 ejs -->
+
                     </div>
 
                     <div class="group">
-                        <input id="reset-phone" name="passwd" type="text" pattern="[0-9]*" maxlength="11" required>
+                        <input id="reset-phone" name="phone" type="text" pattern="[0-9]*" maxlength="11" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>手机号</label>
@@ -399,7 +406,7 @@
                     </div>
 
                     <div class="group">
-                        <input id="reset-new-passwd" name="posswd" type="password" required>
+                        <input id="reset-new-passwd" name="new_passwd" type="password" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>新密码</label>
@@ -407,7 +414,7 @@
                     </div>
 
                     <div class="group">
-                        <input id="reset-con-passwd" name="con-passwd" type="password" required>
+                        <input id="reset-con-passwd" type="password" required>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label>确认密码</label>
@@ -462,7 +469,9 @@
                 //验证码匹配代码
 
                 var yanzheng = $("#yanzheng").val();
+                yanzheng = yanzheng.toLowerCase();
                 var vcc = $("#vcc").text();
+                vcc = vcc.toLowerCase();
                 if (yanzheng !== vcc) {
 
                     $("#log-yanzheng-err").show();

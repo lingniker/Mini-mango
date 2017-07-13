@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require("express-session");
 
 /*引用路由模块*/
 var index = require('./routes/index');
@@ -15,8 +16,9 @@ var tags = require('./routes/tags');
 
 var login = require('./routes/login');
 var register = require('./routes/register');
+var reset = require("./routes/reset");
 
-// >>>>>>> 95fb7693415d7edca19104cc461b1cc6a4373241
+
 
 var app = express();
 
@@ -42,9 +44,7 @@ app.use("/tags",tags);
 
 app.use("/login",login);
 app.use("/register",register);
-
-
-// >>>>>>> 95fb7693415d7edca19104cc461b1cc6a4373241
+app.use("/reset", reset);
 
 
 // catch 404 and forward to error handler

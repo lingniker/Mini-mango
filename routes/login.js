@@ -2,14 +2,19 @@ var express = require('express');
 var bcrypt = require("bcrypt");
 var router = express.Router();
 var users = require('../db/users');
-var salt = 10;
-
 
 
 
 /* GET denglu page. */
 router.get('/', function(req, res, next) {
+
     res.render("login",{nick:"", passwd:""});
+
+  // users.findOne({
+  //
+  // })
+
+
 });
 
 router.post("/", function(req, res, next) {

@@ -3,14 +3,32 @@ var express = require('express');
 var users = require('../db/users');
 var questions = require('../db/questions');
 var answers = require('../db/answers');
-var answers = require('../db/tags');
+var tags = require('../db/tags');
 
 
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  // res.render('index', { title: 'Express' });
+  questions.find({},function(err,data_que){
+console.log(data_que);
+    if(err){
+      console.log(err);
+    }else{
+      users.find({}).sort({'likes':-1}).limit(10).exec(function(err,data){
+    if(err){
+      console.log(err);
+
+    }else{
+      res.render('index',{data_que:data_que,data_use:data})
+    }
+  })
+    }
+
+  });
+
+
 });
 
 module.exports = router;

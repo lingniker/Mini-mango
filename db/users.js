@@ -40,6 +40,6 @@ var users =  mongoose.model("users",userSchema);
 //   }else{
 //     console.log("save is ok");
 //   }
-// })
+// });
 
 module.exports = users;

@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
   // users.findOne({
   //
   // })
-  res.render("/");
+  res.render("login");
 });
+// router.post('/',)
 
 module.exports = router;

@@ -10,11 +10,18 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+ users.findOne({
+   nick:"shaoxu" // ======== ? 登录状态下的用户名
+ },function(err,data){
+   console.log(data);
+   res.render('homepage-header', { data : data});
+
+ })
+
   if(typeof(req.session.name) == 'undefined'){
     req.session.name = null;
   }
 
-  res.render('homepage_header', { title: 'Express' , name : 'lisi'});
 });
 
 module.exports = router;

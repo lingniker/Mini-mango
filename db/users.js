@@ -32,7 +32,10 @@ var m = new users({
   nick: "shaoxu",
   phone: 18245869785,
   password: "123456",
-  ltime:45565
+  ltime:45565,
+  issuesr:[1,2,3],
+  tagfocuslist:["css","javascript","node.js"]
+
 });
 m.save(function(err){
   if(err){

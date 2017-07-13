@@ -16,6 +16,7 @@
     }
 
     .hp-Header {
+      margin-bottom: 0 !important;
       height: 100px;
       box-shadow: 0 2px 5px #a1a3a6;
     }
@@ -107,6 +108,7 @@
 </head>
 
 <body>
+  <% if(data) { %>
   <nav class="navbar navbar-default hp-Header">
 
     <div class="container">
@@ -125,9 +127,7 @@
           <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav">
               <li class="header-font-size"><a href="#" class="q-a " id="header-font-weight">问答</a></li>
-              <!-- <li class="header-font-size"><a href="#"  id="header-font-weight">头条</a></li>
-              <li class="header-font-size"><a href="#"  id="header-font-weight">专栏</a></li>
-              <li class="header-font-size"><a href="#"  id="header-font-weight">讲堂</a></li> -->
+
             </ul>
              <form class="navbar-form navbar-left">
               <div class="form-group">
@@ -137,7 +137,7 @@
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
             </form>
-            <% if(name) { %>
+
               <ul class="nav navbar-right navbar-nav ">
                 <li>
                   <div class="nav-QA ">
@@ -170,12 +170,6 @@
                   </ul>
                 </li>
               </ul>
-            <% } else { %>
-              <ul class="nav navbar-right navbar-nav">
-                <li><a href="/login" class="q-a">立即登录</a></li>
-                <li><a href="/register">免费注册</a></li>
-              </ul>
-            <% } %>
           </div>
         </div>
       </div>
@@ -186,26 +180,75 @@
           </li>
         </div>
         <ul class="nav navbar-nav nav-foot-ul">
-          <li><a href="#">javascript</a></li>
-          <li><a href="#">node.js</a></li>
-          <li><a href="#">html5</a></li>
-          <li><a href="#">vim</a></li>
-          <li><a href="#">python</a></li>
-          <li><a href="#">mongodb</a></li>
-          <li><a href="#">css</a></li>
+          <% data.tagfocuslist.forEach(function(data){ %>
+
+            <li><a href="#"><%= data %></a></li>
+
+          <% }) %>
         </ul>
-        <ul class="nav navbar-nav nav-after-signin nav-foot-ul">
-          <li><a href="#">javascript</a></li>
-          <li><a href="#">node.js</a></li>
-          <li><a href="#">html5</a></li>
-          <li><a href="#">vim</a></li>
-          <li><a href="#">python</a></li>
-          <li><a href="#">mongodb</a></li>
-          <li><a href="#">css</a></li>
-        </ul>
+
       </div>
     </div>
+</nav>
+<% } else { %>
 
+  <nav class="navbar navbar-default hp-Header">
+
+    <div class="container">
+      <div class="row">
+        <div class="nav-header">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="false"></span> -->
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+            <span class="icon-bar"> </span>
+          </button>
+            <a class="navbar-brand" href="#" style="color:#ff6d00" id="header-font-weight">Mango问答</a>
+          </div>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav">
+              <li class="header-font-size"><a href="#" class="q-a " id="header-font-weight">问答</a></li>
+
+            </ul>
+             <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
+            </form>
+
+            <ul class="nav navbar-right navbar-nav">
+              <li><a href="/login" class="q-a">立即登录</a></li>
+              <li><a href="/register">免费注册</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row nav-foot">
+        <div class="navbar-nav nav">
+          <li>
+            <a href="#" style="color:#555">全部</a>
+          </li>
+        </div>
+        <ul class="nav navbar-nav nav-foot-ul">
+          <li><a href="#">node.js</a></li>
+          <li><a href="#">html5</a></li>
+          <li><a href="#">vim</a></li>
+          <li><a href="#">python</a></li>
+          <li><a href="#">mongodb</a></li>
+          <li><a href="#">css</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+<% } %>
   <script type="text/javascript">
   var lis = document.querySelectorAll('.header-font-size');
   var ul = document.querySelectorAll('.nav-foot-ul');
@@ -226,10 +269,11 @@
   });
   for (var i = 0; i < 5; i++) {
     (function (i) {
-      dropMenu[i].onclick = function () {
+      dropMenu[i].addEventListener('click',function () {
+
         var content = $(this).text();
         $('.nav-QA span a').text(content);
-      }
+      })
     })(i)
   }
   </script>

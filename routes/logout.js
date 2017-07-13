@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
   // users.findOne({
   //
   // })
-  res.render("/");
+  name = null;
+  res.redirect("/");
 });
 
 module.exports = router;

@@ -10,7 +10,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  if(typeof(req.session.name) == 'undefined'){
+    req.session.name = null;
+  }
+
+  res.render('homepage_header', { title: 'Express' , name : 'lisi'});
 });
 
 module.exports = router;

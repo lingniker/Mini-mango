@@ -52,7 +52,7 @@
       }
     }
     .footer-foot{
-      margin-top: 20px;
+      margin-top: 0px;
       text-align: center;
       font-size: 13px;
       color: #888;
@@ -63,8 +63,8 @@
     }
     .go-top .top{
       width: 30px;
-      height: 100px;
-      border: 1px solid #888;
+      height: 90px;
+      border: 1px solid #999;
       position: fixed;
       bottom: 50px;
       right: 50px;
@@ -73,7 +73,10 @@
       font-size: 15px;
       text-align: center;
       border-radius: 5px;
-
+      color: #999;
+    }
+    .go-top .top:hover{
+      background-color: #e0e0e0;
     }
   </style>
 </head>
@@ -132,7 +135,7 @@
   <script type="text/javascript">
     var gotop = document.querySelector('.go-top');
     var ret = 0;
-    
+
     gotop.onclick = function(){
      window.scrollTo(0,0);
     }

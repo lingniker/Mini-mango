@@ -20,20 +20,24 @@ var questionSchema = new Schema({
 var questions =  mongoose.model("questions",questionSchema);
 
 /*测试代码*/
-var m = new questions({
-  title:"测试专用，请勿模仿",
-    content:"我也不知道改写些什么，只是为了凑够几个字而已！",
-    tags:["css3","html","javascript"],
-    puber:["youid","小王"],
-    ctime:parseInt(new Date().getTime()/1000),
-    ltime:parseInt(new Date().getTime()/1000)
-});
-m.save(function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("save is ok");
-  }
-});
+// var m = new questions({
+//   title:"测试专用，请勿模仿",
+//     content:"我也不知道改写些什么，只是为了凑够几个字而已！",
+//     tags:["css3","html","javascript"],
+//     votes:10,
+//     ctime:parseInt(new Date().getTime()/1000),
+//     ltime:parseInt(new Date().getTime()/1000),
+//     answers:8,
+//     scans:1,
+//     puber:['xiaojinhong']
+//
+// });
+// m.save(function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("save is ok");
+//   }
+// });
 
 module.exports = questions;

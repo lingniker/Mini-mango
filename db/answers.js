@@ -27,9 +27,10 @@ var answers = mongoose.model("answers", answerSchema);
 
 /*测试代码*/
 var m = new answers({
-  issuesid: "121212",
-  content: "ashfahsh",
-  ctime: 465,
+
+  issuesid: "黄文倩哈哈哈",
+  content: "问题黄文倩",
+  ctime: 1499928081033,
   ansuser: ["yoonghuID", "yonghuNick"]
 });
 m.save(function(err) {

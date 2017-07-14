@@ -1,12 +1,30 @@
 var express = require('express');
+var timer = require("./time.js");
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var session = require("express-session");
+
+
+
+
+/*引用路由模块*/
 var index = require('./routes/index');
 var users = require('./routes/users');
+
+var questions = require('./routes/questions');
+var answers = require('./routes/answers');
+var tags = require('./routes/tags');
+
+var login = require('./routes/login');
+var logout = require('./routes/logout');
+var register = require('./routes/register');
+var reset = require("./routes/reset");
+
+
 
 var app = express();
 
@@ -21,9 +39,30 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  resave:true,
+  saveUninitialized:false,
+  secret:'hwngfgksaierqww',
+  cookie: {
+    maxAge:1000 * 60 * 30
+  }
+}));
 
 app.use('/', index);
 app.use('/users', users);
+
+
+app.use("/questions",questions);
+app.use("/answers",answers);
+app.use("/tags",tags);
+
+app.use("/login",login);
+app.use("/logout",logout);
+app.use("/register",register);
+app.use("/reset", reset);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -31,6 +70,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {

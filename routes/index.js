@@ -8,11 +8,10 @@ var tags = require('../db/tags');
 
 var router = express.Router();
 
+
 /* GET home page. */
 router.get(/\/([0-9]{1,2})?/, function(req, res, next) {
   // res.render('index', { title: 'Express' });
-
-
   var k = 0;
   if (req.params[0]==00) {
     k++;
@@ -36,8 +35,6 @@ router.get(/\/([0-9]{1,2})?/, function(req, res, next) {
         }
       }
 
-
-
       questions.find({}).skip(k*20).limit(20).exec(function(err,data_que){
 
         if(err){
@@ -50,22 +47,17 @@ router.get(/\/([0-9]{1,2})?/, function(req, res, next) {
         }else{
           res.render('index',{data_que:data_que,data_use:data})
         }
-      })
+      });
         }
 
-      })
-
+      });
+  });
 
 });
-//   console.log("-------",k);
-//   if(k < 0){
-//   k = 0;
-// }else if(k == count){
-//   k = 0;
-// }
 
 
-})
+
+
 
 
 

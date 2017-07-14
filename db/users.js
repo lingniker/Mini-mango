@@ -28,6 +28,7 @@ var userSchema = new Schema({
 var users =  mongoose.model("users",userSchema);
 
 /*数据库测试代码*/
+/*
 var m = new users({
   nick: "shaoxu",
   phone: 18245869785,
@@ -42,5 +43,7 @@ m.save(function(err){
     console.log("save is ok");
   }
 });
+*/
+
 
 module.exports = users;

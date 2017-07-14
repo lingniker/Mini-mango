@@ -108,7 +108,7 @@
 </head>
 
 <body>
-  <% if(data) { %>
+  <% if(name) { %>
   <nav class="navbar navbar-default hp-Header">
 
     <div class="container">
@@ -180,11 +180,23 @@
           </li>
         </div>
         <ul class="nav navbar-nav nav-foot-ul">
+
+          <% if(data.tagfocuslist == null){ %>
+            <li><a href="#">node.js</a></li>
+            <li><a href="#">html5</a></li>
+            <li><a href="#">vim</a></li>
+            <li><a href="#">python</a></li>
+            <li><a href="#">mongodb</a></li>
+            <li><a href="#">css</a></li>
+        <% }else{ %>
+
           <% data.tagfocuslist.forEach(function(data){ %>
 
             <li><a href="#"><%= data %></a></li>
 
-          <% }) %>
+            <% }) %>
+        <% } %>
+
         </ul>
 
       </div>
@@ -223,7 +235,7 @@
 
             <ul class="nav navbar-right navbar-nav">
               <li><a href="/login" class="q-a">立即登录</a></li>
-              <li><a href="/register">免费注册</a></li>
+              <li><a href="/login">免费注册</a></li>
             </ul>
           </div>
         </div>

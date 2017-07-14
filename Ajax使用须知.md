@@ -3,26 +3,26 @@
 //前端页面代码
 <script>
 $(".btn").click(function(){
-              var info ={user:$(".user").data().user,
-                           content:$("#text2").val()
-                           }
-              $.ajax({
-                data: info,
-                url:'/questins',
-                type: 'post',
-                dataType: 'json',
-                timeout: 10000,
-                success: function(data){
-                  //var data = $.parseJSON(data);
-                  console.log(data);
-                  alert('data');
-                  
-                },
-                error: function(jqXHR, textStatus, errorThrown){
-                  alert('Error'+ textStatus + errorThrown);
-                }
-              });
-            });
+  var info ={user:$(".user").data().user,
+      content:$("#text2").val()
+          }
+     $.ajax({   
+     data: info,
+     url:'/questins',
+     type: 'post',
+     dataType: 'json',
+     timeout: 10000,
+     success: function(data){
+     //var data = $.parseJSON(data);
+     console.log(data);
+     alert('data');
+     
+       },
+    error: function(jqXHR, textStatus, errorThrown){
+    alert('Error'+ textStatus + errorThrown);
+    }
+    });
+ });
 </script>
 
 //后台代码

@@ -37,8 +37,8 @@ router.post("/", function(req, res, next) {
 
          bcrypt.compare(data.passwd, doc[0].password, function(err, hash){
            console.log(hash);
-
             if (hash) {
+              req.session.name = data.nick;
                return res.redirect("/");
             } else {
               return res.render("login",{nick:"", passwd: "密码输入不正确!"});
@@ -54,7 +54,20 @@ router.post("/", function(req, res, next) {
 
     });
 
-})
+});
+
+router.get("/errs", function(req, res){
+
+   res.render("errs");
+
+});
+
+router.get("/errs2", function(req, res){
+
+   res.render("errs2");
+
+});
+
 
 
 

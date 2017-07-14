@@ -12,7 +12,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' });
   questions.find({},function(err,data_que){
-console.log(data_que);
+   console.log(data_que);
     if(err){
       console.log(err);
     }else{

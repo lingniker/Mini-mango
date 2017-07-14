@@ -28,12 +28,18 @@ var userSchema = new Schema({
 var users =  mongoose.model("users",userSchema);
 
 /*数据库测试代码*/
-<<<<<<< HEAD
+//
 // var m = new users({
-//   nick: "shaoxu",
-//   phone: 18245869785,
+//   nick: "yuanping1",
+//   phone: 11111111111,
 //   password: "123456",
-//   ltime:45565
+//   ltime:45565,
+//   info:{
+//     address:"北京1",
+//     school:"大同1",
+//     wherecompany:"北京菜鸟1",
+//     personalurl:"www.baidu.com1"
+//   }
 // });
 // m.save(function(err){
 //   if(err){
@@ -42,21 +48,6 @@ var users =  mongoose.model("users",userSchema);
 //     console.log("save is ok");
 //   }
 // });
-=======
-var m = new users({
-  nick: "shaoxu",
-  phone: 18245869785,
-  password: "123456",
-  ltime:45565,
-
-});
-m.save(function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("save is ok");
-  }
-});
->>>>>>> 918826d231cdf99c0c387e225b08942c6cdbe1fe
+//
 
 module.exports = users;

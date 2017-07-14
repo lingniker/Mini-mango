@@ -28,27 +28,7 @@ var userSchema = new Schema({
 var users =  mongoose.model("users",userSchema);
 
 /*数据库测试代码*/
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> d8f431ec980a76b9d6e6dfae620eb60e9ee890b9
-// var m = new users({
-//   nick: "shaoxu",
-//   phone: 18245869785,
-//   password: "123456",
-//   ltime:45565
-// });
-// m.save(function(err){
-//   if(err){
-//     console.log(err);
-//   }else{
-//     console.log("save is ok");
-//   }
-<<<<<<< HEAD
-// })
-=======
-// });
-=======
+/*
 var m = new users({
   nick: "shaoxu",
   phone: 18245869785,
@@ -63,7 +43,7 @@ m.save(function(err){
     console.log("save is ok");
   }
 });
->>>>>>> 918826d231cdf99c0c387e225b08942c6cdbe1fe
->>>>>>> d8f431ec980a76b9d6e6dfae620eb60e9ee890b9
+*/
+
 
 module.exports = users;

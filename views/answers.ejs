@@ -13,7 +13,9 @@
     padding:0px;
   }
   .all {
-    background: #eee;
+    padding-top: 20px;
+    background: rgb(248,248,248);
+    box-shadow: 0 3px 5px #a1a3a6;
   }
   .wd-head {
     position:relative;
@@ -64,6 +66,7 @@
     display: inline-block;
   }
   .wd-question p{
+    color:red;
     display: inline-block;
   }
   .right-top .guanzhu {
@@ -119,7 +122,7 @@
     top:0px;
     left:11px;
   }
-  .zan-down {
+  .wd-zan .zan-down {
     position:absolute;
     top:34px;
     left:11px;
@@ -149,6 +152,7 @@
     display: none;
   }
   .wd-content {
+    color:red;
     margin-left: 60px;
   }
   .wd-time {
@@ -174,7 +178,7 @@
     border:1px solid #757575;
   }
   .answer-content li {
-    padding:10px;
+    padding:20px;
     margin:10px;
     position: relative;
     border-bottom: 1px solid #757575;
@@ -185,20 +189,29 @@
     border:none;
   }
   .ans {
-    width:25px;
+    width:75px;
     height:25px;
     position: absolute;
-    top:6px;
-    left:-31px;
+    top:16px;
+    left:-79px;
     background: #fdb933;
     color:#fff;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     line-height: 25px;
     text-align: center;
+  }
+  .caina {
+    width:70px;
+    height:30px;
+    color:#757575;
+    position: absolute;
+    top:0px;
+    right:0px;
   }
   </style>
 </head>
 <body>
+  <% include ./homepage_header.ejs %>
   <div class="container all">
 
 
@@ -208,9 +221,7 @@
         <div class="wd-head-left col-xs-12 col-md-9">
           <h4 class="wd-question">
             <span class="glyphicon glyphicon-question-sign" style="color:#fdb933"></span>
-            <p>
-              各位大侠，我用thinkphp3.2.3和jquery，和jquery的一个分页插件jpage写了一个站内搜索和分页的功能
-            </p>
+            <p><%= info.issuesid %></p>
           </h4>
           <div class="head-two">
             关键字：
@@ -236,9 +247,7 @@
         </div>
       </div>
     </div>
-
     <div class="row">
-
       <div class="wd-center col-md-9 col-sm-12">
         <h3>问题描述：</h3>
         <div class="wd-zan">
@@ -248,11 +257,10 @@
           <span class="zan-center">0</span>
           <span class="zan-down glyphicon glyphicon-triangle-bottom"></span>
         </div>
-        <div class="wd-content">使用了标题中的插件，这个插件有一个组件按钮，点击就可以进行定位。但是我想要进入界面直接定位，却不知道这个按钮的定位方法。</div>
+        <div class="wd-content"><%= info.content %></div>
         <div class="wd-time">
           <a href="#">0</a>提问
         </div>
-
         <div class="wd-answer">
           <div class="answers">
             <span>0</span>个回答
@@ -260,10 +268,8 @@
           <ul class="answer-content">
           </ul>
           <h3>撰写答案：</h3>
-
           <textarea class="contents" placeholder="撰写答案..." ></textarea>
           <button class="btn" type="submit">提交答案</button>
-
         </div>
       </div>
     </div>
@@ -271,7 +277,7 @@
 
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="./time.js" charset="utf-8"></script>
+<script src="/js/time.js" charset="utf-8"></script>
   <script>
 
 //点赞内容
@@ -332,26 +338,40 @@
     });
 
 //提交回答
+    var lis;
     $(".btn").click(function(){
+      $(".answer-content li .caina").off("click",handler);
       var datas = $(".contents").val();
       if(datas) {
         $(".answer-content").append($("<li>").text(datas));
         $(".contents").val("");
-        var lis = $(".answer-content li").length;
+        lis = $(".answer-content li").length;
         $(".answers span").text(lis);
-        $(".answer-content li").prepend($("<div>").text(lis).addClass("ans"));
+    //
+        $(".answer-content li:last").prepend($("<div>").text(lis).addClass("ans"));
+        $(".answer-content li:last").append($("<button>").addClass("caina btn btn-danger").text("采纳"));
+        // $(".answer-content li button").addClass("caina btn btn-danger");
+        function handler(){
+          var strs = $(this).text();
+          console.log(strs);
+          if(strs == "采纳"){
+            $(this).text("已采纳");
+          }else {
+            $(this).text("采纳");
+          }
+        }
+        $(".answer-content li .caina").on("click",handler);
       }else {
         alert("内容不能为空，请输入内容！");
       }
     });
 //时间
-    var tim = new Date("2017-7-11 18:54:0");
+    var sss = <%= info.ctime %>
     setInterval(function(){
-      var times = timer(tim);
+      var times = timer(sss);
       $(".wd-time a").text(times);
       $(".wd-user span").text(times);
     });
-
   </script>
 </body>
 </html>

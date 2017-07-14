@@ -1,11 +1,299 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+
+<!-- <link rel="stylesheet" type="text/css" href="../public/css/style.css"> -->
   </head>
+  <style>
+  body{
+    height: 1640px;
+    position: relative;
+  }
+  .clearfix::before,
+  		.clearfix::after {
+  			content: "";
+  			height: 0px;
+  			clear: both;
+
+  			display: block;
+  			visibility: hidden;
+  		}
+    .index_question{
+      margin-left: -40px;
+    }
+    .index_question li{
+      border-bottom: 1px solid #eee;
+      padding:10px 0;
+      margin:0;
+      list-style: none;
+    }
+    .index_rank{
+      float: left;
+      margin-right: 5px;
+     font-size: 16px;
+     text-align: center;
+     line-height: 1.2;
+     color: #666;
+  }
+    .index_votes ,.index_answer,.index_brows{
+      display: inline-block;
+      padding-top: 3px;
+      width: 45px;
+      height: 40px;
+      float: left;
+      margin: 10px;
+      font-size: 14px;
+    }
+    .smail{
+      display:block;
+      font-size: 12px;
+    }
+    .index_answer{
+      background: #E65100;
+      color: #fff;
+    }
+    .index_summery{
+      overflow: auto;
+     overflow-x: hidden;
+
+    }
+    .index_summery_author {
+      /*margin-bottom: 10px;*/
+      margin-left: -5px;
+      margin-bottom: 10px;
+    }
+    .index_summery_author a{
+      font-size: 13px;
+      color: #ff6d00;
+    }
+    span{
+      width: 10px;
+    }
+    .index_summary_contain{
+      vertical-align: bottom;
+      line-height: 30px;
+      width: auto;
+      height: 24px;
+      overflow: hidden;
+
+      display: inline-block;
+    }
+    .index_summary_contain a{
+      color: #666;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .index_summary_tag{
+      list-style: none;
+      padding-left: 2px;
+      font-size: 0;
+      display: inline-block;
+    }
+    .index_tag{
+      padding: 0 6px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      display: inline-block;
+      color: #ff6d00;
+      background-color:#ffe0b2;
+      line-height: 24px;
+      font-weight: normal;
+      text-align: center;
+    }
+    .index_widget{
+      margin: 0 0 25px 0;
+      padding-top: 25px;
+      border-top: 2px solid #eee;
+    }
+    .index_widget_title{
+
+      /*color: #ff6d00;*/
+      margin: 0 0 10px;
+     font-size: 16px;
+    }
+    .index_span{
+      width: 260px!important;
+      text-align: center;
+      color: #333;
+      font-size: 15px;
+      display: block;
+    }
+    .index_user{
+    padding-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    height: 334px;
+    }
+    .index_user li{
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .index_user li image{
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+    .index_user li a{
+  	width: auto;
+    margin-left: 20px;
+  	max-width: 50%;
+  	display: inline-block;
+  	vertical-align: middle;
+
+      color: #ff6d00;
+    }
+    .index_user li span{
+      float: right !important;
+      color: #ff6d00;
+      font-size: 12px;
+      line-height: 22px;
+      height: 22px;
+      width: 22px;
+    }
+    .index_image{
+      margin-left: 10px;
+      height: 334px;
+      width:250px;
+      overflow: hidden;
+      position: relative;
+
+    }
+    .index_image img{
+      display: block;
+      height: 334px;
+      width: 500px;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+    }
+
+    .index_css li a{
+      color: #ff6d00;
+      font-size: 18px;
+    }
+    #index_col{
+      color: #999;
+    }
+    .index_contain{
+      position: relative;
+      height: 900px;
+    }
+
+
+  </style>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+<% include homepage_header.ejs %>
+   <div class="container">
+     <div class="index_all">
+     <div class="row">
+   <div class="col-xs-12 col-md-9 ">
+    <ul class="nav nav-tabs clearfix index_css">
+  <li role="presentation" class="active"><a href="#">最新回答</a></li>
+  <li role="presentation"><a href="./index_hot.ejs#hot">热门回答</a></li>
+  <li role="presentation"><a href="#">等待回答</a></li>
+  <li role="presentation"><a href="#">最新动态</a></li>
+  </ul>
+   <!-- <ul class="nav nav-pills clearfix">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul> -->
+  <div class="index_contain">
+<ul class="index_question clearfix">
+
+     <% data_que.forEach(function(data){ %>
+      <li>
+
+
+  <div class="index_rank">
+    <div class="index_votes">
+       <div class="index_votesnum"><%= data.votes %></div>
+       <smail>得票</smail>
+    </div>
+  <div class="index_answer">
+    <div class="index_answernum"><%= data.answers %></div>
+    <smail>回答</smail>
+  </div>
+  <div class="index_brows">
+    <div class="index_browsnum"><%= data.scans %></div>
+    <smail>浏览</smail>
+  </div>
+  </div>
+  <div class="index_summary">
+    <div class="index_summary_author">
+      <a id="index_col" href="/users/<%= data_que.puber %>"><%= data.puber %></a>
+      <span></span>
+      <a id="index_col" herf = "#"><%= data.ltime %></a></div>
+  <div>
+    <div class="index_summary_contain"><a  href="/questions/<%= data_que._id %>"><%= data.title %></a></div>
+     <% data.tags.forEach(function(data){ %>
+    <div class="index_summary_tag"><a  class="index_tag" href="#"><%= data %></a></div>
+    <% }); %>
+  </div>
+    </div>
+
+</li>
+
+<% }); %>
+    </ul>
+  </div>
+  </div>
+   <div class="col-md-3">
+     <div class="index_widget">
+       <div class="index_widget_title">
+         <span class="index_span">排行榜</span>
+         <!-- 排行榜 <span class="index_span">
+           <a id="index_col" class="active" href="#">今天</a>
+          . <a id="index_col" href="#">本周</a>.
+           <a id="index_col" href="#">更多</a>
+         </span> -->
+       </div>
+       <ol class="index_user">
+
+     <% data_use.forEach(function(data){ %>
+         <li ><img src="#" alt="">
+         <a href="#"><%= data.nick %></a>
+       <span><add>+</add><%= data.likes %></span>
+     </li>
+<% }); %>
+       </ol>
+     </div>
+      <div class="index_image clearfix"><img id="lunbo" src="/images/index_lunbo.jpg" alt=""></div>
+
+   </div>
+ </div>
+
+
+</div>
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default">上一页</button>
+  <button type="button" class="btn btn-default">刷新</button>
+  <button type="button" class="btn btn-default">下一页</button>
+</div>
+</div>
+<% include homepage-footer.ejs %>
+
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+var img = document.getElementById("lunbo");
+ setInterval(function dong(){
+   if(img.style.left == "0px"){
+     img.style.left = '-257px';
+     console.log(img.style.left);
+   }else{
+     img.style.left = '0px';
+     console.log(img.style.left);
+   }},1000);
+
+</script>
+
   </body>
 </html>

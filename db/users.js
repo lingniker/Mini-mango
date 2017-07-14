@@ -31,6 +31,7 @@ var users =  mongoose.model("users",userSchema);
 
 
 
+
 // var m = new users({
 //   nick: "shaoxu",
 //   phone: 18245869785,
@@ -45,6 +46,8 @@ var users =  mongoose.model("users",userSchema);
 //     console.log("save is ok");
 //   }
 // });
+
+
 
 
 module.exports = users;

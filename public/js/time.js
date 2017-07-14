@@ -3,7 +3,7 @@ function timer(time){
     var nowtime;
 
     nowtime = new Date();
-    var t = parseInt((nowtime.getTime() - time.getTime())/1000);
+    var t = parseInt((nowtime.getTime() - time)/1000);
 
     var days = parseInt(t / 3600 / 24);
     var hours = parseInt((t / 3600) % 24);
@@ -20,4 +20,4 @@ function timer(time){
     }
     return str;
     console.log(str);
-}
+};

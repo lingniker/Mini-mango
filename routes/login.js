@@ -54,7 +54,20 @@ router.post("/", function(req, res, next) {
 
     });
 
-})
+});
+
+router.get("/errs", function(req, res){
+
+   res.render("errs");
+
+});
+
+router.get("/errs2", function(req, res){
+
+   res.render("errs2");
+
+});
+
 
 
 

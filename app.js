@@ -1,5 +1,5 @@
 var express = require('express');
-var timer = require("./time.js");
+// var timer = require("./time.js");
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');

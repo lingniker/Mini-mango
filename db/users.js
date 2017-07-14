@@ -28,25 +28,15 @@ var userSchema = new Schema({
 var users =  mongoose.model("users",userSchema);
 
 /*数据库测试代码*/
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> d8f431ec980a76b9d6e6dfae620eb60e9ee890b9
->>>>>>> b5de4ebaaf0c39a2542d6b4bad998f9754410101
+
+
+
 // var m = new users({
 //   nick: "shaoxu",
 //   phone: 18245869785,
 //   password: "123456",
-<<<<<<< HEAD
 //   ltime:45565,
-//   issuesr:[1,2,3],
-//   tagfocuslist:["css","javascript","node.js"]
 //
-=======
-//   ltime:45565
->>>>>>> b5de4ebaaf0c39a2542d6b4bad998f9754410101
 // });
 // m.save(function(err){
 //   if(err){
@@ -54,30 +44,7 @@ var users =  mongoose.model("users",userSchema);
 //   }else{
 //     console.log("save is ok");
 //   }
-<<<<<<< HEAD
-// })
-=======
-<<<<<<< HEAD
-// })
-=======
 // });
-=======
-var m = new users({
-  nick: "shaoxu",
-  phone: 18245869785,
-  password: "123456",
-  ltime:45565,
 
-});
-m.save(function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("save is ok");
-  }
-});
->>>>>>> 918826d231cdf99c0c387e225b08942c6cdbe1fe
->>>>>>> d8f431ec980a76b9d6e6dfae620eb60e9ee890b9
->>>>>>> b5de4ebaaf0c39a2542d6b4bad998f9754410101
 
 module.exports = users;

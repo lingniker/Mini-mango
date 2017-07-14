@@ -20,9 +20,6 @@
 
 });
 
-* User.findByIdAndUpdate();
-* where("tags")in("javascript");
-* 查找user里的tags属性值为tag的数据 
 
 
    

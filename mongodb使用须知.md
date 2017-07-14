@@ -25,12 +25,7 @@
 * 查找user里的tags属性值为tag的数据 
 
 
-* user.where('tags').in([tag]).sort({'ctime':-1}).skip(skip).limit(limit).exec(function(err,r){
-          if(!err){
-            r = r==null?[]:r;
-            res.render('topic',{title:type+"-问题-",limit:limit,count:count,issues:r});
-          }else{
-            console.log(err);
-            res.render('error');
-        }
-   }
+   
+   参考
+   
+   http://blog.csdn.net/tengzhaorong/article/details/16802109

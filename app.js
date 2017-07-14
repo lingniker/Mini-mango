@@ -24,6 +24,7 @@ var register = require('./routes/register');
 var reset = require("./routes/reset");
 
 
+
 var app = express();
 
 // view engine setup
@@ -58,6 +59,7 @@ app.use("/login",login);
 app.use("/logout",logout);
 app.use("/register",register);
 app.use("/reset", reset);
+
 
 
 

@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   // users.findOne({
   //
   // })
-  name = null;
+  req.session.name = null;
   res.redirect("/");
 });
 

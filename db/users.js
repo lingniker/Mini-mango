@@ -28,18 +28,12 @@ var userSchema = new Schema({
 var users =  mongoose.model("users",userSchema);
 
 /*数据库测试代码*/
-//
+
 // var m = new users({
 //   nick: "yuanping1",
 //   phone: 11111111111,
 //   password: "123456",
 //   ltime:45565,
-//   info:{
-//     address:"北京1",
-//     school:"大同1",
-//     wherecompany:"北京菜鸟1",
-//     personalurl:"www.baidu.com1"
-//   }
 // });
 // m.save(function(err){
 //   if(err){
@@ -48,6 +42,6 @@ var users =  mongoose.model("users",userSchema);
 //     console.log("save is ok");
 //   }
 // });
-//
+
 
 module.exports = users;

@@ -11,86 +11,39 @@ router.post('/', function(req, res, next) {
 
 
     var data = req.body;
-    // console.log(data);
+    console.log(data);
 
     var m = new users();
-
     m.nick = data.nick;
-    m.phone =  data.phone;
-    // m.password =  data.passwd;
+    m.password = data.passwd;
+    m.phone = data.phone;
 
-    users.find({
+    users.find({$or:[{
+      nick: data.nick
+    }, { phone: data.phone}]
 
-    }, function(err, doc){
-      // console.log(doc);
+  }, function(err, doc){
 
+     if (err) {
+       console.log(err);
+     } else if (doc.length !== 0) {
+       console.log("账户与手机号匹配不正确!");
+       return res.redirect("/login/errs2");
+     } else {
+       bcrypt.hash(data.passwd, salt, function(err, hash){
+          m.password = hash;
 
-      var w = 0, q = 0;
+          m.save(function(err){
+            if (err) {
+              console.log(err);
+            } else {
+              return res.redirect("/login");
+            }
+          });
+       });
+     }
 
-      for (var i = 0, len = doc.length; i < len; i++) {
-
-        var nicc = doc[i].nick;
-
-        if (data.nick === nicc) {
-
-            w++;
-
-        }
-
-      }
-
-      for (var j = 0, len = doc.length; j < len; j++) {
-
-        var phoo = doc[j].phone;
-        // console.log(data.phone);
-        // console.log(phoo);
-
-        if (data.phone == phoo) {
-
-            q++;
-
-        }
-
-      }
-
-      console.log("w =", w );
-      console.log("q =", q );
-
-      if (err) {
-
-         console.log(err);
-
-      } else if ((w === 1) || (q === 1)){
-
-         console.log("账号或手机号码重复!");
-
-
-      } else if ((w === 0) && (q === 0)){
-
-         bcrypt.hash(req.body.passwd, salt, (err, hash) => {
-
-           m.password = hash;
-
-           m.save(function(err){
-
-             if (err) {
-
-               console.log(err);
-
-             } else {
-
-               return res.redirect("/login");
-
-             }
-
-           });
-
-         })
-
-      }
-
-
-    });
+  });
 
 });
 

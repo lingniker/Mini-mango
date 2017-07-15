@@ -150,22 +150,26 @@
     margin-top: 0px;
     margin-bottom: 10px;
     height: 334px;
-    }
-    .index_user li{
-      color: #999;
-      margin-bottom: 6px;
-    }
-    .index_user li .index_touxiang{
-      display: inline;
-    }
-    .index_touxiang img{
-      border-radius: 50%;
-      margin-right: 10px;
-      width: 24px!important;
-      height: 24px!important;
-    }
-    .index_user li a{
-  	width: auto;
+  }
+
+  .index_user li {
+    color: #999;
+    margin-bottom: 6px;
+  }
+
+  .index_user li .index_touxiang {
+    display: inline;
+  }
+
+  .index_touxiang img {
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 24px!important;
+    height: 24px!important;
+  }
+
+  .index_user li a {
+    width: auto;
     margin-left: 20px;
     max-width: 50%;
     display: inline-block;
@@ -213,7 +217,8 @@
     position: relative;
     height: 900px;
   }
-  .index_all{
+
+  .index_all {
     margin-top: 20px;
   }
 </style>
@@ -225,10 +230,10 @@
         <div class="row">
           <div class="col-xs-12 col-md-9 ">
             <ul class="nav nav-tabs clearfix index_css">
-              <li role="presentation" class="active"><a href="#">最新回答</a></li>
-              <li role="presentation"><a href="./index_hot.ejs#hot">热门回答</a></li>
-              <li role="presentation"><a href="#">等待回答</a></li>
-              <li role="presentation"><a href="#">最新动态</a></li>
+              <li role="presentation" class="<%= active0 %> allanswer"><a href="/">最新回答</a></li>
+              <li role="presentation" class="<%= active1 %> allanswer"><a href="/index_hot">热门回答</a></li>
+              <li role="presentation" class="<%= active2 %> allanswer"><a href="/index_wait">等待回答</a></li>
+              <li role="presentation" class="<%= active3 %> allanswer"><a href="#">最新动态</a></li>
             </ul>
 
             <div class="index_contain">
@@ -270,13 +275,13 @@
                       </div>
                       <div>
                         <div class="index_summary_contain">
-                          <a href="/questions/<%= data_que._id %>">
+                          <a href="/answers/<%= data_que._id %>">
                             <%= data.title %>
                           </a>
                         </div>
                         <% data.tags.forEach(function(data){ %>
                           <div class="index_summary_tag">
-                            <a class="index_tag" href="#">
+                            <a class="index_tag" href="/tags/<%= data %>">
                               <%= data %>
                             </a>
                           </div>
@@ -299,58 +304,75 @@
           . <a id="index_col" href="#">本周</a>.
            <a id="index_col" href="#">更多</a>
          </span> -->
-       </div>
-       <ol class="index_user">
 
-     <% data_use.forEach(function(data){ %>
-         <li ><div class="index_touxiang"><img src="/images/user-256.png" alt=""></div>
-         <a href="#"><%= data.nick %></a>
-       <span><add>+</add><%= data.likes %></span>
-     </li>
-<% }); %>
-       </ol>
-     </div>
-      <div class="index_image clearfix"><img id="lunbo" src="/images/index_lunbo.jpg" alt=""></div>
+              </div>
+              <ol class="index_user">
 
-   </div>
- </div>
+                <% data_use.forEach(function(data){ %>
+                  <li>
+                    <div class="index_touxiang"><img src="/images/user-256.png" alt=""></div>
+                    <a href="#">
+                      <%= data.nick %>
+                    </a>
+                    <span><add>+</add><%= data.likes %></span>
+                  </li>
+                  <% }); %>
+              </ol>
+            </div>
+            <div class="index_image clearfix"><img id="lunbo" src="/images/index_lunbo.jpg" alt=""></div>
+
+          </div>
+        </div>
 
 
-</div>
-<div class="btn-group" role="group" aria-label="...">
-  <a href ='/99' type="button" class="btn btn-default">上一页</a>
+      </div>
+      <div class="btn-group" role="group" aria-label="...">
+        <a href='/<%= page %>99' type="button" class="btn btn-default">上一页</a>
 
-  <a href ='/0' type="button" class="btn btn-default page-click">1</a>
-  <a href ='/1' type="button" class="btn btn-default page-click">2</a>
-  <a href ='/2' type="button" class="btn btn-default page-click">3</a>
-  <a href ='/3' type="button" class="btn btn-default page-click">4</a>
-  <a href ='/4' type="button" class="btn btn-default page-click">5</a>
-  <a href ='/5' type="button" class="btn btn-default page-click">6</a>
-  <a href ='/6' type="button" class="btn btn-default page-click">7</a>
-  <a href ='/7' type="button" class="btn btn-default page-click">8</a>
-  <a href ='/8' type="button" class="btn btn-default page-click">9</a>
-  <a href ='/9' type="button" class="btn btn-default page-click">10</a>
+        <a href='/<%= page %>0' type="button" class="btn btn-default page-click">1</a>
+        <a href='/<%= page %>1' type="button" class="btn btn-default page-click">2</a>
+        <a href='/<%= page %>2' type="button" class="btn btn-default page-click">3</a>
+        <a href='/<%= page %>3' type="button" class="btn btn-default page-click">4</a>
+        <a href='/<%= page %>4' type="button" class="btn btn-default page-click">5</a>
+        <a href='/<%= page %>5' type="button" class="btn btn-default page-click">6</a>
+        <a href='/<%= page %>6' type="button" class="btn btn-default page-click">7</a>
+        <a href='/<%= page %>7' type="button" class="btn btn-default page-click">8</a>
+        <a href='/<%= page %>8' type="button" class="btn btn-default page-click">9</a>
+        <a href='/<%= page %>9' type="button" class="btn btn-default page-click">10</a>
 
-  <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
-  <a href = "/00" type="button" class="btn btn-default">下一页</a>
-</div>
-</div>
-<% include homepage-footer.ejs %>
+        <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
+        <a href="/<%= page %>98" type="button" class="btn btn-default">下一页</a>
+      </div>
+    </div>
+    <% include homepage-footer.ejs %>
 
-<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
-<script type="text/javascript">
-var img = document.getElementById("lunbo");
- setInterval(function dong(){
-   if(img.style.left == "0px"){
-     img.style.left = '-257px';
+      <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+      <script type="text/javascript">
+        var img = document.getElementById("lunbo");
+        setInterval(function dong() {
+          if (img.style.left == "0px") {
+            img.style.left = '-257px';
+            console.log(img.style.left);
+          } else {
+            img.style.left = '0px';
+            console.log(img.style.left);
+          }
+        }, 1000);
+        // var allanswer = document.getElementsByClassName('allanswer');
+        // for(var i = 0; i < 4; i ++){
+        //   (function(i){
+        //     $(allanswer[i]).find("a").click(function(){
+        //
+        //    console.log(allanswer);
+        //   $(allanswer[i]).addClass("active");
+        //   $(allanswer[i]).siblings().removeClass("active");
+        // })
+        //   })(i)
+        //
+        // }
+      </script>
 
-   }else{
-     img.style.left = '0px';
-     
-   }},1000);
+</body>
 
-</script>
-
-  </body>
 
 </html>

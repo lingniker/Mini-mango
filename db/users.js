@@ -43,5 +43,4 @@ var users =  mongoose.model("users",userSchema);
 //   }
 // });
 
-
 module.exports = users;

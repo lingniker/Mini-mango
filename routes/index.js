@@ -45,6 +45,7 @@ router.get('/',function(req,res,next){
 
 router.get(/\/([0-9]{1,2})/, function(req, res, next) {
   // res.render('index', { title: 'Express' });
+
   var k = 0;
   if (req.params[0]==00) {
     k++;

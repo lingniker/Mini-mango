@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var questions = require("../db/questions");
+var users = require("../db/users");
 
 /* GET questions page. */
 router.get('/', function(req, res, next) {
@@ -22,6 +23,8 @@ router.post("/", function(req, res, next){
     q.content = data.content;
     q.ctime = data.ctime;
 
+  
+
     q.save(function(err, doc){
 
        if (err) {
@@ -32,7 +35,7 @@ router.post("/", function(req, res, next){
 
     });
 
-
+   res.redirect('/');
 
 });
 

@@ -99,6 +99,7 @@
       margin: 10px 0px;
       text-align: center;
       line-height:200px;
+      border: 1px solid lightgray;
     }
     .jianjie-connet{
       height: 180px;
@@ -144,6 +145,15 @@
        width: 30px;
        text-align: center;
        color: gray;
+    }
+    .shengwang{
+      margin-left: 10px;
+      display:inline-block;
+    }
+    .info-guanzhu{
+      display: inline-block;
+      height: 30px;
+      border: none;
     }
 
     </style>
@@ -195,25 +205,26 @@
 <div class="container">
   <div class="row">
     <div class="info-left col-lg-2 col-md-2 hidden-sm hidden-xs ">
-      <!-- <ul>
-        <li><a>我的主页<span>1</span></a></li>
-        <li><a>关注了<span>3人</span></a></li>
-        <li><a>粉丝<span>1人</span></a></li>
-        <li><a>我的回答<span>1</span></a></li>
-        <li><a>我的提问<span>1</span></a></li>
-        <li><a>我的收藏夹<span>1</span></a></li>
-        <li><a>我的关注<span>1</span></a></li>
-        <li><a>浏览记录<span>1</span></a></li>
-      </ul> -->
       <ul>
-        <li><a>他的主页<span>1</span></a></li>
-        <li><a>关注了<span>3人</span></a></li>
-        <li><a>粉丝<span>1人</span></a></li>
-        <li><a>他的回答<span>1</span></a></li>
-        <li><a>他的提问<span>1</span></a></li>
-        <li><a>他的收藏夹<span>1</span></a></li>
-        <li><a>他的关注<span>1</span></a></li>
-        <li><a>浏览记录<span>1</span></a></li>
+      <% if(page == "my"){ %>
+        <li><a href="/users/user">我的主页<span>1</span></a></li>
+        <li><a href="users/u?user=jj&info='foucuslist'">关注了<span>3人</span></a></li>
+        <li><a href="users/u?user=jj&info='foucus'">粉丝<span>1人</span></a></li>
+        <li><a href="users/u?user=jj&info='foucus'">我的回答<span>1</span></a></li>
+        <li><a href="users/u?user=jj&info='puber'">我的提问<span>1</span></a></li>
+        <li><a href="users/u?user=jj&info='foucus'">我的收藏夹<span>1</span></a></li>
+        <li><a href="users/u?user=jj&info='issuesr'">我的关注<span>1</span></a></li>
+        <li><a href="users/u?user=jj&info='foucus'">浏览记录<span>1</span></a></li>
+        <% }else{ %>
+          <li><a>他的主页<span>1</span></a></li>
+          <li><a>关注了<span>3人</span></a></li>
+          <li><a>粉丝<span>1人</span></a></li>
+          <li><a>他的回答<span>1</span></a></li>
+          <li><a>他的提问<span>1</span></a></li>
+          <li><a>他的收藏夹<span>1</span></a></li>
+          <li><a>他的关注<span>1</span></a></li>
+          <li><a>浏览记录<span>1</span></a></li>
+        <% } %>
       </ul>
     </div>
     <div class="info-left info-left1 hidden-lg hidden-md col-sm-12 col-xs-12">
@@ -227,7 +238,7 @@
     </div>
     <div class=" col-lg-10 col-md-10 col-sm-12 col-sx-12">
 
-      <div class="info-md-left col-lg-8 col-md-8 col-sm-12 col-sx-12">
+      <!-- <div class="info-md-left col-lg-8 col-md-8 col-sm-12 col-sx-12">
         <div class="info-md-top">
           我是一个很帅的人
         </div>
@@ -242,7 +253,7 @@
         </div>
       </div>
       <div class="info-md-right col-lg-4 col-md-4 hidden-sm hidden-sx">
-      </div>
+      </div> -->
 
 
 
@@ -270,28 +281,28 @@
       </div> -->
 
 
-      <!-- <div class="info-top-ask">
+      <div class="info-top-ask">
         <div class="info-top-ask1">
           关注人
         </div>
         <ul class="info-top-ask2">
           <li>
             <div class="row">
-              <span class="col-md-1">0 票</span>
-              <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
-              <span class="col-md-2">2017.7.15</span>
+              <span class="col-md-4">我的回答就是谁都不懂  <span class="shengwang"> 0声望</span></span>
+              <a class="info-ask col-md-6"></a>
+              <span class="col-md-2">关注数0人 <button>关注</button></span>
             </div>
             </li>
             <li>
               <div class="row">
-                <span class="col-md-1">0 票</span>
-                <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
-                <span class="col-md-2">2017.7.15</span>
+                <span class="col-md-4">我的回答就是谁都不懂  <span class="shengwang"> 0声望</span></span>
+                <a class="info-ask col-md-6"></a>
+                <span class="col-md-2">关注数0人 <button class="info-guanzhu">关注</button></span>
               </div>
               </li>
         </ul>
 
-      </div> -->
+      </div>
 
 
 
@@ -302,7 +313,7 @@
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <script type="text/javascript">
-  function(){};
+
 </script>
 
   </body>

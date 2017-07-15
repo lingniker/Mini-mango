@@ -144,7 +144,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="/questions" method="post">
+		<form action="/" method="post">
 			<div class="form-group">
 				<!-- <label for="exampleInputEmail1">Email address</label> -->
 				<input type="text" class="form-control title" placeholder="标题:　一句话说清问题，用问号结尾">
@@ -458,6 +458,7 @@
 			 url: "/questions",
 			 data: con,
 			 type: "post",
+			 dataType: 'json',
 			 traditional: true
 		 }).then(function(data, textStatus, jqXHR){
 

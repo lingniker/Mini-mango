@@ -220,136 +220,138 @@
 
 <body>
   <% include homepage-header.ejs %>
-    <div class="container">
-      <div class="index_all">
-        <div class="row">
-          <div class="col-xs-12 col-md-9 ">
-            <ul class="nav nav-tabs clearfix index_css">
-              <li role="presentation" class="active"><a href="#">最新回答</a></li>
-              <li role="presentation"><a href="./index_hot.ejs#hot">热门回答</a></li>
-              <li role="presentation"><a href="#">等待回答</a></li>
-              <li role="presentation"><a href="#">最新动态</a></li>
-            </ul>
+      <div class="container">
+        <div class="index_all">
+          <div class="row">
+            <div class="col-xs-12 col-md-9 ">
+              <ul class="nav nav-tabs clearfix index_css">
+                <li role="presentation" class="active"><a href="#">最新回答</a></li>
+                <li role="presentation"><a href="./index_hot.ejs#hot">热门回答</a></li>
+                <li role="presentation"><a href="#">等待回答</a></li>
+                <li role="presentation"><a href="#">最新动态</a></li>
+              </ul>
 
-            <div class="index_contain">
-              <ul class="index_question clearfix">
+              <div class="index_contain">
+                <ul class="index_question clearfix">
 
-                <% data_que.forEach(function(data){ %>
-                  <li>
+                  <% data_que.forEach(function(data){ %>
+                    <li>
 
 
-                    <div class="index_rank">
-                      <div class="index_votes">
-                        <div class="index_votesnum">
-                          <%= data.votes %>
+                      <div class="index_rank">
+                        <div class="index_votes">
+                          <div class="index_votesnum">
+                            <%= data.votes %>
+                          </div>
+                          <smail>得票</smail>
                         </div>
-                        <smail>得票</smail>
-                      </div>
-                      <div class="index_answer">
-                        <div class="index_answernum">
-                          <%= data.answers %>
+                        <div class="index_answer">
+                          <div class="index_answernum">
+                            <%= data.answers %>
+                          </div>
+                          <smail>回答</smail>
                         </div>
-                        <smail>回答</smail>
-                      </div>
-                      <div class="index_brows">
-                        <div class="index_browsnum">
-                          <%= data.scans %>
+                        <div class="index_brows">
+                          <div class="index_browsnum">
+                            <%= data.scans %>
+                          </div>
+                          <smail>浏览</smail>
                         </div>
-                        <smail>浏览</smail>
                       </div>
-                    </div>
-                    <div class="index_summary">
-                      <div class="index_summary_author">
-                        <a id="index_col" href="/users/<%= data_que.puber %>">
-                          <%= data.puber %>
-                        </a>
-                        <span></span>
-                        <a id="index_col" herf="#">
-                          <%= data.ltime %>
-                        </a>
-                      </div>
-                      <div>
-                        <div class="index_summary_contain">
-                          <a href="/questions/<%= data_que._id %>">
-                            <%= data.title %>
+                      <div class="index_summary">
+                        <div class="index_summary_author">
+                          <a id="index_col" href="/users/<%= data_que.puber %>">
+                            <%= data.puber %>
+                          </a>
+                          <span></span>
+                          <a id="index_col" herf="#">
+                            <%= data.ltime %>
                           </a>
                         </div>
-                        <% data.tags.forEach(function(data){ %>
-                          <div class="index_summary_tag">
-                            <a class="index_tag" href="#">
-                              <%= data %>
+                        <div>
+                          <div class="index_summary_contain">
+                            <a href="/questions/<%= data_que._id %>">
+                              <%= data.title %>
                             </a>
                           </div>
-                          <% }); %>
+                          <% data.tags.forEach(function(data){ %>
+                            <div class="index_summary_tag">
+                              <a class="index_tag" href="#">
+                                <%= data %>
+                              </a>
+                            </div>
+                            <% }); %>
+                        </div>
                       </div>
-                    </div>
 
-                  </li>
+                    </li>
 
-                  <% }); %>
-              </ul>
+                    <% }); %>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="index_widget">
-              <div class="index_widget_title">
-                <span class="index_span">排行榜</span>
-                <!-- 排行榜 <span class="index_span">
-           <a id="index_col" class="active" href="#">今天</a>
-          . <a id="index_col" href="#">本周</a>.
-           <a id="index_col" href="#">更多</a>
-         </span> -->
+            <div class="col-md-3">
+              <div class="index_widget">
+                <div class="index_widget_title">
+                  <span class="index_span">排行榜</span>
+                  <!-- 排行榜 <span class="index_span">
+             <a id="index_col" class="active" href="#">今天</a>
+            . <a id="index_col" href="#">本周</a>.
+             <a id="index_col" href="#">更多</a>
+           </span> -->
+         </div>
+         <ol class="index_user">
+
+       <% data_use.forEach(function(data){ %>
+           <li ><div class="index_touxiang"><img src="/images/user-256.png" alt=""></div>
+           <a href="#"><%= data.nick %></a>
+         <span><add>+</add><%= data.likes %></span>
+       </li>
+  <% }); %>
+         </ol>
        </div>
-       <ol class="index_user">
+        <div class="index_image clearfix"><img id="lunbo" src="/images/index_lunbo.jpg" alt=""></div>
 
-     <% data_use.forEach(function(data){ %>
-         <li ><div class="index_touxiang"><img src="/images/user-256.png" alt=""></div>
-         <a href="#"><%= data.nick %></a>
-       <span><add>+</add><%= data.likes %></span>
-     </li>
-<% }); %>
-       </ol>
      </div>
-      <div class="index_image clearfix"><img id="lunbo" src="/images/index_lunbo.jpg" alt=""></div>
-
    </div>
- </div>
 
 
-</div>
-<div class="btn-group" role="group" aria-label="...">
-  <a href ='/99' type="button" class="btn btn-default">上一页</a>
+  </div>
+  <div class="btn-group" role="group" aria-label="...">
+    <a href ='/99' type="button" class="btn btn-default">上一页</a>
 
-  <a href ='/0' type="button" class="btn btn-default page-click">1</a>
-  <a href ='/1' type="button" class="btn btn-default page-click">2</a>
-  <a href ='/2' type="button" class="btn btn-default page-click">3</a>
-  <a href ='/3' type="button" class="btn btn-default page-click">4</a>
-  <a href ='/4' type="button" class="btn btn-default page-click">5</a>
-  <a href ='/5' type="button" class="btn btn-default page-click">6</a>
-  <a href ='/6' type="button" class="btn btn-default page-click">7</a>
-  <a href ='/7' type="button" class="btn btn-default page-click">8</a>
-  <a href ='/8' type="button" class="btn btn-default page-click">9</a>
-  <a href ='/9' type="button" class="btn btn-default page-click">10</a>
+    <a href ='/0' type="button" class="btn btn-default page-click">1</a>
+    <a href ='/1' type="button" class="btn btn-default page-click">2</a>
+    <a href ='/2' type="button" class="btn btn-default page-click">3</a>
+    <a href ='/3' type="button" class="btn btn-default page-click">4</a>
+    <a href ='/4' type="button" class="btn btn-default page-click">5</a>
+    <a href ='/5' type="button" class="btn btn-default page-click">6</a>
+    <a href ='/6' type="button" class="btn btn-default page-click">7</a>
+    <a href ='/7' type="button" class="btn btn-default page-click">8</a>
+    <a href ='/8' type="button" class="btn btn-default page-click">9</a>
+    <a href ='/9' type="button" class="btn btn-default page-click">10</a>
 
-  <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
-  <a href = "/00" type="button" class="btn btn-default">下一页</a>
-</div>
-</div>
-<% include homepage-footer.ejs %>
+    <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
+    <a href = "/00" type="button" class="btn btn-default">下一页</a>
+  </div>
+  </div>
+  <% include homepage-footer.ejs %>
 
-<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
-<script type="text/javascript">
-var img = document.getElementById("lunbo");
- setInterval(function dong(){
-   if(img.style.left == "0px"){
-     img.style.left = '-257px';
-     console.log(img.style.left);
-   }else{
-     img.style.left = '0px';
-     console.log(img.style.left);
-   }},1000);
+  <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  // window.onload=function(){
+  // var img = document.getElementById("lunbo");
+  //  setInterval(function dong(){
+  //    if(img.style.left == "0px"){
+  //      img.style.left = '-257px';
+  //      console.log(img.style.left);
+  //    }else{
+  //      img.style.left = '0px';
+  //      console.log(img.style.left);
+  //    }},1000);
+  // }
+  </script>
 
-</script>
 
   </body>
 

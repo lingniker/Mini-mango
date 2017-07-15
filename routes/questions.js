@@ -27,6 +27,7 @@ router.post("/", function(req, res, next){
        if (err) {
          console.log(err);
        } else {
+         return res.redirect("/");
          console.log(doc);
        }
 

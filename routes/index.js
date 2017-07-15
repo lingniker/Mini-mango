@@ -10,9 +10,11 @@ var router = express.Router();
 
 
 /* GET home page. */
+// \/([0-9]{1,2})?
 
+router.get("/[0-9]{1-2}")
 
-router.get(/\/([0-9]{1,2})?/, function(req, res, next) {
+router.get("/", function(req, res, next) {
   // res.render('index', { title: 'Express' });
 
   var k = 0;
@@ -24,6 +26,8 @@ router.get(/\/([0-9]{1,2})?/, function(req, res, next) {
     k = req.params[0];
   }
    var count;
+
+
     questions.count({},function(err,n){
       if(err){
         console.log(err);
@@ -56,14 +60,18 @@ router.get(/\/([0-9]{1,2})?/, function(req, res, next) {
               req.session.name = null;
             }
 
+
           res.render('index',{data_que:data_que, data_use:datas, data:data, name:req.session.name})
 
-        }
       });
-        }
+    }
+
 
       });
+    }
   });
+
+
 
 });
 });

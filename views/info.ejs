@@ -16,6 +16,9 @@
     ul{
       list-style-type: none;
     }
+    a{
+      color: #D7D50D;
+    }
 
       div{
         /*border: 1px solid gray;*/
@@ -32,7 +35,7 @@
 	    .info-left1{
 	        float:  none;
 	      }
-}
+    }
 
   .sn-inline {
     list-style: none;
@@ -55,7 +58,7 @@
     .profile__rank-btn{
       font-size: 20px;
       padding: 3px 20px;;
-      background: #4BEE6D;
+      background: #3873D9;
       border-radius:  100px;
     }
     .profile__heading--award-badge ul li{
@@ -84,6 +87,8 @@
     .info-left li{
       /*background: red;*/
       padding: 5px 0 5px 10px;
+      height: 40px;
+      line-height: 40px;
     }
     .info-left li span{
       float: right;
@@ -100,7 +105,8 @@
       background:#ddd;
     }
     .info-left1{
-      height: 50px;
+      margin-top:20px;
+      height: 30px;
     }
     .info-top-ask{
       width: 100%;
@@ -133,6 +139,12 @@
       border-radius: 5px;
       box-shadow: 0px 0px 0px red;
     }
+    .info-xinxi li span{
+       display: inline-block;
+       width: 30px;
+       text-align: center;
+       color: gray;
+    }
 
     </style>
   </head>
@@ -155,10 +167,10 @@
             </a>
               <div class="profile__heading--award-badge">
                 <ul class="info-xinxi">
-                  <li><i class="fa fa-map-marker"></i><button type="button" name="button">填写城市</button></li>
-                  <li><i class="fa fa-graduation-cap" aria-hidden="true"></i><button type="button" name="button">填写所在公司/组织</button></li>
-                  <li><i class="fa fa-briefcase" aria-hidden="true"></i><button type="button" name="button">填写个人主网站</button></li>
-                  <li><i class="fa fa-link"></i><button type="button" name="button">填写毕业学校</button></li>
+                  <li><span><i class="fa fa-map-marker"></i></span><button type="button" name="button"><%= data.info.address %></button></li>
+                  <li><span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><button type="button" name="button"><%= data.info.school %></button></li>
+                  <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span><button type="button" name="button"><%= data.info.wherecompany %></button></li>
+                  <li><span><i class="fa fa-link"></i></span><button type="button" name="button"><%= data.info.personalurl %></button></li>
                 </ul>
             </div>
           </div>
@@ -183,14 +195,24 @@
 <div class="container">
   <div class="row">
     <div class="info-left col-lg-2 col-md-2 hidden-sm hidden-xs ">
-      <ul>
+      <!-- <ul>
+        <li><a>我的主页<span>1</span></a></li>
         <li><a>关注了<span>3人</span></a></li>
         <li><a>粉丝<span>1人</span></a></li>
-        <li><a>我的主页<span>1</span></a></li>
         <li><a>我的回答<span>1</span></a></li>
         <li><a>我的提问<span>1</span></a></li>
         <li><a>我的收藏夹<span>1</span></a></li>
         <li><a>我的关注<span>1</span></a></li>
+        <li><a>浏览记录<span>1</span></a></li>
+      </ul> -->
+      <ul>
+        <li><a>他的主页<span>1</span></a></li>
+        <li><a>关注了<span>3人</span></a></li>
+        <li><a>粉丝<span>1人</span></a></li>
+        <li><a>他的回答<span>1</span></a></li>
+        <li><a>他的提问<span>1</span></a></li>
+        <li><a>他的收藏夹<span>1</span></a></li>
+        <li><a>他的关注<span>1</span></a></li>
         <li><a>浏览记录<span>1</span></a></li>
       </ul>
     </div>
@@ -198,32 +220,35 @@
       <select class="form-control">
        <option><a>关注了<span>3人</span></a></option>
        <option><a>粉丝<span>1人</span></a></option>
-       <option><a>我的主页<span>1</span></a></option>
-       <option><a>我的回答<span>1</span></a></option>
-       <option><a>我的提问<span>1</span></a></option>
+       <option><a>主页<span>1</span></a></option>
+       <option><a>回答<span>1</span></a></option>
+       <option><a>提问<span>1</span></a></option>
      </select>
     </div>
     <div class=" col-lg-10 col-md-10 col-sm-12 col-sx-12">
 
-      <!-- <div class="info-md-left col-lg-8 col-md-8 col-sm-12 col-sx-12">
+      <div class="info-md-left col-lg-8 col-md-8 col-sm-12 col-sx-12">
         <div class="info-md-top">
-          个人信息
+          我是一个很帅的人
         </div>
         <div class="info-md-top">
-          个人信息
+          为甚么我这么帅
         </div>
         <div class="info-md-top">
-          个人信息
+          哎 就是帅
         </div>
         <div class="info-md-top">
-          个人信息
+          帅炸天啊
         </div>
       </div>
       <div class="info-md-right col-lg-4 col-md-4 hidden-sm hidden-sx">
-      </div> -->
-      <div class="info-top-ask">
+      </div>
+
+
+
+      <!-- <div class="info-top-ask">
         <div class="info-top-ask1">
-          我的回答
+          回答
         </div>
         <ul class="info-top-ask2">
           <li>
@@ -242,7 +267,34 @@
               </li>
         </ul>
 
-      </div>
+      </div> -->
+
+
+      <!-- <div class="info-top-ask">
+        <div class="info-top-ask1">
+          关注人
+        </div>
+        <ul class="info-top-ask2">
+          <li>
+            <div class="row">
+              <span class="col-md-1">0 票</span>
+              <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
+              <span class="col-md-2">2017.7.15</span>
+            </div>
+            </li>
+            <li>
+              <div class="row">
+                <span class="col-md-1">0 票</span>
+                <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
+                <span class="col-md-2">2017.7.15</span>
+              </div>
+              </li>
+        </ul>
+
+      </div> -->
+
+
+
     </div>
 
   </div>

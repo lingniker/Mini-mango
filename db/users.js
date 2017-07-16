@@ -32,7 +32,8 @@ var users =  mongoose.model("users",userSchema);
 //   nick: "shaoxu",
 //   phone: 18245869785,
 //   password: "123456",
-//   ltime:45565
+//   ltime:45565,
+//   tagfocuslist:["html","css3","javascript","jquery","mongodb"]
 // });
 // m.save(function(err){
 //   if(err){
@@ -40,6 +41,6 @@ var users =  mongoose.model("users",userSchema);
 //   }else{
 //     console.log("save is ok");
 //   }
-// })
+// });
 
 module.exports = users;

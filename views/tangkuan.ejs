@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>弹框</title>
+    <style media="screen">
+      *{
+        margin:0px;
+        padding:0px;
+      }
+      .clearfix::after,
+      .clearfix::before {
+        content: "";
+        height: 0;
+        display: block;
+        visibility: hidden;
+        line-height: 0;
+        clear: both;
+      }
+
+      .clearfix {
+        zoom: 1; //兼容ie
+      }
+      .tankuan{
+        width:100%;
+        height:100%;
+        position: relative;
+        top:-11px;
+      }
+      /*.tankuan .tanmessage .tankuan-h4{
+        position: relative;
+        top:0px;
+      }*/
+      .tankuan .tanmessage .tan-p{
+        text-align:left;
+        font-size: 12px;
+        max-height: 50px;
+        overflow: hidden;
+        border-bottom: 1px solid lightgray;
+      }
+      .con{
+        width: 100%;
+        margin-bottom: 1px solid lightgray;
+      }
+      h4{
+        margin: 5px 0;
+        text-align: left;
+        padding-left: 4px;
+      }
+      .tag-ul1{
+        position: relative;
+        top:-6px;
+      }
+      .tag-ul1 li{
+        margin-left: 5px;
+      }
+      .tag-ul1 .li-right{
+        position: relative;
+        left:35px;
+        top:-4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tankuan">
+      <div class="tanmessage">
+
+      <h4 class="tankuan-h4"><%= biaoqian.tag %></h4>
+        <p class="tan-p">
+          <%= biaoqian.describe %>
+        </p>
+    </div>
+    <ul class="tag-ul1 clearfix">
+      <li class="li-left"><a href="#">查看</a></li>
+      <li class="li-left"><a href="#">编辑</a></li>
+      <li class="li-left"><a href="#">订阅</a></li>
+      <li class="li-right"><span class="tag-sp1"><%= biaoqian.focus %></span>人</li>
+      <li class="li-right"><button type="button">关注</button></li>
+    </ul>
+  </div>
+  </body>
+</html>

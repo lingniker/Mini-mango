@@ -212,6 +212,10 @@
 </head>
 <body>
 
+
+
+
+
   <% include ./homepage-header.ejs %>
   <div class="container all">
 
@@ -221,7 +225,11 @@
         <div class="wd-head-left col-xs-12 col-md-9">
           <h4 class="wd-question">
             <span class="glyphicon glyphicon-question-sign" style="color:#fdb933"></span>
+
             <p><%= info.title %></p>
+
+            <!-- <p><= info.issuesid ></p> -->
+
           </h4>
           <div class="head-two">
             关键字：
@@ -263,7 +271,7 @@
           <span class="zan-center">0</span>
           <span class="zan-down glyphicon glyphicon-triangle-bottom"></span>
         </div>
-        <div class="wd-content"><%= info.content %></div>
+        <!-- <div class="wd-content"><= info.content ></div> -->
         <div class="wd-time">
           <a href="#">0</a>提问
         </div>
@@ -291,7 +299,7 @@
 
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/js/time.js" charset="utf-8"></script>
+<!-- <script src="/js/time.js" charset="utf-8"></script> -->
   <script>
 
 //点赞内容
@@ -404,11 +412,15 @@
       }
     });
 //时间
-var anstimes = [];
-<% info2.forEach(function(times){ %>
-  anstimes.push(<%= times.ctime %>);
-  <% }); %>
+
+    var anstimes = [];
+    <% info2.forEach(function(times){ %>
+    anstimes.push(<%= times.ctime %>);
+    <% }); %>
     var sss = <%= info.ctime %>;
+
+    // var sss = <= info.ctime >
+
     setInterval(function(){
       var lis = $(".answer-content li").length;
       for(var i = 0;i < lis;i++){

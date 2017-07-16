@@ -6,6 +6,7 @@ var tags = require("../db/tags");
 var users = require("../db/users");
 /* GET answers page. */
 
+
 router.get(/^\/[a-zA-Z|0-9]{10,24}?$/, function(req, res, next) {
   var str = req.url.substr(1,24);
   console.log(str);
@@ -31,5 +32,6 @@ router.post("/",function(req,res,next){
     res.json(data);
   });
 });
+
 
 module.exports = router;

@@ -9,8 +9,10 @@ function timer(time){
     var hours = parseInt((t / 3600) % 24);
     var minutes = parseInt((t / 60) % 60);
     var seconds = parseInt(t % 60);
-    if(days > 0){
+    if(days > 1){
       str = days + "天前";
+    }else if(days <= 1 && days > 0){
+      str = "昨天";
     }else if(days <= 0 && hours > 0) {
       str = hours + "小时前";
     }else if(hours <= 0 && minutes >= 1){

@@ -14,8 +14,8 @@
   }
   .all {
     padding-top: 20px;
-    background: rgb(248,248,248);
-    box-shadow: 0 3px 5px #a1a3a6;
+    background: #fff;
+    box-shadow: 0 3px 5px lightblue;
   }
   .wd-head {
     position:relative;
@@ -211,9 +211,9 @@
   </style>
 </head>
 <body>
-  <% include ./homepage_header.ejs %>
-  <div class="container all">
 
+  <% include ./homepage-header.ejs %>
+  <div class="container all">
 
     <div class="wd-head">
       <div class="row">
@@ -221,16 +221,22 @@
         <div class="wd-head-left col-xs-12 col-md-9">
           <h4 class="wd-question">
             <span class="glyphicon glyphicon-question-sign" style="color:#fdb933"></span>
-            <p><%= info.issuesid %></p>
+            <p><%= info.title %></p>
           </h4>
           <div class="head-two">
             关键字：
             <div class="wd-tag">
-              <a href="#" class="tag">html</a>
-              <a href="#" class="tag">html</a>
+
+      <!-- ****************标签***************** -->
+              <% info.tags.forEach(function(info){ %>
+                <a href="#" class="tag"><%= info %></a>
+              <%  }); %>
+      <!-- ************************************ -->
+              <!-- <a href="#" class="tag">html</a>
+              <a href="#" class="tag">html</a> -->
             </div>
             <div class="wd-user">
-              <a href="#" class="user">zhaohong</a>
+              <a href="#" class="user"><%= info.puber[1] %></a>
               <span>0</span>提问
             </div>
           </div>
@@ -266,6 +272,14 @@
             <span>0</span>个回答
           </div>
           <ul class="answer-content">
+            <% info2.forEach(function(info2){ %>
+              <li><div class="ans"><%= info2.ansuser[1] %></div><%= info2.content %><button class="caina btn btn-danger">采纳</button>
+                <br><br>
+                <span class="ansuser"></span>
+                <i class="tiwen">提问</i>
+              </li>
+            <% }) %>
+
           </ul>
           <h3>撰写答案：</h3>
           <textarea class="contents" placeholder="撰写答案..." ></textarea>
@@ -343,14 +357,38 @@
       $(".answer-content li .caina").off("click",handler);
       var datas = $(".contents").val();
       if(datas) {
-        $(".answer-content").append($("<li>").text(datas));
+        var ids = "<%= info._id %>";
+        var username = "<%= username %>";
+        /***********将回答内容和用户名传到后台*************/
+        var infos = {
+          issuesid:ids,
+          user:username,
+          content:datas,
+          ctime:parseInt(new Date().getTime())
+        }
+        $.ajax({
+          url:"/answers",
+          data:infos,
+          method: 'post',
+        }).then(function(data, textStatus, jqXHR) {
+          console.log(data);
+          $(".answer-content").append($("<li>").text(data.content));
+          $(".answer-content li:last").prepend($("<div>").text(data.ansuser[1]).addClass("ans"));
+          $(".answer-content li:last").append($("<button>").text("采纳").addClass("caina btn btn-danger"));
+          $(".answer-content li:last").append($("<br><br>$nbsp;"));
+          $(".answer-content li:last").append($("<span>").addClass("ansuser"));
+          $(".answer-content li:last").append($("<i>").text("提问").addClass("tiwen"));
+          var ctime1 = data.ctime;
+          var ctime2;
+          setInterval(function(){
+            ctime2 = timer(ctime1);
+            $(".answer-content li:last span").text(ctime2);
+          });
+        }, function(jqXHR, textStatus, errorThrown) {
+          console.log(textStatus);
+        });
+        /****************************************************/
         $(".contents").val("");
-        lis = $(".answer-content li").length;
-        $(".answers span").text(lis);
-    //
-        $(".answer-content li:last").prepend($("<div>").text(lis).addClass("ans"));
-        $(".answer-content li:last").append($("<button>").addClass("caina btn btn-danger").text("采纳"));
-        // $(".answer-content li button").addClass("caina btn btn-danger");
         function handler(){
           var strs = $(this).text();
           console.log(strs);
@@ -366,8 +404,17 @@
       }
     });
 //时间
-    var sss = <%= info.ctime %>
+var anstimes = [];
+<% info2.forEach(function(times){ %>
+  anstimes.push(<%= times.ctime %>);
+  <% }); %>
+    var sss = <%= info.ctime %>;
     setInterval(function(){
+      var lis = $(".answer-content li").length;
+      for(var i = 0;i < lis;i++){
+        var anstime = timer(anstimes[i]);
+        $(".answer-content li span").eq(i).text(anstime);
+      };
       var times = timer(sss);
       $(".wd-time a").text(times);
       $(".wd-user span").text(times);

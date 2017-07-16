@@ -39,6 +39,7 @@ router.post("/", function(req, res, next) {
            console.log(hash);
 
             if (hash) {
+              req.session.name = data.nick;
                return res.redirect("/");
             } else {
               return res.render("login",{nick:"", passwd: "密码输入不正确!"});

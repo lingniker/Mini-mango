@@ -24,9 +24,13 @@ var questions =  mongoose.model("questions",questionSchema);
 //   title:"测试专用，请勿模仿",
 //     content:"我也不知道改写些什么，只是为了凑够几个字而已！",
 //     tags:["css3","html","javascript"],
-//     puber:["youid","小王"],
+//     votes:23,
 //     ctime:parseInt(new Date().getTime()/1000),
-//     ltime:parseInt(new Date().getTime()/1000)
+//     ltime:parseInt(new Date().getTime()/1000),
+//     answers:0,
+//     scans:1,
+//     puber:['xiaojinhong']
+//
 // });
 // m.save(function(err){
 //   if(err){
@@ -35,5 +39,7 @@ var questions =  mongoose.model("questions",questionSchema);
 //     console.log("save is ok");
 //   }
 // });
+
+
 
 module.exports = questions;

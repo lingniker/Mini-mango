@@ -1,9 +1,45 @@
 var express = require('express');
 var router = express.Router();
+var questions = require("../db/questions");
+var users = require("../db/users");
 
 /* GET questions page. */
 router.get('/', function(req, res, next) {
-  res.send("questions is ok!");
+
+    res.render("questions");
+
+});
+
+router.post("/", function(req, res, next){
+
+    var data = req.body;
+
+    console.log("data = ",data);
+
+    var q = new questions();
+
+    q.title = data.title;
+    q.tags = data.laji;
+    q.content = data.content;
+    q.ctime = data.ctime;
+    q.puber = [req.session.name];
+    q.ltime = parseInt(new Date().getTime()/1000);
+
+
+
+    q.save(function(err, doc){
+
+       if (err) {
+         console.log(err);
+       } else {
+        //  return res.redirect("/");
+         console.log(doc);
+         res.json('ok');
+       }
+
+    });
+
+
 });
 
 module.exports = router;

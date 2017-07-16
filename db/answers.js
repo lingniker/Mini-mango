@@ -25,11 +25,11 @@ var answerSchema = new Schema({
 });
 var answers = mongoose.model("answers", answerSchema);
 
-// /*测试代码*/
+/*测试代码*/
 // var m = new answers({
-//   issuesid: "121212",
-//   content: "ashfahsh",
-//   ctime: 465,
+//   issuesid: "59697da13671eb2925f1c3d6",
+//   content: "这是问题的内容",
+//   ctime: 1499928081033,
 //   ansuser: ["yoonghuID", "yonghuNick"]
 // });
 // m.save(function(err) {

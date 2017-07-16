@@ -1,8 +1,4 @@
 var express = require('express');
-<<<<<<< HEAD
-// var timer = require("./time.js");
-=======
->>>>>>> b97a0fe1f79cd5dbfa3e3eddfada58adbc8d8f8b
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');

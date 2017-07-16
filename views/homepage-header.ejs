@@ -19,7 +19,6 @@
       margin-bottom: 0 !important;
       height: 100px;
       box-shadow: 0 2px 5px #a1a3a6;
-
     }
 
     .hp-Header .nav-header {
@@ -49,7 +48,8 @@
     .header-font-size {
       font-size: 15px;
     }
-    .nav-QA{
+
+    .nav-QA {
       margin-top: 10px;
       margin-right: 15px;
       background-color: #00ae9d;
@@ -59,95 +59,105 @@
       text-align: center;
       border-radius: 5px;
     }
-    .nav-QA a{
+
+    .nav-QA a {
       color: #fff;
       font-size: 15px;
       text-decoration: none;
     }
-   .nav-QA li:nth-child(2) span{
-     font-size: 15px;
-   }
-   .nav-after-signin{
-     display: none;
-   }
-   .dropdown-menu-li li:hover{
-     background-color: #a1a3a6;
-   }
-   .head-img img{
-     margin-top: -7px;
-     display: inline-block;
-     width: 30px;
-     height: 30px;
-     border-radius: 50%;
-   }
-   .img-li{
-     position: relative;
-   }
-   .img-li li{
-     margin-bottom: 5px;
-   }
-   .img-li li:hover{
-     background-color: #eeeeee;
-   }
-    .head-img-infor{
-     width:80px;
-     border: 1px solid #a1a3a6;
-     border-radius: 5px;
-     background: #fff;
-     box-shadow: 2px 0 2px #a1a3a6;
-     position: absolute;
-     top: 45px;
-     padding: 10px 5px;
-     text-align: center;
-     font-size: 15px;
-     z-index: 50;
-   }
-   .head-img-infor a{
-     text-decoration: none;
-     color: #333;
-   }
+
+    .nav-QA li:nth-child(2) span {
+      font-size: 15px;
+    }
+
+    .nav-after-signin {
+      display: none;
+    }
+
+    .dropdown-menu-li li:hover {
+      background-color: #a1a3a6;
+    }
+
+    .head-img img {
+      margin-top: -7px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .img-li {
+      position: relative;
+    }
+
+    .img-li li {
+      margin-bottom: 5px;
+    }
+
+    .img-li li:hover {
+      background-color: #eeeeee;
+    }
+
+    .head-img-infor {
+      width: 80px;
+      border: 1px solid #a1a3a6;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 2px 0 2px #a1a3a6;
+      position: absolute;
+      top: 45px;
+      padding: 10px 5px;
+      text-align: center;
+      font-size: 15px;
+      z-index: 50;
+    }
+
+    .head-img-infor a {
+      text-decoration: none;
+      color: #333;
+    }
   </style>
 </head>
 
 <body>
 
   <% if(name) { %>
-  <nav class="navbar navbar-default hp-Header">
+    <nav class="navbar navbar-default hp-Header">
 
-    <div class="container">
-      <div class="row">
-        <div class="nav-header">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+      <div class="container">
+        <div class="row">
+          <div class="nav-header">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
             <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="false"></span> -->
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"> </span>
             <span class="icon-bar"> </span>
             <span class="icon-bar"> </span>
           </button>
-            <a class="navbar-brand" href="#" style="color:#ff6d00" id="header-font-weight">Mango问答</a>
-          </div>
-          <div class="collapse navbar-collapse" id="menu">
-            <ul class="nav navbar-nav">
-              <li class="header-font-size"><a href="#" class="q-a " id="header-font-weight">问答</a></li>
+              <a class="navbar-brand" href="#" style="color:#ff6d00" id="header-font-weight">Mango问答</a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+              <ul class="nav navbar-nav">
+                <li class="header-font-size"><a href="#" class="q-a " id="header-font-weight">问答</a></li>
 
-            </ul>
-             <form class="navbar-form navbar-left">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="button" class="btn btn-default">
+              </ul>
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="button" class="btn btn-default">
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
-            </form>
+              </form>
 
               <ul class="nav navbar-right navbar-nav ">
                 <li>
                   <div class="nav-QA ">
-                    <span><a href="#">去提问</a></span>
+                    <span><a href="/questions">去提问</a></span>
                     <a href="#" class="dropdown-toggle dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-chevron-down"></span></a>
                     <ul class="dropdown-menu dropdown-menu-li">
-                      <li><a href="">去提问</a></li>
+                      <li><a href="/questions">去提问</a></li>
                       <li><a href="#">发头条</a></li>
                       <li><a href="#">记笔记</a></li>
                       <li><a href="#">写文章</a></li>
@@ -173,127 +183,128 @@
                   </ul>
                 </li>
               </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row nav-foot">
-        <div class="navbar-nav nav">
-          <li>
-            <a href="#" style="color:#555">全部</a>
-          </li>
+        <div class="row nav-foot">
+          <div class="navbar-nav nav">
+            <li>
+              <a href="#" style="color:#555">全部</a>
+            </li>
+          </div>
+          <ul class="nav navbar-nav nav-foot-ul">
+
+            <% if(data.tagfocuslist == null){ %>
+              <li><a href="#">node.js</a></li>
+              <li><a href="#">html5</a></li>
+              <li><a href="#">vim</a></li>
+              <li><a href="#">python</a></li>
+              <li><a href="#">mongodb</a></li>
+              <li><a href="#">css</a></li>
+              <% }else{ %>
+
+                <% data.tagfocuslist.forEach(function(data){ %>
+
+                  <li>
+                    <a href="/users/<%= data %>">
+                      <%= data %>
+                    </a>
+                  </li>
+
+                  <% }) %>
+                    <% } %>
+
+          </ul>
+
         </div>
-        <ul class="nav navbar-nav nav-foot-ul">
-
-          <% if(data.tagfocuslist == null){ %>
-            <li><a href="#">node.js</a></li>
-            <li><a href="#">html5</a></li>
-            <li><a href="#">vim</a></li>
-            <li><a href="#">python</a></li>
-            <li><a href="#">mongodb</a></li>
-            <li><a href="#">css</a></li>
-        <% }else{ %>
-
-          <% data.tagfocuslist.forEach(function(data){ %>
-
-            <li><a href="#"><%= data %></a></li>
-
-            <% }) %>
-        <% } %>
-
-        </ul>
-
       </div>
-    </div>
-</nav>
-<% } else { %>
+    </nav>
+
+    <% } else { %>
 
 
-  <nav class="navbar navbar-default hp-Header">
+      <nav class="navbar navbar-default hp-Header">
 
-    <div class="container">
-      <div class="row">
-        <div class="nav-header">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+        <div class="container">
+          <div class="row">
+            <div class="nav-header">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
             <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="false"></span> -->
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"> </span>
             <span class="icon-bar"> </span>
             <span class="icon-bar"> </span>
           </button>
-            <a class="navbar-brand" href="#" style="color:#ff6d00" id="header-font-weight">Mango问答</a>
-          </div>
-          <div class="collapse navbar-collapse" id="menu">
-            <ul class="nav navbar-nav">
-              <li class="header-font-size"><a href="#" class="q-a " id="header-font-weight">问答</a></li>
+                <a class="navbar-brand" href="#" style="color:#ff6d00" id="header-font-weight">Mango问答</a>
+              </div>
+              <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                  <li class="header-font-size"><a href="#" class="q-a " id="header-font-weight">问答</a></li>
 
-            </ul>
-             <form class="navbar-form navbar-left">
-               <div class="form-group">
-                 <input type="text" class="form-control" placeholder="Search">
-               </div>
-              <button type="button" class="btn btn-default">
+                </ul>
+                <form class="navbar-form navbar-left">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="button" class="btn btn-default">
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
               </button>
-            </form>
+                </form>
 
-            <ul class="nav navbar-right navbar-nav">
-              <li><a href="/login" class="q-a">立即登录</a></li>
-              <li><a href="/login">免费注册</a></li>
+                <ul class="nav navbar-right navbar-nav">
+                  <li><a href="/login" class="q-a">立即登录</a></li>
+                  <li><a href="/login">免费注册</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row nav-foot">
+            <div class="navbar-nav nav">
+              <li>
+                <a href="#" style="color:#555">全部</a>
+              </li>
+            </div>
+            <ul class="nav navbar-nav nav-foot-ul">
+              <li><a href="#">node.js</a></li>
+              <li><a href="#">html5</a></li>
+              <li><a href="#">vim</a></li>
+              <li><a href="#">python</a></li>
+              <li><a href="#">mongodb</a></li>
+              <li><a href="#">css</a></li>
             </ul>
           </div>
         </div>
-      </div>
-      <div class="row nav-foot">
-        <div class="navbar-nav nav">
-          <li>
-            <a href="#" style="color:#555">全部</a>
-          </li>
-        </div>
-        <ul class="nav navbar-nav nav-foot-ul">
-          <li><a href="#">node.js</a></li>
-          <li><a href="#">html5</a></li>
-          <li><a href="#">vim</a></li>
-          <li><a href="#">python</a></li>
-          <li><a href="#">mongodb</a></li>
-          <li><a href="#">css</a></li>
-        </ul>
-       </div>
-      </div>
+      </nav>
 
-  </nav>
-
-  <% } %>
+      <% } %>
 
 
-  <script type="text/javascript">
-  // var lis = document.querySelectorAll('.header-font-size');
-  var ul = document.querySelectorAll('.nav-foot-ul');
-  var dropMenu = document.querySelectorAll('.dropdown-menu-li li');
-  // console.log(dropMenu);
-  // for (var i = 0; i < 4; i++) {
-  //   (function (i) {
-  //     lis[i].onclick = function () {
-  //       $(this).find('a').addClass('q-a');
-  //       $(this).siblings().find('a').removeClass('q-a');
-  //     }
-  //   })(i)
-  // }
-  $('.img-li').hover(function(){
-     $('.head-img-infor').show();
-  },function () {
-    $('.head-img-infor').hide();
-  });
-  for (var i = 0; i < 5; i++) {
-    (function (i) {
-      dropMenu[i].addEventListener('click',function () {
+        <script type="text/javascript">
+          var ul = document.querySelectorAll('.nav-foot-ul');
+          var dropMenu = document.querySelectorAll('.dropdown-menu-li li');
 
-        var content = $(this).text();
-        $('.nav-QA span a').text(content);
-      })
-    })(i);
-  }
-  </script>
+          $('.img-li').hover(function() {
+            $('.head-img-infor').show();
+          }, function() {
+            $('.head-img-infor').hide();
+          });
+
+
+          $('.glyphicon').click(function () {
+            $('.dropdown-menu-li').show();
+          });
+          for (var i = 0; i < 5; i++) {
+            (function(i) {
+              $(dropMenu[i]).click(function() {
+                console.log('==========');
+                var content = $(this).text();
+                $('.nav-QA span a').text(content);
+                  $('.dropdown-menu-li').hide();
+              });
+            })(i);
+          }
+        </script>
 </body>
 
 </html>

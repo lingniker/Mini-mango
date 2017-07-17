@@ -159,8 +159,9 @@
 
 <body>
 	<% include ./homepage-header.ejs %>
-		<div class="container">
-			<!-- <form  method="post"> -->
+
+	<div class="container">
+
 			<div class="form-group">
 				<!-- <label for="exampleInputEmail1">Email address</label> -->
 				<input type="text" class="form-control title" require placeholder="标题:　一句话说清问题，用问号结尾">
@@ -466,17 +467,26 @@
 					});
 					// event.stopPropagation();
 				});
-			});
-			var quill = new Quill('#editor-container', {
-				modules: {
-					formula: true,
-					syntax: true,
-					toolbar: '#toolbar-container'
-				},
-				placeholder: 'Compose an epic...',
-				theme: 'snow'
-			});
-		</script>
+
+	});
+
+		var quill = new Quill('#editor-container', {
+		    modules: {
+		      formula: true,
+		      syntax: true,
+		      toolbar: '#toolbar-container'
+		    },
+		    placeholder: 'Compose an epic...',
+		    theme: 'snow'
+		  });
+
+
+
+
+
+
+	</script>
+
 </body>
 
 </html>

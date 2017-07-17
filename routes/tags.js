@@ -28,6 +28,7 @@ router.get(/^\/$/, function(req, res, next) {
         });
       };
       // 查询用户所关注的标签
+
       if(req.session.name !== undefined){
         users.find({nick:req.session.name},function(err,data1){
           if(err){

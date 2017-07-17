@@ -15,10 +15,17 @@ router.get(/^\/[a-zA-Z|0-9]{10,24}?$/, function(req, res, next) {
   //通过问题的id找到集合
     var username = req.session.name;
     answers.find({issuesid:data._id},function(err,result){
-      res.render("answers",{username:username,info:data,info2:result});
-    })
-
-  })
+      users.findOne({
+        nick:req.session.name // ======== ? 登录状态下的用户名
+      },function(err,top_data){
+        // console.log(data);
+        if(typeof(req.session.name) == 'undefined'){
+          req.session.name = null;
+        }
+      res.render("answers",{username:username,info:data,info2:result,top_data:top_data,name:req.session.name});
+    });
+  });
+});
 });
 router.post("/",function(req,res,next){
   console.log("*********",req.body);

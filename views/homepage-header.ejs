@@ -117,7 +117,7 @@
             <span class="icon-bar"> </span>
             <span class="icon-bar"> </span>
           </button>
-              <a class="navbar-brand" href="#" style="color:#ff6d00" id="header-font-weight">Mango问答</a>
+              <a class="navbar-brand" href="/" style="color:#ff6d00" id="header-font-weight">Mango问答</a>
             </div>
             <div class="collapse navbar-collapse" id="menu">
               <ul class="nav navbar-nav">
@@ -173,7 +173,7 @@
             </li>
           </div>
           <ul class="nav navbar-nav nav-foot-ul">
-            <% if(data.tagfocuslist == null){ %>
+            <% if(top_data.tagfocuslist == null){ %>
               <li><a href="#">node.js</a></li>
               <li><a href="#">html5</a></li>
               <li><a href="#">vim</a></li>
@@ -181,7 +181,7 @@
               <li><a href="#">mongodb</a></li>
               <li><a href="#">css</a></li>
               <% }else{ %>
-                <% data.tagfocuslist.forEach(function(data){ %>
+                <% top_data.tagfocuslist.forEach(function(data){ %>
                   <li>
                     <a href="/users/<%= data %>">
                       <%= data %>

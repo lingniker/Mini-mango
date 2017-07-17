@@ -455,11 +455,12 @@
 
 			// 判断 标题 输入框 以及标签内容不能为空
 
-			if ((title == "") || (ooo == "") || (taggg == "")){
+			if ((title === "") || (ooo === "") || (taggg === "")){
 
 				alert("所有输入框的内容均不能为空!!!");
 
-			}else {
+
+			}else{
 
 				var con = {
 					title: title,
@@ -467,9 +468,13 @@
 					content: ooo,
 					ctime: times
 				};
+			}
+
+
 
 				// console.log(con);
 
+<<<<<<< HEAD
 				// $("#header-font-weight").click();
 				$.ajax({
 					url: "/questions",

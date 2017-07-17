@@ -104,13 +104,13 @@ router.get("/#", function(req, res, next) {//最新回答
     }else{
       users.findOne({
         nick:req.session.name // ======== ? 登录状态下的用户名
-      },function(err,data){
+      },function(err,top_data){
         // console.log(data);
         if(typeof(req.session.name) == 'undefined'){
           req.session.name = null;
         }
 
-      res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que, data_use:datas, data:data, name:req.session.name})
+      res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
 
     });
   }
@@ -159,16 +159,17 @@ router.get(/\/a([0-9]{1,2})/, function(req, res, next) {
         }else{
           users.findOne({
             nick:req.session.name // ======== ? 登录状态下的用户名
-          },function(err,data){
+          },function(err,top_data){
             // console.log(data);
             if(typeof(req.session.name) == 'undefined'){
               req.session.name = null;
             }
 
-          res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que, data_use:datas, data:data, name:req.session.name})
+          res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
 
         });
         }
+
 
       });
     }
@@ -214,13 +215,13 @@ router.get(/\/b([0-9]{1,2})/, function(req, res, next) {
         }else{
           users.findOne({
             nick:req.session.name // ======== ? 登录状态下的用户名
-          },function(err,data){
+          },function(err,top_data){
             // console.log(data);
             if(typeof(req.session.name) == 'undefined'){
               req.session.name = null;
             }
 
-          res.render('index',{active0:"",active1:"active",active2:"",active3:"",page:"b",data_que:data_que, data_use:datas, top_data:data, name:req.session.name});
+          res.render('index',{active0:"",active1:"active",active2:"",active3:"",page:"b",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name});
 
 
         });
@@ -268,12 +269,12 @@ router.get(/\/c([0-9]{1,2})/, function(req, res, next) {
         }else{
           users.findOne({
             nick:req.session.name // ======== ? 登录状态下的用户名
-          },function(err,data){
+          },function(err,top_data){
             // console.log(data);
             if(typeof(req.session.name) == 'undefined'){
               req.session.name = null;
             }
-            res.render('index',{active0:"",active1:"",active2:"active",active3:"",page:"c",data_que:data_que, data_use:datas, data:data, name:req.session.name})
+            res.render('index',{active0:"",active1:"",active2:"active",active3:"",page:"c",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
 
 
         });

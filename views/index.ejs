@@ -190,7 +190,7 @@
 </style>
 
 <body>
-  <% include homepage-header.ejs %>
+  <% include homepage-header %>
     <div class="container">
       <div class="index_all">
         <div class="row">
@@ -228,13 +228,13 @@
                       </div>
                     </div>
                     <div class="index_summary">
-                      <div class="index_summary_author">
+                      <div class="index_summary_author ltimes">
                         <a id="index_col" href="/users?user=<%= data.puber %>&info=info">
                           <%= data.puber %>
                         </a>
                         <span></span>
-                        <a id="index_col" herf="#">
-                          <%= data.ltime %>
+                        <a id="index_col" class="ltimes1" herf="#">
+
                         </a>
                       </div>
                       <div>
@@ -273,7 +273,7 @@
                 <% data_use.forEach(function(data){ %>
                   <li>
                     <div class="index_touxiang"><img src="/images/user-256.png" alt=""></div>
-                    <a href="#">
+                    <a href="/users?user=<%= data.nick %>&info=info">
                       <%= data.nick %>
                     </a>
                     <span><add>+</add><%= data.likes %></span>
@@ -309,7 +309,23 @@
     <% include homepage-footer.ejs %>
 
       <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+      <script src="/js/time.js" charset="utf-8"></script>
       <script type="text/javascript">
+        var timess = [];
+        <% data_que.forEach(function(data){ %>
+          var times1 = <%= data.ltime %>;
+          timess.push(times1);
+        <% }); %>
+        var lens = $(".ltimes .ltimes1").length;
+        for(var i = 0;i < lens;i++ ){
+          (function(i){
+            setInterval(function(){
+              var times2 = timer(timess[i]);
+              $(".ltimes1").eq(i).text(times2 + "提问");
+            });
+          })(i);
+        }
+
         // var img = document.getElementById("lunbo");
         // setInterval(function dong() {
         //   if (img.style.left == "0px") {
@@ -332,6 +348,21 @@
         //   })(i)
         //
         // }
+
+
+        var img = document.getElementById("lunbo");
+        setInterval(function dong() {
+          if (img.style.left == "0px") {
+            img.style.left = '-257px';
+
+
+          } else {
+            img.style.left = '0px';
+
+          }
+        }, 1000);
+
+
       </script>
 
 </body>

@@ -30,7 +30,7 @@ router.post("/", function(req, res, next){
     q.content = data.content;
     q.ctime = data.ctime;
     q.puber = [req.session.name];
-    q.ltime = parseInt(new Date().getTime()/1000);
+    q.ltime = parseInt(new Date().getTime());
 
 
 
@@ -39,12 +39,14 @@ router.post("/", function(req, res, next){
        if (err) {
          console.log(err);
        } else {
-        //  return res.redirect("/");
+         return res.redirect("/");
          console.log(doc);
 
        }
 
     });
+
+    // return res.redirect("/");
 
 
 });

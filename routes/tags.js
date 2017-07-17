@@ -13,8 +13,8 @@ router.get(/^\/$/, function(req, res, next) {
     if(err){
       console.log(err);
     }else{
-      console.log(doc);
-      console.log(doc[0].tags);
+      // console.log(doc);
+      // console.log(doc[0].tags);
       // console.log((doc[0].tags)[0]);
 
       // 查询各板块下对应的标签
@@ -45,7 +45,7 @@ router.get(/^\/$/, function(req, res, next) {
         }
       });
       setTimeout(function(){
-        console.log("asd:",asd);
+        // console.log("asd:",asd);
         if(asd.length !== 0){
           // console.log("====",asd);
           users.findOne({
@@ -58,7 +58,7 @@ router.get(/^\/$/, function(req, res, next) {
           return res.render("tags",{info:doc,biaoqian:asd,biaoqian2:asd2,top_data:top_data, name:req.session.name});
         });
         }
-      },100);
+      },10);
     }
   });
 });

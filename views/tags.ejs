@@ -44,7 +44,7 @@
       .tag-li {
         height: 25px;
         margin: 5px;
-        padding: 0px 8px;
+
         border: 1px solid gray;
         border-radius: 4px;
         /*text-align: center;*/
@@ -107,11 +107,26 @@
       left:0px;
       top:0px;
     }*/
+    #tag-li .tagli-a{
+      text-decoration: none;
+      color: #00ae9d;
+      display: inline-block;
+      width: 100%;
+      height:100%;
+        padding: 0px 8px;
+    }
+    #tag-li .tagli-a:hover{
+      background-color: #00ae9d;
+      color:#fff;
+    }
+    /*#tag-li:hover{
+      background-color: #00ae9d;
+    }*/
   </style>
 </head>
 
 <body>
-  <!-- < include ./homepage-header > -->
+  <% include ./homepage-header %>
   <div class="container">
     <div class="tagshead">
       <h1>标签</h1>
@@ -184,7 +199,7 @@
     $(".tagli-a").mouseout(function() {
        timer = setTimeout(function() {
         $(".tagli-div").css("display","none");
-      }, 2000);
+      }, 1500);
     }).mouseenter(function() {
       $(this).siblings(".tagli-div").css("display","block");
       $(".tagli-div").mouseover(function(){

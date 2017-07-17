@@ -215,8 +215,6 @@
 
 
   <% include ./homepage-header.ejs %>
-
-
   <div class="container all">
 
     <div class="wd-head">
@@ -244,7 +242,7 @@
               <a href="#" class="tag">html</a> -->
             </div>
             <div class="wd-user">
-              <a href="#" class="user"><%= info.puber[1] %></a>
+              <a href="#" class="user"><%= info.puber[0] %></a>
               <span>0</span>提问
             </div>
           </div>
@@ -284,14 +282,14 @@
               <li><div class="ans"><%= info2.ansuser[1] %></div><%= info2.content %><button class="caina btn btn-danger">采纳</button>
                 <br><br>
                 <span class="ansuser"></span>
-                <i class="tiwen">提问</i>
+                <i class="tiwen">回答</i>
               </li>
             <% }) %>
 
           </ul>
           <h3>撰写答案：</h3>
           <textarea class="contents" placeholder="撰写答案..." ></textarea>
-          <button class="btn" type="submit">提交答案</button>
+          <button class="btn1" type="submit">提交答案</button>
         </div>
       </div>
     </div>
@@ -317,6 +315,7 @@
     });
 //关注
     $(".guanzhu1").click(function(){
+      <% if(name) { %>
       var str = $(this).text();
       if(str == "关注"){
         $(".guanzhu1").text("已关注");
@@ -328,9 +327,13 @@
         guanzhu -= 1;
       }
       $(".guanzhu2").text(guanzhu);
+      <% }else { %>
+        alert("请先登录！");
+        <% } %>
     });
 //收藏
     $(".shoucang").click(function(){
+        <% if(name) { %>
       var strs = $(this).text();
       if(strs == "收藏"){
         $(this).text("已收藏");
@@ -342,6 +345,9 @@
         shoucang -= 1;
       }
       $(".shoucang1").text(shoucang);
+      <% }else { %>
+        alert("请先登录！");
+        <% } %>
     })
 //点赞加减
     $(".zan-top").click(function(){
@@ -361,8 +367,11 @@
 
 //提交回答
     var lis;
-    $(".btn").click(function(){
-      $(".answer-content li .caina").off("click",handler);
+    var huidas = "<%= huidas %>";
+    var pusers = "<%= info.puber[0] %>";
+    var names1 = "<%= name %>";
+    $(".btn1").click(function(){
+      <% if(name) { %>
       var datas = $(".contents").val();
       if(datas) {
         var ids = "<%= info._id %>";
@@ -372,6 +381,7 @@
           issuesid:ids,
           user:username,
           content:datas,
+          huidas:huidas,
           ctime:parseInt(new Date().getTime())
         }
         $.ajax({
@@ -385,7 +395,23 @@
           $(".answer-content li:last").append($("<button>").text("采纳").addClass("caina btn btn-danger"));
           $(".answer-content li:last").append($("<br><br>$nbsp;"));
           $(".answer-content li:last").append($("<span>").addClass("ansuser"));
-          $(".answer-content li:last").append($("<i>").text("提问").addClass("tiwen"));
+          $(".answer-content li:last").append($("<i>").text("回答").addClass("tiwen"));
+  //采纳
+          if(names1 == pusers) {
+
+            $(".answer-content li .caina:last").click(function(){
+              var strs = $(this).text();
+              console.log("lilili =====",strs);
+              if(strs == "采纳"){
+                $(this).text("已采纳");
+              }else {
+                $(this).text("采纳");
+              }
+            });
+           }
+
+
+
           var ctime1 = data.ctime;
           var ctime2;
           setInterval(function(){
@@ -397,20 +423,29 @@
         });
         /****************************************************/
         $(".contents").val("");
-        function handler(){
-          var strs = $(this).text();
-          console.log(strs);
-          if(strs == "采纳"){
-            $(this).text("已采纳");
-          }else {
-            $(this).text("采纳");
-          }
-        }
-        $(".answer-content li .caina").on("click",handler);
       }else {
         alert("内容不能为空，请输入内容！");
       }
-    });
+    if(names1 == pusers) {
+      var lens = $(".answer-content li .caina").length;
+      for(var i = 0;i < lens;i++){
+        (function(i){
+          $(".answer-content li .caina").eq(i).click(function(){
+            var strs = $(this).text();
+            console.log("lilili =====",strs);
+            if(strs == "采纳"){
+              $(this).text("已采纳");
+            }else {
+              $(this).text("采纳");
+            }
+          })
+        })(i);
+      };
+    }
+    <% }else { %>
+      alert("请登录后再回答！");
+    <% }; %>
+  })
 //时间
 
     var anstimes = [];
@@ -418,6 +453,7 @@
     anstimes.push(<%= times.ctime %>);
     <% }); %>
     var sss = <%= info.ctime %>;
+    console.log(anstimes);
 
     // var sss = <= info.ctime >
 

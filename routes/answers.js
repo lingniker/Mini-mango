@@ -22,7 +22,7 @@ router.get(/^\/[a-zA-Z|0-9]{10,24}?$/, function(req, res, next) {
         if(typeof(req.session.name) == 'undefined'){
           req.session.name = null;
         }
-      res.render("answers",{username:username,info:data,info2:result,top_data:top_data,name:req.session.name});
+      res.render("answers",{username:username,info:data,info2:result,top_data:top_data,name:req.session.name,huidas:result.length});
     });
   });
 });
@@ -34,10 +34,17 @@ router.post("/",function(req,res,next){
   m.ansuser = [req.session.id,req.body.user];
   m.issuesid = req.body.issuesid;
   m.ctime = req.body.ctime;
+
   m.save(function(err,data){
     console.log(data);
     res.json(data);
   });
+  // var n = new questions;
+  // n.answers = req.body.huidas + 1;
+  // console.log(typeof("ssdfassssss+++++",req.body.huidas));
+  // n.save(function(err,data){
+  //   console.log(data);
+  // })
 });
 
 

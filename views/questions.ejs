@@ -413,15 +413,9 @@
 						}
 
 					});
-
-
-
 				}
-
 			});
 		};
-
-
    // 点击标签框隐藏
 		$(document).click(function(){
       $("#lang").hide();
@@ -470,8 +464,6 @@
 				};
 			}
 
-
-
 				// console.log(con);
 
 				// $("#header-font-weight").click();
@@ -482,30 +474,14 @@
 					dataType: 'json',
 					traditional: true
 				}).then(function(data, textStatus, jqXHR){
-
-
 					alert("提问成功");
-
-
 				}, function(jqXHR, textStatus, errorThrown ){
-
 					console.log(textStatus);
 					alert("提问成功");
-
-
-
 				});
-			}
+			});
 
 			// event.stopPropagation();
-
-		});
-
-
-
-
-
-	});
 
 		var quill = new Quill('#editor-container', {
 		    modules: {
@@ -515,8 +491,9 @@
 		    },
 		    placeholder: 'Compose an epic...',
 		    theme: 'snow'
-		  });
+		 });
 
+	 });
 
 
 

@@ -29,6 +29,7 @@ router.get("/", function(req, res, next) {
 
 
 
+
 // router.get('/:name/:info',function(req,res,next){
 //   console.log("-----------------");
 //   console.log(req.params.name);

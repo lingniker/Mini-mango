@@ -48,7 +48,15 @@ router.get(/^\/$/, function(req, res, next) {
         console.log("asd:",asd);
         if(asd.length !== 0){
           // console.log("====",asd);
-          return res.render("tags",{info:doc,biaoqian:asd,biaoqian2:asd2});
+          users.findOne({
+            nick:req.session.name // ======== ? 登录状态下的用户名
+          },function(err,top_data){
+            // console.log(data);
+            if(typeof(req.session.name) == 'undefined'){
+              req.session.name = null;
+            }
+          return res.render("tags",{info:doc,biaoqian:asd,biaoqian2:asd2,top_data:top_data, name:req.session.name});
+        });
         }
       },100);
     }

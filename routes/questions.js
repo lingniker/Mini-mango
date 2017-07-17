@@ -30,7 +30,7 @@ router.post("/", function(req, res, next){
     q.content = data.content;
     q.ctime = data.ctime;
     q.puber = [req.session.name];
-    q.ltime = parseInt(new Date().getTime()/1000);
+    q.ltime = parseInt(new Date().getTime());
 
 
 

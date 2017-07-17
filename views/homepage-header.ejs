@@ -153,8 +153,9 @@
                   <a href="/users?user=<%= name %>&info=info" class="head-img"><img src="/images/user-256.png" alt=""></a>
                   <ul class="nav-after-signin head-img-infor" style="list-style:none">
                     <li><a href="/users?user=<%= name %>&info=info">我的主页</a></li>
-                    <li><a href="/users?user=<%= name %>&info=info">我的档案</a></li>
-                    <li><a href="/users?user=<%= name %>&info=info">我的资产</a></li>
+
+                    <li><a href="#">我的档案</a></li>
+                    <li><a href="#">我的资产</a></li>
                     <li><a href="#">账号设置</a></li>
                     <li><a href="/logout">退出</a></li>
                     <li><a href="/">返回主页</a></li>
@@ -267,13 +268,14 @@
           for (var i = 0; i < 5; i++) {
             (function(i) {
               $(dropMenu[i]).click(function() {
-                console.log('==========');
                 var content = $(this).text();
                 $('.nav-QA span a').text(content);
                   $('.dropdown-menu-li').hide();
               });
             })(i);
           }
+
+
         </script>
 </body>
 

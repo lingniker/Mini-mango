@@ -15,28 +15,23 @@
     height: 2500px;
     position: relative;
   }
-
   .clearfix::before,
   .clearfix::after {
     content: "";
     height: 0px;
     clear: both;
-
     display: block;
     visibility: hidden;
   }
-
   .index_question {
     margin-left: -40px;
   }
-
   .index_question li {
     border-bottom: 1px solid #eee;
     padding: 10px 0;
     margin: 0;
     list-style: none;
   }
-
   .index_rank {
     float: left;
     margin-right: 5px;
@@ -45,7 +40,6 @@
     line-height: 1.2;
     color: #666;
   }
-
   .index_votes,
   .index_answer,
   .index_brows {
@@ -57,60 +51,49 @@
     margin: 10px;
     font-size: 14px;
   }
-
   .smail {
     display: block;
     font-size: 12px;
   }
-
   .index_answer {
     background: #E65100;
     color: #fff;
   }
-
   .index_summery {
     overflow: auto;
     overflow-x: hidden;
   }
-
   .index_summery_author {
     /*margin-bottom: 10px;*/
     margin-left: -5px;
     margin-bottom: 10px;
   }
-
   .index_summery_author a {
     font-size: 13px;
     color: #ff6d00;
   }
-
   span {
     width: 10px;
   }
-
   .index_summary_contain {
     vertical-align: bottom;
     line-height: 30px;
     width: auto;
     height: 24px;
     overflow: hidden;
-
     display: inline-block;
   }
-
   .index_summary_contain a {
     color: #666;
     font-weight: bold;
     font-size: 15px;
   }
-
   .index_summary_tag {
     list-style: none;
     padding-left: 2px;
     font-size: 0;
     display: inline-block;
   }
-
   .index_tag {
     padding: 0 6px;
     height: 20px;
@@ -123,20 +106,16 @@
     font-weight: normal;
     text-align: center;
   }
-
   .index_widget {
     margin: 0 0 25px 0;
     padding-top: 25px;
     border-top: 2px solid #eee;
   }
-
   .index_widget_title {
-
     /*color: #ff6d00;*/
     margin: 0 0 10px;
     font-size: 16px;
   }
-
   .index_span {
     width: 260px!important;
     text-align: center;
@@ -144,40 +123,33 @@
     font-size: 15px;
     display: block;
   }
-
   .index_user {
     padding-left: 30px;
     margin-top: 0px;
     margin-bottom: 10px;
     height: 334px;
   }
-
   .index_user li {
     color: #999;
     margin-bottom: 6px;
   }
-
   .index_user li .index_touxiang {
     display: inline;
   }
-
   .index_touxiang img {
     border-radius: 50%;
     margin-right: 10px;
     width: 24px!important;
     height: 24px!important;
   }
-
   .index_user li a {
     width: auto;
     margin-left: 20px;
     max-width: 50%;
     display: inline-block;
     vertical-align: middle;
-
     color: #ff6d00;
   }
-
   .index_user li span {
     float: right !important;
     color: #ff6d00;
@@ -186,7 +158,6 @@
     height: 22px;
     width: 22px;
   }
-
   .index_image {
     margin-left: 10px;
     height: 334px;
@@ -194,7 +165,6 @@
     overflow: hidden;
     position: relative;
   }
-
   .index_image img {
     display: block;
     height: 334px;
@@ -203,21 +173,17 @@
     left: 0;
     top: 0;
   }
-
   .index_css li a {
     color: #ff6d00;
     font-size: 18px;
   }
-
   #index_col {
     color: #999;
   }
-
   .index_contain {
     position: relative;
     height: 900px;
   }
-
   .index_all {
     margin-top: 20px;
   }
@@ -241,8 +207,6 @@
 
                 <% data_que.forEach(function(data){ %>
                   <li>
-
-
                     <div class="index_rank">
                       <div class="index_votes">
                         <div class="index_votesnum">
@@ -265,7 +229,7 @@
                     </div>
                     <div class="index_summary">
                       <div class="index_summary_author">
-                        <a id="index_col" href="/users/<%= data_que.puber %>">
+                        <a id="index_col" href="/users?user=<%= data.puber %>&info=info">
                           <%= data.puber %>
                         </a>
                         <span></span>
@@ -275,7 +239,7 @@
                       </div>
                       <div>
                         <div class="index_summary_contain">
-                          <a href="/answers/<%= data_que._id %>">
+                          <a href="/answers/<%= data._id %>">
                             <%= data.title %>
                           </a>
                         </div>
@@ -288,9 +252,7 @@
                           <% }); %>
                       </div>
                     </div>
-
                   </li>
-
                   <% }); %>
               </ul>
             </div>
@@ -348,16 +310,16 @@
 
       <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
       <script type="text/javascript">
-        var img = document.getElementById("lunbo");
-        setInterval(function dong() {
-          if (img.style.left == "0px") {
-            img.style.left = '-257px';
-            console.log(img.style.left);
-          } else {
-            img.style.left = '0px';
-            console.log(img.style.left);
-          }
-        }, 1000);
+        // var img = document.getElementById("lunbo");
+        // setInterval(function dong() {
+        //   if (img.style.left == "0px") {
+        //     img.style.left = '-257px';
+        //     console.log(img.style.left);
+        //   } else {
+        //     img.style.left = '0px';
+        //     console.log(img.style.left);
+        //   }
+        // }, 1000);
         // var allanswer = document.getElementsByClassName('allanswer');
         // for(var i = 0; i < 4; i ++){
         //   (function(i){

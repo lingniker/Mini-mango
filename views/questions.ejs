@@ -144,8 +144,9 @@
 	</style>
 </head>
 <body>
+	<% include ./homepage-header.ejs %>
 	<div class="container">
-		<form action="/" method="post">
+		<form  method="post">
 			<div class="form-group">
 				<!-- <label for="exampleInputEmail1">Email address</label> -->
 				<input type="text" class="form-control title" require placeholder="标题:　一句话说清问题，用问号结尾">
@@ -469,19 +470,24 @@
 
 		// console.log(con);
 
+		$("#header-font-weight").click();
 		 $.ajax({
 			 url: "/questions",
 			 data: con,
 			 type: "post",
+			 dataType: 'json',
 			 traditional: true
 		 }).then(function(data, textStatus, jqXHR){
 
-			  // console.log(data);
-			 console.log("success");
+
+			 alert("提问成功");
+
 
 		 }, function(jqXHR, textStatus, errorThrown ){
 
 				 console.log(textStatus);
+				 alert("提问成功");
+
 
 		 });
 

@@ -12,13 +12,13 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
+     }
     ul{
       list-style-type: none;
-    }
+     }
     a{
       color: #D7D50D;
-    }
+     }
 
       div{
         /*border: 1px solid gray;*/
@@ -99,6 +99,7 @@
       margin: 10px 0px;
       text-align: center;
       line-height:200px;
+      border: 1px solid lightgray;
     }
     .jianjie-connet{
       height: 180px;
@@ -145,6 +146,20 @@
        text-align: center;
        color: gray;
     }
+    .shengwang{
+      margin-left: 10px;
+      display:inline-block;
+    }
+    .info-guanzhu{
+      display: inline-block;
+      height: 10px;
+      border: none;
+      margin-top: 20px;
+      padding-top: 20px;
+    }
+    .info-div-btu{
+      /*height: 30px;*/
+    }
 
     </style>
   </head>
@@ -153,11 +168,11 @@
     <div class="container user-top">
       <div class="row">
         <div class="col-md-2 col-sm-3 col-xs-3">
-          <img src="../public/images/user-256.png" alt="" width="100%" />
+          <img src="images/user-256.png" alt="" width="100%" />
         </div>
         <div class="col-md-5 col-sm-9 col-xs-9">
           <h2 class="user-name">
-            lingniker
+            <%= mydata.nick %>
             <a class="ml15">查看完整文档</a>
           </h2>
           <div class="profile__heading--award">
@@ -167,10 +182,10 @@
             </a>
               <div class="profile__heading--award-badge">
                 <ul class="info-xinxi">
-                  <li><span><i class="fa fa-map-marker"></i></span><button type="button" name="button"><%= data.info.address %></button></li>
-                  <li><span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><button type="button" name="button"><%= data.info.school %></button></li>
-                  <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span><button type="button" name="button"><%= data.info.wherecompany %></button></li>
-                  <li><span><i class="fa fa-link"></i></span><button type="button" name="button"><%= data.info.personalurl %></button></li>
+                  <li><span><i class="fa fa-map-marker"></i></span><button type="button" name="button"><%= mydata.info.address %></button></li>
+                  <li><span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><button type="button" name="button"><%= mydata.info.school %></button></li>
+                  <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span><button type="button" name="button"><%= mydata.info.wherecompany %></button></li>
+                  <li><span><i class="fa fa-link"></i></span><button type="button" name="button"><%= mydata.info.personalurl %></button></li>
                 </ul>
             </div>
           </div>
@@ -195,25 +210,24 @@
 <div class="container">
   <div class="row">
     <div class="info-left col-lg-2 col-md-2 hidden-sm hidden-xs ">
-      <!-- <ul>
-        <li><a>我的主页<span>1</span></a></li>
-        <li><a>关注了<span>3人</span></a></li>
-        <li><a>粉丝<span>1人</span></a></li>
-        <li><a>我的回答<span>1</span></a></li>
-        <li><a>我的提问<span>1</span></a></li>
-        <li><a>我的收藏夹<span>1</span></a></li>
-        <li><a>我的关注<span>1</span></a></li>
-        <li><a>浏览记录<span>1</span></a></li>
-      </ul> -->
       <ul>
-        <li><a>他的主页<span>1</span></a></li>
-        <li><a>关注了<span>3人</span></a></li>
-        <li><a>粉丝<span>1人</span></a></li>
-        <li><a>他的回答<span>1</span></a></li>
-        <li><a>他的提问<span>1</span></a></li>
-        <li><a>他的收藏夹<span>1</span></a></li>
-        <li><a>他的关注<span>1</span></a></li>
-        <li><a>浏览记录<span>1</span></a></li>
+      <% if(page == "m1y"){ %>
+        <li><a href="/users?user=<%= mydata.nick %>&info=info">我的主页<span>1</span></a></li>
+        <li><a href="users?user=<%= mydata.nick %>&info=focuslist">关注了列表<span>3人</span></a></li>
+        <li><a href="users?user=<%= mydata.nick %>&info=foucus">粉丝<span>1人</span></a></li>
+        <li><a href="users?user=<%= mydata.nick %>&info=foucus">我的回答<span>1</span></a></li>
+        <li><a href="users?user=<%= mydata.nick %>&info=puber">我的提问<span>1</span></a></li>
+        <li><a href="users?user=<%= mydata.nick %>&info=foucus">我的收藏夹<span>1</span></a></li>
+        <li><a href="users?user=<%= mydata.nick %>&info=issuesr">我的关注<span>1</span></a></li>
+        <% }else{ %>
+          <li><a href="/users?user=<%= mydata.nick %>&info=info">他的主页<span>1</span></a></li>
+          <li><a href="users?user=<%= mydata.nick %>&info=focuslist">关注了<span>3人</span></a></li>
+          <li><a href="users?user=<%= mydata.nick %>&info=foucus">粉丝<span>1人</span></a></li>
+          <li><a href="users?user=<%= mydata.nick %>&info=foucus">他的回答<span>1</span></a></li>
+          <li><a href="users?user=<%= mydata.nick %>&info=puber">他的提问<span>1</span></a></li>
+          <li><a href="users?user=<%= mydata.nick %>&info=foucus">他的收藏夹<span>1</span></a></li>
+          <li><a href="users?user=<%= mydata.nick %>&info=issuesr">他的关注<span>1</span></a></li>
+        <% } %>
       </ul>
     </div>
     <div class="info-left info-left1 hidden-lg hidden-md col-sm-12 col-xs-12">
@@ -227,6 +241,7 @@
     </div>
     <div class=" col-lg-10 col-md-10 col-sm-12 col-sx-12">
 
+        <% if(info === "info"){ %>
       <div class="info-md-left col-lg-8 col-md-8 col-sm-12 col-sx-12">
         <div class="info-md-top">
           我是一个很帅的人
@@ -245,53 +260,49 @@
       </div>
 
 
-
-      <!-- <div class="info-top-ask">
-        <div class="info-top-ask1">
-          回答
-        </div>
-        <ul class="info-top-ask2">
-          <li>
-            <div class="row">
-              <span class="col-md-1">0 票</span>
-              <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
-              <span class="col-md-2">2017.7.15</span>
-            </div>
-            </li>
-            <li>
-              <div class="row">
-                <span class="col-md-1">0 票</span>
-                <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
-                <span class="col-md-2">2017.7.15</span>
-              </div>
+      <% }else if(info === "focuslist"){ %>
+        <div class="info-top-ask">
+          <div class="info-top-ask1">
+            关注人
+          </div>
+          <!-- <ul class="info-top-ask2">
+            < mydata.focuslist.forEach(data){ >
+              <li>
+                <div class="row">
+                  <span class="col-md-4"> <a href="/users?user=<= data >&info=info">ghdfhdfh</a>
+                    <span class="shengwang"> 0声望</span></span>
+                  <a class="info-ask col-md-6"></a>
+                  <span class="col-md-2">关注数0人 <button>关注</button></span>
+                </div>
               </li>
-        </ul>
+            < } >
 
-      </div> -->
-
-
-      <!-- <div class="info-top-ask">
-        <div class="info-top-ask1">
-          关注人
+          </ul> -->
         </div>
-        <ul class="info-top-ask2">
-          <li>
-            <div class="row">
-              <span class="col-md-1">0 票</span>
-              <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
-              <span class="col-md-2">2017.7.15</span>
+        <% }else if(info === "puber"){ %>
+          <div class="info-top-ask">
+            <div class="info-top-ask1">
+              回答
             </div>
-            </li>
-            <li>
-              <div class="row">
-                <span class="col-md-1">0 票</span>
-                <a class="info-ask col-md-9">我的回答就是谁都不懂</a>
-                <span class="col-md-2">2017.7.15</span>
-              </div>
-              </li>
-        </ul>
+            <!-- <ul class="info-top-ask2">
+              < mydata.forEach(data){ >
 
-      </div> -->
+              <li>
+                <div class="row">
+                  <span class="col-md-1">0 票</span>
+                  <a class="info-ask col-md-9" href="/question/<= mydata._id >" ><= mydata.title ></a>
+                  <span class="col-md-2"><= mydata.ltime ></span>
+                </div>
+              </li>
+
+              < } >
+            </ul> -->
+          </div>
+        <% } %>
+
+
+
+
 
 
 
@@ -302,7 +313,7 @@
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
 <script type="text/javascript">
-  function(){};
+
 </script>
 
   </body>

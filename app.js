@@ -38,6 +38,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session({
   resave:true,
   saveUninitialized:false,
@@ -54,7 +55,6 @@ app.use('/users', users);
 app.use("/questions",questions);
 app.use("/answers",answers);
 app.use("/tags",tags);
-
 app.use("/login",login);
 app.use("/logout",logout);
 app.use("/register",register);

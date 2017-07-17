@@ -5,30 +5,47 @@ var questions = require('../db/questions');
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {
-  var str = req.query.user;
-  console.log(str);
-  console.log(req.query.info);
-  if(true){
-    if(req.query.info === "info"){
-      users.findOne({"nick":str},["info","nick","focuselist"],function(err,mydata){   //查找一个
-        res.render("info",{mydata:mydata,page:"my",info:"info"});
-      });
-    }else  if(req.query.info === "focuslist"){
-    users.findOne({"nick":str},["info","nick","focuslist"],function(err,mydata){   //查找一个
-      res.render("info",{mydata:mydata,page:"my",info:"focuslist"});
-    });
-  }else if(req.query.info === "puber"){
-    users.findOne({"nick":str},["info","nick","focuslist"],function(err,mydata){
-    questions.find({puber:[req.query.user]},function(err,qdata){
-      res.render("info",{mydata:mydata,page:"my",info:"puber"});
-    });
-  });
-  }
- }
+    var str = req.query.user;
+    console.log(str);
+    console.log(req.query.info);
+    if (true) {
+        if (req.query.info === "info") {
+            users.findOne({
+                "nick": str
+            }, ["info", "nick", "focuselist"], function(err, mydata) { //查找一个
+                res.render("info", {
+                    mydata: mydata,
+                    page: "my",
+                    info: "info"
+                });
+            });
+        } else if (req.query.info === "focuslist") {
+            users.findOne({
+                "nick": str
+            }, ["info", "nick", "focuslist"], function(err, mydata) { //查找一个
+                res.render("info", {
+                    mydata: mydata,
+                    page: "my",
+                    info: "focuslist"
+                });
+            });
+        } else if (req.query.info === "puber") {
+            users.findOne({
+                "nick": str
+            }, ["info", "nick", "focuslist"], function(err, mydata) {
+                questions.find({
+                    puber: [req.query.user]
+                }, function(err, qdata) {
+                    res.render("info", {
+                        mydata: mydata,
+                        page: "my",
+                        info: "puber"
+                    });
+                });
+            });
+        }
+    }
 });
-
-
-
 
 // router.get('/:name/:info',function(req,res,next){
 //   console.log("-----------------");

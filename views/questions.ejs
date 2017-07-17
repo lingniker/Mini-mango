@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -7,8 +8,8 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/htmleaf-demo.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/monokai-sublime.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/monokai-sublime.min.css" />
 	<link href="/css/themes/quill.snow.css" rel="stylesheet">
 
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -19,139 +20,153 @@
 
 	<style type="text/css">
 		#editor-container {
-		  height: 500px;
+			height: 500px;
 		}
+
 		body {
-      background: #f3f3f3;
-    }
+			background: #f3f3f3;
+		}
 
-    ul {
-      list-style: none;
-    }
+		ul {
+			list-style: none;
+		}
 
-    .clearfix::after,
-    .clearfix::before {
-      content: "";
-      line-height: 0;
-      clear: both;
-      display: block;
-      visibility: hidden;
-    }
+		.clearfix::after,
+		.clearfix::before {
+			content: "";
+			line-height: 0;
+			clear: both;
+			display: block;
+			visibility: hidden;
+		}
 
-    #tag {
-      width: 100%;
-      height: 45px;
-      border: 1px solid lightgray;
-      background: #fff;
-    }
+		#tag {
+			width: 100%;
+			height: 45px;
+			border: 1px solid lightgray;
+			background: #fff;
+		}
 
-    #tag input {
-      width: 60%;
-      height: 100%;
-      border: none;
-      outline: none;
-      padding-left: 10px;
+		#tag input {
+			width: 60%;
+			height: 100%;
+			border: none;
+			outline: none;
+			padding-left: 10px;
 			line-height: 45px;
-    }
+		}
 
-    #tag span {
-      margin-left: 10px;
-      line-height: 45px;
-      background: rgba(91, 232, 228, 0.3);
-    }
+		#tag span {
+			margin-left: 10px;
+			line-height: 45px;
+			background: rgba(91, 232, 228, 0.3);
+		}
 
-    #lang {
-      width: 300px;
-      /*height: 250px;*/
-      border: 1px solid lightgray;
-      margin-top: 1px;
-      display: none;
-      position: fixed;
-      padding: 0 7px;
+		#lang {
+			width: 300px;
+			/*height: 250px;*/
+			border: 1px solid lightgray;
+			margin-top: 1px;
+			display: none;
+			position: fixed;
+			padding: 0 7px;
 			background: #fff;
 			z-index: 5;
+		}
 
-    }
+		.lang-head-list {
+			padding: 0 5px;
+			padding-top: 10px;
+		}
 
-    .lang-head-list {
-      padding: 0 5px;
-      padding-top: 10px;
-    }
+		.lang-head-list li {
+			float: left;
+			padding: 0 5px;
+			border-radius: 3px;
+		}
 
-    .lang-head-list li {
-      float: left;
-      padding: 0 5px;
-      border-radius: 3px;
-    }
+		.lang-head-list li a {
+			color: #6e6262;
+		}
 
-    .lang-head-list li a {
-      color: #6e6262;
-    }
+		.lang-head-list li a:hover {
+			text-decoration: none;
+		}
 
-    .lang-head-list li a:hover {
-      text-decoration: none;
-    }
+		.lang-head-list li a:focus {
+			text-decoration: none;
+		}
 
-    .lang-head-list li a:focus {
-      text-decoration: none;
-    }
+		#lang-content {
+			background-color: #fff;
+		}
 
-    #lang-content {
-      background-color: #fff;
-    }
+		#lang-content-div {
+			display: none;
+		}
 
-    #lang-content-div {
-      display: none;
-    }
+		.con-con {
+			margin: 0;
+			padding: 0;
+		}
 
-    .con-con {
-      margin: 0;
-      padding: 0;
-    }
+		.con-con li {
+			float: left;
+			padding: 0 5px;
+			margin-left: 5px;
+			margin-bottom: 5px;
+			background-color: rgba(91, 232, 228, 0.3);
+		}
 
-    .con-con li {
-      float: left;
-      padding: 0 5px;
-      margin-left: 5px;
-      margin-bottom: 5px;
-      background-color: rgba(91, 232, 228, 0.3);
-    }
+		.con-con li a {
+			color: #6e6262;
+		}
 
-    .con-con li a {
-      color: #6e6262;
-    }
+		.chajian {
+			height: 500px;
+			width: 100%;
+			margin-top: 10px;
+		}
 
-    .chajian {
-      height: 500px;
-      width: 100%;
-      margin-top: 10px;
-    }
+		.btn {
+			/*border: 1px solid lightgray;*/
+			background-color: lightgray;
+			float: right;
+		}
 
-    .btn {
-      background-color: yellow;
-      float: right;
-    }
+		#tag span {
+			padding: 1px 3px;
+		}
 
-    #tag span {
-      padding: 1px 3px;
-    }
+		#tag span i {
+			padding-left: 2px;
+			cursor: pointer;
 
-    #tag span i {
-      padding-left: 2px;
-      cursor: pointer;
-    }
+		}
+		.oooo{
+			margin: -30px 0;
+		}
+		.title{
+			margin-top: 15px;
 
+		}
+		.form-group .form-control{
+			height: 45px;
+			border-radius: 10px;
+		}
 	</style>
 </head>
+
 <body>
-	<div class="container">
-		<!-- <form method="post"> -->
+	<% include ./homepage-header.ejs %>
+		<div class="container">
+			<!-- <form  method="post"> -->
 			<div class="form-group">
 				<!-- <label for="exampleInputEmail1">Email address</label> -->
 				<input type="text" class="form-control title" require placeholder="标题:　一句话说清问题，用问号结尾">
 			</div>
 			<div id="tag">
-				<input id="tag-input" type="text" class="form-contrl" placeholder="标签，如:　php　可使用逗号,分号;分隔">
+				<input id="tag-input" type="text" class="form-contrl" name="taglist" placeholder="标签，如:　php　可使用逗号,分号;分隔">
 			</div>
 			<div id="lang">
 				<div id="lang-head">
@@ -287,10 +302,10 @@
 					</div>
 				</div>
 			</div>
-					<div class="row">
-						<div class="col-md-12 mt50">
-							<div id="standalone-container">
-							<div id="toolbar-container">
+			<div class="row oooo">
+				<div class="col-md-12 mt50">
+					<div id="standalone-container">
+						<div id="toolbar-container">
 							<span class="ql-formats">
 							<select class="ql-font"></select>
 							<select class="ql-size"></select>
@@ -334,183 +349,134 @@
 							<span class="ql-formats">
 							<button class="ql-clean"></button>
 							</span>
-							</div>
-							<div id="editor-container"></div>
-							</div>
 						</div>
+						<div id="editor-container"></div>
 					</div>
+				</div>
+			</div>
 
-			<button class="btn btn-default">Submit</button>
-
-
-
-		<!-- </form> -->
-	</div>
+			<!-- <button class="btn btn-default">Submit</button> -->
+			<a class="btn" href="/">Submit</a>
 
 
 
+			<!-- </form> -->
+		</div>
 
 
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
-	<script  src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
-	<script src="/js/quill.js"></script>
-	<script>
-	$(function() {
 
-		$("#tag").click(function(event) {
-      event.stopPropagation();
-			$("#tag-input").focus();
-			$("#lang").show();
-			// 设置选择框的背景颜色，
-			$(".lang-head-list").find("li").click(function(event) {
-				event.stopPropagation();
-				$(this).css("background", "#21dba9").siblings("li").css("background", "#f3f3f3");
 
-				//设置选择框对应的内容的选项，
-				for (var i = 0, len = 7; i < len; i++) {
-					$(".lang-head-list li").eq(i).click(i, function(event) {
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+		<script src="/js/quill.js"></script>
+		<script>
+			$(function() {
+				$("#tag").click(function(event) {
+					event.stopPropagation();
+					$("#tag-input").focus();
+					$("#lang").show();
+					// 设置选择框的背景颜色，
+					$(".lang-head-list").find("li").click(function(event) {
 						event.stopPropagation();
-						$("#lang-content #lang-content-div").eq(event.data).show().siblings("#lang-content-div").hide();
-
+						$(this).css("background", "#21dba9").siblings("li").css("background", "#f3f3f3");
+						//设置选择框对应的内容的选项，
+						for (var i = 0, len = 7; i < len; i++) {
+							$(".lang-head-list li").eq(i).click(i, function(event) {
+								event.stopPropagation();
+								$("#lang-content #lang-content-div").eq(event.data).show().siblings("#lang-content-div").hide();
+							});
+						};
+					});
+				});　　 // 通过点击事件，添加选项的内容到指定的标签内，
+				for (var j = 0, length = 89; j < length; j++) {
+					$(".con-con li").eq(j).click(j, function(event) {
+						event.stopPropagation();
+						$("#tag-input").hide();
+						if ($("#tag span").length < 5) {
+							var cc = $(".con-con li").eq(event.data).text();
+							if ($("#tag").find("span[data-tag='" + cc + "']").length != 0) {
+								console.log("属性已拥有");
+							} else {
+								$("#tag").append("<span data-tag='" + cc + "' >" + cc + "<i class='fa fa-times' aria-hidden='true'></i>" + "</span>");
+							}
+							$("#tag span").find("i").click(function(event) {
+								event.stopPropagation();
+								$(this).parent().remove();
+								if ($("#tag span").length < 1) {
+									// console.log("000000");
+									$("#tag-input").show();
+								}
+							});
+						}
 					});
 				};
-
-			});
-
-		});
-
-		　　 // 通过点击事件，添加选项的内容到指定的标签内，
-		for (var j = 0, length = 89; j < length; j++) {
-
-			$(".con-con li").eq(j).click(j, function(event) {
-
-				event.stopPropagation();
-
-				$("#tag-input").hide();
-
-				if ($("#tag span").length < 5) {
-
-					var cc = $(".con-con li").eq(event.data).text();
-
-					if ( $("#tag").find("span[data-tag='" + cc + "']").length != 0) {
-						 console.log("属性已拥有");
-					} else {
-						$("#tag").append("<span data-tag='" + cc + "' >" + cc + "<i class='fa fa-times' aria-hidden='true'></i>" + "</span>");
+				// 点击标签框隐藏
+				$(document).click(function() {
+					$("#lang").hide();
+				});
+				//  发送数据
+				var ooo;
+				$(".btn").click(function(event) {
+					// arr 为 tag 内的标签内容
+					var arr = [];
+					var len = $("#tag").find("span").length;
+					for (var i = 0; i < len; i++) {
+						arr.push($("#tag").find("span").eq(i).text());
 					}
+					console.log("arr = ", arr);
+					ooo = $("#editor-container").text();
+					//  console.log(ooo);
+					var data = new Date();
+					var times = data.getTime();
+					var title = $(".title").val();
+					var taggg = $("#tag span").text();
+					console.log(taggg);
+					// 判断 标题 输入框 以及标签内容不能为空
+					if ((title == "") || (ooo == "") || (taggg == "")) {
+						alert("所有输入框的内容均不能为空!!!");
+						event.preventDefault();
+						return false;
+					}
+					var con = {
+						title: title,
+						laji: arr,
+						content: ooo,
+						ctime: times
+					};
+					// console.log(con);
+					$("#header-font-weight").click();
+					$.ajax({
+						url: "/questions",
+						data: con,
+						type: "post",
+						dataType: 'json',
+						traditional: true
+					}).then(function(data, textStatus, jqXHR) {
 
+						console.log("success");
 
-					$("#tag span").find("i").click(function(event) {
-						event.stopPropagation();
-						$(this).parent().remove();
+						// window.location = "http://127.0.0.1:3000/login";
 
-
-						if($("#tag span").length <1){
-							// console.log("000000");
-							$("#tag-input").show();
-						}
-
+					}, function(jqXHR, textStatus, errorThrown) {
+						console.log(textStatus);
+						//  alert("提问成功");
 					});
-
-
-
-				}
-
+					// event.stopPropagation();
+				});
 			});
-		};
-
-
-   // 点击标签框隐藏
-		$(document).click(function(){
-      $("#lang").hide();
-		});
-
-		//  发送数据
-		var ooo;
-		$(".btn").click(function(event){
-
-			// arr 为 tag 内的标签内容
-			var arr = [];
-
-			var len = $("#tag").find("span").length;
-
-			for (var i = 0 ; i < len; i++) {
-
-				 arr.push($("#tag").find("span").eq(i).text());
-
-			 }
-
-			console.log("arr = ", arr);
-
-		 ooo = $("#editor-container").text();
-		//  console.log(ooo);
-
-		 var data = new Date();
- 		 var times = data.getTime();
-		 var title = $(".title").val();
-		 var taggg = $("#tag span").text();
-		 console.log(taggg);
-
-	  // 判断 标题 输入框 以及标签内容不能为空
-
-			if ((title == "") || (ooo == "") || (taggg == "")){
-
-				 alert("所有输入框的内容均不能为空!!!");
-
-			}
-
- 		var con = {
-			title: title,
- 			laji: arr,
- 			content: ooo,
- 			ctime: times
- 		};
-
-		// console.log(con);
-
-		 $.ajax({
-			 url: "/questions",
-			 data: con,
-			 type: "post",
-			 traditional: true
-		 }).then(function(data, textStatus, jqXHR){
-
-			 console.log("success");
-			 window.location = "https://127.0.0.1:3000";
-
-			  // console.log(data);
-
-		 }, function(jqXHR, textStatus, errorThrown ){
-
-				 console.log(textStatus);
-
-		 });
-
-		 // event.stopPropagation();
-
-		});
-
-
-
-
-
-	});
-
-		var quill = new Quill('#editor-container', {
-		    modules: {
-		      formula: true,
-		      syntax: true,
-		      toolbar: '#toolbar-container'
-		    },
-		    placeholder: 'Compose an epic...',
-		    theme: 'snow'
-		  });
-
-
-
-
-
-	</script>
+			var quill = new Quill('#editor-container', {
+				modules: {
+					formula: true,
+					syntax: true,
+					toolbar: '#toolbar-container'
+				},
+				placeholder: 'Compose an epic...',
+				theme: 'snow'
+			});
+		</script>
 </body>
+
 </html>

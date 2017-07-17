@@ -17,6 +17,8 @@ router.post('/', function(req, res, next) {
     m.nick = data.nick;
     m.password = data.passwd;
     m.phone = data.phone;
+    m.ctime = new Date().getTime();
+
 
     users.find({$or:[{
       nick: data.nick

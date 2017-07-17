@@ -16,8 +16,8 @@
     ul{
       list-style-type: none;
      }
-    a{
-      color: #D7D50D;
+    .a_color{
+      color: #FF6D00;
      }
 
       div{
@@ -164,6 +164,7 @@
     </style>
   </head>
   <body>
+    <% include homepage-header.ejs %>
     <div class="box">
     <div class="container user-top">
       <div class="row">
@@ -172,20 +173,20 @@
         </div>
         <div class="col-md-5 col-sm-9 col-xs-9">
           <h2 class="user-name">
-            <%= mydata.nick %>
-            <a class="ml15">查看完整文档</a>
+            <%= top_data.nick %>
+            <a class="a_color ml15">查看完整文档</a>
           </h2>
           <div class="profile__heading--award">
-            <a class="profile__rank-btn" href="#">
+            <a class="a_color profile__rank-btn" href="#">
               <span class="h4">5</span>
               <span class="profile__rank-btn-text">声望</span>
             </a>
               <div class="profile__heading--award-badge">
                 <ul class="info-xinxi">
-                  <li><span><i class="fa fa-map-marker"></i></span><button type="button" name="button"><%= mydata.info.address %></button></li>
-                  <li><span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><button type="button" name="button"><%= mydata.info.school %></button></li>
-                  <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span><button type="button" name="button"><%= mydata.info.wherecompany %></button></li>
-                  <li><span><i class="fa fa-link"></i></span><button type="button" name="button"><%= mydata.info.personalurl %></button></li>
+                  <li><span><i class="fa fa-map-marker"></i></span><button type="button" name="button"><%= top_data.info.address %></button></li>
+                  <li><span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><button type="button" name="button"><%= top_data.info.school %></button></li>
+                  <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span><button type="button" name="button"><%= top_data.info.wherecompany %></button></li>
+                  <li><span><i class="fa fa-link"></i></span><button type="button" name="button"><%= top_data.info.personalurl %></button></li>
                 </ul>
             </div>
           </div>
@@ -211,22 +212,22 @@
   <div class="row">
     <div class="info-left col-lg-2 col-md-2 hidden-sm hidden-xs ">
       <ul>
-      <% if(page == "m1y"){ %>
-        <li><a href="/users?user=<%= mydata.nick %>&info=info">我的主页<span>1</span></a></li>
-        <li><a href="users?user=<%= mydata.nick %>&info=focuslist">关注了列表<span>3人</span></a></li>
-        <li><a href="users?user=<%= mydata.nick %>&info=foucus">粉丝<span>1人</span></a></li>
-        <li><a href="users?user=<%= mydata.nick %>&info=foucus">我的回答<span>1</span></a></li>
-        <li><a href="users?user=<%= mydata.nick %>&info=puber">我的提问<span>1</span></a></li>
-        <li><a href="users?user=<%= mydata.nick %>&info=foucus">我的收藏夹<span>1</span></a></li>
-        <li><a href="users?user=<%= mydata.nick %>&info=issuesr">我的关注<span>1</span></a></li>
+      <% if(page == "my"){ %>
+        <li><a class="a_color" href="/users?user=<%= top_data.nick %>&info=info">我的主页<span>1</span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=focuslist">关注了列表<span></span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">粉丝<span>人</span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">我的回答<span></span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=puber">我的提问<span>?条</span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">我的收藏夹<span></span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=issuesr">我的关注<span></span></a></li>
         <% }else{ %>
-          <li><a href="/users?user=<%= mydata.nick %>&info=info">他的主页<span>1</span></a></li>
-          <li><a href="users?user=<%= mydata.nick %>&info=focuslist">关注了<span>3人</span></a></li>
-          <li><a href="users?user=<%= mydata.nick %>&info=foucus">粉丝<span>1人</span></a></li>
-          <li><a href="users?user=<%= mydata.nick %>&info=foucus">他的回答<span>1</span></a></li>
-          <li><a href="users?user=<%= mydata.nick %>&info=puber">他的提问<span>1</span></a></li>
-          <li><a href="users?user=<%= mydata.nick %>&info=foucus">他的收藏夹<span>1</span></a></li>
-          <li><a href="users?user=<%= mydata.nick %>&info=issuesr">他的关注<span>1</span></a></li>
+          <li><a class="a_color" href="/users?user=<%= top_data.nick %>&info=info">他的主页<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=focuslist">关注了<span>3人</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">粉丝<span>1人</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">他的回答<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=puber">他的提问<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">他的收藏夹<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=issuesr">他的关注<span>1</span></a></li>
         <% } %>
       </ul>
     </div>
@@ -257,6 +258,7 @@
         </div>
       </div>
       <div class="info-md-right col-lg-4 col-md-4 hidden-sm hidden-sx">
+        <img src="images/login@2x.png" width="100%"alt="" />
       </div>
 
 
@@ -279,24 +281,24 @@
 
           </ul> -->
         </div>
-        <% }else if(info === "puber"){ %>
+        <% }else if(info == "puber"){ %>
           <div class="info-top-ask">
             <div class="info-top-ask1">
               回答
             </div>
-            <!-- <ul class="info-top-ask2">
-              < mydata.forEach(data){ >
+            <ul class="info-top-ask2">
+              <% qdata.forEach(function(data){ %>
 
               <li>
                 <div class="row">
                   <span class="col-md-1">0 票</span>
-                  <a class="info-ask col-md-9" href="/question/<= mydata._id >" ><= mydata.title ></a>
-                  <span class="col-md-2"><= mydata.ltime ></span>
+                  <a class="info-ask col-md-9" href="/answers/<%= data._id %>" ><%= data.title %></a>
+                  <span class="col-md-2"><%= data.ltime %></span>
                 </div>
               </li>
 
-              < } >
-            </ul> -->
+              <% }); %>
+            </ul>
           </div>
         <% } %>
 

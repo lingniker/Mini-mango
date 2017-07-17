@@ -145,7 +145,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="/" method="post">
+		<!-- <form method="post"> -->
 			<div class="form-group">
 				<!-- <label for="exampleInputEmail1">Email address</label> -->
 				<input type="text" class="form-control title" require placeholder="标题:　一句话说清问题，用问号结尾">
@@ -340,11 +340,11 @@
 						</div>
 					</div>
 
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button class="btn btn-default">Submit</button>
 
 
 
-		</form>
+		<!-- </form> -->
 	</div>
 
 
@@ -476,8 +476,10 @@
 			 traditional: true
 		 }).then(function(data, textStatus, jqXHR){
 
-			  // console.log(data);
 			 console.log("success");
+			 window.location = "https://127.0.0.1:3000";
+
+			  // console.log(data);
 
 		 }, function(jqXHR, textStatus, errorThrown ){
 

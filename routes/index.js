@@ -56,9 +56,9 @@ router.get("/", function(req, res, next) {
               req.session.name = null;
             }
 
-          res.render('index',{data_que:data_que, data_use:datas, data:data, name:req.session.name})
+          res.render('index',{data_que:data_que, data_use:datas, data:data, name:req.session.name});
 
-        })
+        });
       };
     });
 

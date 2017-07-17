@@ -134,8 +134,8 @@
               <ul class="nav navbar-right navbar-nav ">
                 <li>
                   <div class="nav-QA ">
-                    <span><a href="/questions">去提问</a></span>
-                    <a href="#" class="dropdown-toggle dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <span><a href="/questions" style="text-decoration:none">去提问</a></span>
+                    <a href="#" class="dropdown-toggle dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="sangle glyphicon glyphicon-chevron-down"></span></a>
                     <ul class="dropdown-menu dropdown-menu-li">
                       <li><a href="/questions">去提问</a></li>
                       <li><a href="#">发头条</a></li>
@@ -150,11 +150,11 @@
                   <a href="#"><span class="glyphicon glyphicon-envelope" style="font-size:20px"></span></a>
                 </li>
                 <li class="img-li">
-                  <a href="#" class="head-img"><img src="/images/user-256.png" alt=""></a>
+                  <a href="/users?user=<%= name %>&info=info" class="head-img"><img src="/images/user-256.png" alt=""></a>
                   <ul class="nav-after-signin head-img-infor" style="list-style:none">
-                    <li><a href="#">我的主页</a></li>
-                    <li><a href="#">我的档案</a></li>
-                    <li><a href="#">我的资产</a></li>
+                    <li><a href="/users?user=<%= name %>&info=info">我的主页</a></li>
+                    <li><a href="/users?user=<%= name %>&info=info">我的档案</a></li>
+                    <li><a href="/users?user=<%= name %>&info=info">我的资产</a></li>
                     <li><a href="#">账号设置</a></li>
                     <li><a href="/logout">退出</a></li>
                     <li><a href="/">返回主页</a></li>
@@ -255,9 +255,15 @@
           }, function() {
             $('.head-img-infor').hide();
           });
-          $('.glyphicon').click(function () {
+          $('.sangle').click(function (event) {
             $('.dropdown-menu-li').show();
+            event.stopPropagation();
           });
+
+          $(document).click(function(){
+            $('.dropdown-menu-li').hide();
+          })
+
           for (var i = 0; i < 5; i++) {
             (function(i) {
               $(dropMenu[i]).click(function() {

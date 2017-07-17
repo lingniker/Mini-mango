@@ -146,7 +146,7 @@
 <body>
 	<% include ./homepage-header.ejs %>
 	<div class="container">
-		<form  method="post">
+		<form  method="get">
 			<div class="form-group">
 				<!-- <label for="exampleInputEmail1">Email address</label> -->
 				<input type="text" class="form-control title" require placeholder="标题:　一句话说清问题，用问号结尾">
@@ -455,22 +455,24 @@
 
 	  // 判断 标题 输入框 以及标签内容不能为空
 
-			if ((title == "") || (ooo == "") || (taggg == "")){
+			if ((title === "") || (ooo === "") || (taggg === "")){
 
 				 alert("所有输入框的内容均不能为空!!!");
 
+			}else{
+
+				var con = {
+					title: title,
+					laji: arr,
+					content: ooo,
+					ctime: times
+				};
 			}
 
- 		var con = {
-			title: title,
- 			laji: arr,
- 			content: ooo,
- 			ctime: times
- 		};
 
 		// console.log(con);
 
-		$("#header-font-weight").click();
+		// $("#header-font-weight").click();
 		 $.ajax({
 			 url: "/questions",
 			 data: con,

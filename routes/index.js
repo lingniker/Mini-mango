@@ -32,7 +32,6 @@ router.get("/", function(req, res, next) {//主页
         if(typeof(req.session.name) == 'undefined'){
           req.session.name = null;
         }
-
       res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
 
     });

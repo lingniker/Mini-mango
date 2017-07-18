@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
-// var url = ("mongodb://xiaolong:lxl145682@ds153412.mlab.com:53412/xiaolong");
-var url = ("mongodb://127.0.0.1:27017/Mango");
+var url = ("mongodb://mango:1@ds155132.mlab.com:55132/mini-mango");
+// var url = ("mongodb://127.0.0.1:27017/Mango");
 mongoose.Promise = global.Promise;
 mongoose.connect(url);
 var db = mongoose.connection;

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,278 +8,227 @@
 
   <title>回答页面</title>
   <style>
-    * {
-      margin: 0px;
-      padding: 0px;
-    }
-
-    .all {
-      padding-top: 20px;
-      background: #fff;
-      box-shadow: 0 3px 5px lightblue;
-    }
-
-    .wd-head {
-      position: relative;
-      height: 100%;
-      border-bottom: 1px solid #757575;
-    }
-
-    .head-two {
-      margin-bottom: 10px;
-    }
-
-    .wd-head-left {
-      width: 75%;
-      height: 100%;
-      display: inline-block;
-      padding-top: 20px;
-    }
-
-    .wd-tag {
-      display: inline;
-      margin-left: 5px;
-    }
-
-    .wd-tag .tag {
-      padding: 2px 10px;
-      height: 10px;
-      margin: 2px 5px;
-      color: #fff;
-      background: #00ae9d;
-      text-decoration: none;
-    }
-
-    .tag:hover {
-      background: #ff6d00;
-      color: #FFF;
-    }
-
-    .wd-user {
-      display: inline-block;
-      margin-left: 10px;
-    }
-
-    .user {
-      margin-right: 5px;
-    }
-
-    .user:visited {
-      color: #757575;
-    }
-
-    .user:hover {
-      color: #ff6d00;
-    }
-
-    .wd-head-right {
-      width: 25%;
-      height: 100%;
-      display: inline-block;
-    }
-
-    .wd-question p {
-      color: red;
-      display: inline-block;
-    }
-
-    .right-top .guanzhu {
-      width: 60px;
-      height: 30px;
-      display: inline-block;
-      background: #eee;
-      line-height: 30px;
-      text-align: center;
-      color: #757575;
-      margin-top: 10px;
-      margin-left: 10px;
-      margin-right: 10px;
-      border: 1px solid #ff6d00;
-      border-radius: 5%;
-      text-decoration: none;
-    }
-
-    right-top span {
-      margin-left: 10px;
-    }
-
-    .shouceng .guanzhu {
-      background: #eee;
-      border: 1px solid #ff6d00;
-      color: #757575;
-    }
-
-    .right-top .guanzhu:hover {
-      color: #fff;
-      background: #ff6d00;
-    }
-
-    .wd-center {
-      /*width:75%;*/
-      /*height:800px;*/
-      margin-top: 20px;
-      padding: 15px 10px;
-      position: relative;
-    }
-
-    .wd-zan {
-      width: 40px;
-      height: 50px;
-      position: absolute;
-      top: 73px;
-      left: 10px;
-      background: #eee;
-      border: 1px solid #ff6d00;
-      border-radius: 5%;
-    }
-
-    .wd-zan:hover {
-      background: #ff6d00;
-      color: #fff;
-    }
-
-    .zan-top {
-      position: absolute;
-      top: 0px;
-      left: 11px;
-    }
-
-    .wd-zan .zan-down {
-      position: absolute;
-      top: 34px;
-      left: 11px;
-    }
-
-    .zan-center {
-      position: absolute;
-      top: 15px;
-      left: 14px;
-    }
-
-    .wd-zan p {
-      width: 160px;
-      height: 30px;
-      font-size: 12px;
-      background: black;
-      color: #fff;
-    }
-
-    .wd-zan p:nth-child(1) {
-      position: absolute;
-      top: -36px;
-      left: -54px;
-      display: none;
-    }
-
-    .wd-zan p:nth-child(2) {
-      position: absolute;
-      top: 54px;
-      left: -54px;
-      display: none;
-    }
-
-    .wd-content {
-      color: red;
-      margin-left: 60px;
-    }
-
-    .wd-time {
-      margin-top: 20px;
-      margin-left: 60px;
-      color: #757575;
-    }
-
-    .wd-answer {
-      margin-top: 30px;
-    }
-
-    .answers {
-      padding: 5px;
-      border-bottom: 1px solid #757575;
-    }
-
-    .answer-content {
-      margin-left: 60px;
-      margin-top: 10px;
-      list-style: none;
-    }
-
-    .contents {
-      width: 100%;
-      height: 50px;
-      border: 1px solid #757575;
-    }
-
-    .answer-content li {
-      padding: 20px;
-      margin: 10px;
-      position: relative;
-      border-bottom: 1px solid #757575;
-    }
-
-    .btn {
-      background: #ff6d00;
-      color: #fff;
-      border: none;
-    }
-
-    .ans {
-      width: 75px;
-      height: 25px;
-      position: absolute;
-      top: 16px;
-      left: -79px;
-      background: #ff6d00;
-      color: #fff;
-      /*border-radius: 50%;*/
-      line-height: 25px;
-      text-align: center;
-    }
-
-    .caina {
-      width: 70px;
-      height: 30px;
-      color: #757575;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-    }
+  * {
+    margin:0px;
+    padding:0px;
+  }
+  .all {
+    padding-top: 20px;
+    background: #fff;
+    box-shadow: 0 3px 5px lightblue;
+  }
+  .wd-head {
+    position:relative;
+    height:100%;
+    border-bottom: 1px solid #757575;
+  }
+  .head-two {
+    margin-bottom:  10px;
+  }
+  .wd-head-left {
+    width:75%;
+    height:100%;
+    display: inline-block;
+    padding-top: 20px;
+  }
+  .wd-tag {
+    display: inline;
+    margin-left: 5px;
+  }
+  .wd-tag .tag {
+    padding:2px 10px;
+    height:10px;
+    margin:2px 5px;
+    color:#fdb933;
+    background:#a960ed;
+    text-decoration: none;
+  }
+  .tag:hover {
+    background: #fdb933;
+    color:#FFF;
+  }
+  .wd-user {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .user {
+    margin-right: 5px;
+  }
+  .user:visited {
+    color:#757575;
+  }
+  .user:hover {
+    color:#fdb933;
+  }
+  .wd-head-right {
+    width:25%;
+    height:100%;
+    display: inline-block;
+  }
+  .wd-question p{
+    color:red;
+    display: inline-block;
+  }
+  .right-top .guanzhu {
+    width:60px;
+    height:30px;
+    display:inline-block;
+    background: #eee;
+    line-height:30px;
+    text-align: center;
+    color:#757575;
+    margin-top:10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border:1px solid #fdb933;
+    border-radius: 5%;
+    text-decoration: none;
+  }
+  right-top span {
+    margin-left: 10px;
+  }
+  .shouceng .guanzhu{
+    background: #eee;
+    border:1px solid #fdb933;
+    color:#757575;
+  }
+  .right-top .guanzhu:hover {
+    color:#fff;
+    background: #fdb933;
+  }
+  .wd-center {
+    /*width:75%;*/
+    /*height:800px;*/
+    margin-top: 20px;
+    padding:15px 10px;
+    position: relative;
+  }
+  .wd-zan {
+    width:40px;
+    height:50px;
+    position:absolute;
+    top:73px;
+    left:10px;
+    background: #eee;
+    border:1px solid #fdb933;
+    border-radius: 5%;
+  }
+  .wd-zan:hover {
+    background: #fdb933;
+    color:#fff;
+  }
+  .zan-top {
+    position:absolute;
+    top:0px;
+    left:11px;
+  }
+  .wd-zan .zan-down {
+    position:absolute;
+    top:34px;
+    left:11px;
+  }
+  .zan-center {
+    position:absolute;
+    top:15px;
+    left:14px;
+  }
+  .wd-zan p {
+    width:160px;
+    height:30px;
+    font-size: 12px;
+    background: black;
+    color:#fff;
+  }
+  .wd-zan p:nth-child(1){
+    position: absolute;
+    top:-36px;
+    left:-54px;
+    display: none;
+  }
+  .wd-zan p:nth-child(2) {
+    position:absolute;
+    top:54px;
+    left:-54px;
+    display: none;
+  }
+  .wd-content {
+    color:red;
+    margin-left: 60px;
+  }
+  .wd-time {
+    margin-top: 20px;
+    margin-left: 60px;
+    color:#757575;
+  }
+  .wd-answer {
+    margin-top:30px;
+  }
+  .answers {
+    padding:5px;
+    border-bottom: 1px solid #757575;
+  }
+  .answer-content {
+    margin-left: 60px;
+    margin-top: 10px;
+    list-style: none;
+  }
+  .contents {
+    width:100%;
+    height:50px;
+    border:1px solid #757575;
+  }
+  .answer-content li {
+    padding:20px;
+    margin:10px;
+    position: relative;
+    border-bottom: 1px solid #757575;
+  }
+  .btn {
+    background: #fdb933;
+    color:#fff;
+    border:none;
+  }
+  .ans {
+    width:75px;
+    height:25px;
+    position: absolute;
+    top:16px;
+    left:-79px;
+    background: #fdb933;
+    color:#fff;
+    /*border-radius: 50%;*/
+    line-height: 25px;
+    text-align: center;
+  }
+  .caina {
+    width:70px;
+    height:30px;
+    color:#757575;
+    position: absolute;
+    top:0px;
+    right:0px;
+  }
   </style>
 </head>
-
 <body>
 
 
 
   <% include ./homepage-header.ejs %>
-    <div class="container all">
+  <div class="container all">
 
-      <div class="wd-head">
-        <div class="row">
+    <div class="wd-head">
+      <div class="row">
 
-          <div class="wd-head-left col-xs-12 col-md-9">
-            <h4 class="wd-question">
-            <span class="glyphicon glyphicon-question-sign" style="color:#ff6d00"></span>
+        <div class="wd-head-left col-xs-12 col-md-9">
+          <h4 class="wd-question">
+            <span class="glyphicon glyphicon-question-sign" style="color:#fdb933"></span>
 
             <p><%= info.title %></p>
 
             <!-- <p><= info.issuesid ></p> -->
 
           </h4>
-<<<<<<< HEAD
-            <div class="head-two">
-              关键字：
-              <div class="wd-tag">
-
-                <!-- ****************标签***************** -->
-                <% info.tags.forEach(function(info){ %>
-                  <a href="#" class="tag">
-                    <%= info %>
-                  </a>
-                  <%  }); %>
-                    <!-- ************************************ -->
-                    <!-- <a href="#" class="tag">html</a>
-=======
           <div class="head-two">
             关键字：
             <div class="wd-tag">
@@ -291,68 +239,8 @@
               <%  }); %>
       <!-- ************************************ -->
               <!-- <a href="#" class="tag">html</a>
->>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
               <a href="#" class="tag">html</a> -->
-              </div>
-              <div class="wd-user">
-                <a href="#" class="user">
-                  <%= info.puber[0] %>
-                </a>
-                <span>0</span>提问
-              </div>
             </div>
-          </div>
-          <div class="wd-head-right  col-xs-12 col-md-3">
-            <div class="right-top">
-              <a href="#" class="guanzhu guanzhu1">关注</a>
-              <span class="guanzhu2">0</span>关注
-            </div>
-<<<<<<< HEAD
-            <div class="right-top shouceng">
-              <a href="#" class="guanzhu shoucang">收藏</a>
-              <span class="shoucang1">0</span>收藏
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="wd-center col-md-9 col-sm-12">
-          <h3>问题描述：</h3>
-          <div class="wd-zan">
-            <p>问题对人有帮助，内容完整，我也想知道答案</p>
-            <p>问题没有实际价值，缺少关键内容，没有改进余地</p>
-            <span class="zan-top glyphicon glyphicon-triangle-top"></span>
-            <span class="zan-center">0</span>
-            <span class="zan-down glyphicon glyphicon-triangle-bottom"></span>
-          </div>
-          <div class="wd-content">
-            <%= info.content %>
-          </div>
-          <div class="wd-time">
-            <a href="#">0</a>提问
-          </div>
-          <div class="wd-answer">
-            <div class="answers">
-              <span>0</span>个回答
-            </div>
-            <ul class="answer-content">
-              <% info2.forEach(function(info2){ %>
-                <li>
-                  <div class="ans">
-                    <%= info2.ansuser[1] %>
-                  </div>
-                  <%= info2.content %><button class="caina btn btn-danger">采纳</button>
-                    <br><br>
-                    <span class="ansuser"></span>
-                    <i class="tiwen">回答</i>
-                </li>
-                <% }) %>
-
-            </ul>
-            <h3>撰写答案：</h3>
-            <textarea class="contents" placeholder="撰写答案..."></textarea>
-            <button class="btn1" type="submit">提交答案</button>
-=======
             <div class="wd-user">
               <a class="user"><%= info.puber[0] %></a>
               <span>0</span>提问
@@ -388,78 +276,23 @@
         <div class="wd-answer">
           <div class="answers">
             <span>0</span>个回答
->>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
           </div>
+          <ul class="answer-content">
+            <% info2.forEach(function(info2){ %>
+              <li><div class="ans"><%= info2.ansuser[1] %></div><%= info2.content %><button class="caina btn btn-danger">采纳</button>
+                <br><br>
+                <span class="ansuser"></span>
+                <i class="tiwen">回答</i>
+              </li>
+            <% }) %>
+
+          </ul>
+          <h3>撰写答案：</h3>
+          <textarea class="contents" placeholder="撰写答案..." ></textarea>
+          <button class="btn1" type="submit">提交答案</button>
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-
-    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="/js/time.js" charset="utf-8"></script>
-    <script>
-      //点赞内容
-      var zan = 0,
-        guanzhu = 0,
-        shoucang = 0;
-      $(".zan-down").hover(function() {
-        $(".wd-zan p:nth-child(2)").css("display", "block");
-      }, function() {
-        $(".wd-zan p:nth-child(2)").css("display", "none");
-      });
-
-      $(".zan-top").hover(function() {
-        $(".wd-zan p:nth-child(1)").css("display", "block");
-      }, function() {
-        $(".wd-zan p:nth-child(1)").css("display", "none");
-      });
-      //关注
-      $(".guanzhu1").click(function() {
-        <% if(name) { %>
-        var str = $(this).text();
-        if (str == "关注") {
-          $(".guanzhu1").text("已关注");
-          $(".guanzhu1").css({
-            "background": "#ff6d00",
-            "color": '#fff'
-          });
-          guanzhu += 1;
-        } else {
-          $(".guanzhu1").text("关注");
-          $(".guanzhu1").css({
-            "background": "#eee",
-            "color": '#757575'
-          });
-          guanzhu -= 1;
-        }
-        $(".guanzhu2").text(guanzhu);
-        <% }else { %>
-        alert("请先登录！");
-        <% } %>
-      });
-      //收藏
-      $(".shoucang").click(function() {
-        <% if(name) { %>
-        var strs = $(this).text();
-        if (strs == "收藏") {
-          $(this).text("已收藏");
-          $(this).css({
-            "background": "#ff6d00",
-            "color": '#fff'
-          });
-          shoucang += 1;
-        } else {
-          $(this).text("收藏");
-          $(this).css({
-            "background": "#eee",
-            "color": '#757575'
-          });
-          shoucang -= 1;
-        }
-        $(".shoucang1").text(shoucang);
-        <% }else { %>
-=======
   </div>
 
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
@@ -528,101 +361,15 @@
         shoucang -= 1;
       }
       <% }else { %>
->>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
         alert("请先登录！");
         <% } %>
-      })
-      //点赞加减
-      $(".zan-top").click(function() {
-        zan += 1;
-        if (zan >= 1) {
-          zan = 1;
-          $(".zan-center").text(zan);
-        }
-      });
-      $(".zan-down").click(function() {
-        zan -= 1;
-        if (zan < 0) {
-          zan = 0;
-        }
+    })
+//点赞加减
+    $(".zan-top").click(function(){
+      zan += 1;
+      if(zan >= 1){
+        zan = 1;
         $(".zan-center").text(zan);
-<<<<<<< HEAD
-      });
-
-      //提交回答
-      var lis;
-      var huidas = "<%= huidas %>";
-      var pusers = "<%= info.puber[0] %>";
-      var names1 = "<%= name %>";
-      $(".btn1").click(function() {
-        <% if(name) { %>
-        var datas = $(".contents").val();
-        if (datas) {
-          var ids = "<%= info._id %>";
-          var username = "<%= username %>";
-          /***********将回答内容和用户名传到后台*************/
-          var infos = {
-            issuesid: ids,
-            user: username,
-            content: datas,
-            huidas: huidas,
-            ctime: parseInt(new Date().getTime())
-          }
-          $.ajax({
-            url: "/answers",
-            data: infos,
-            method: 'post',
-          }).then(function(data, textStatus, jqXHR) {
-            console.log(data);
-            $(".answer-content").append($("<li>").text(data.content));
-            $(".answer-content li:last").prepend($("<div>").text(data.ansuser[1]).addClass("ans"));
-            $(".answer-content li:last").append($("<button>").text("采纳").addClass("caina btn btn-danger"));
-            $(".answer-content li:last").append($("<br><br>$nbsp;"));
-            $(".answer-content li:last").append($("<span>").addClass("ansuser"));
-            $(".answer-content li:last").append($("<i>").text("回答").addClass("tiwen"));
-            //采纳
-            if (names1 == pusers) {
-
-              $(".answer-content li .caina:last").click(function() {
-                var strs = $(this).text();
-                console.log("lilili =====", strs);
-                if (strs == "采纳") {
-                  $(this).text("已采纳");
-                } else {
-                  $(this).text("采纳");
-                }
-              });
-            }
-
-
-
-            var ctime1 = data.ctime;
-            var ctime2;
-            setInterval(function() {
-              ctime2 = timer(ctime1);
-              $(".answer-content li:last span").text(ctime2);
-            });
-          }, function(jqXHR, textStatus, errorThrown) {
-            console.log(textStatus);
-          });
-          /****************************************************/
-          $(".contents").val("");
-        } else {
-          alert("内容不能为空，请输入内容！");
-        }
-        <% }else { %>
-        alert("请登录后再回答！");
-        <% }; %>
-      })
-      if (names1 == pusers) {
-        var lens = $(".answer-content li .caina").length;
-        for (var i = 0; i < lens; i++) {
-          (function(i) {
-            $(".answer-content li .caina").eq(i).click(function() {
-              var strs = $(this).text();
-              console.log("lilili =====", strs);
-              if (strs == "采纳") {
-=======
       }
     });
     $(".zan-down").click(function(){
@@ -671,45 +418,15 @@
             $(".answer-content li .caina:last").click(function(){
               var strs = $(this).text();
               if(strs == "采纳"){
->>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
                 $(this).text("已采纳");
-              } else {
+              }else {
                 $(this).text("采纳");
               }
-<<<<<<< HEAD
-            })
-          })(i);
-        };
-      }
-      //时间
-
-      var anstimes = [];
-      <% info2.forEach(function(times){ %>
-      anstimes.push(<%= times.ctime %>);
-      <% }); %>
-      var sss = <%= info.ctime %>;
-      console.log(anstimes);
-=======
             });
            }
            $(".answers span").text(parseInt(huidas) + 1);
->>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
 
-      // var sss = <= info.ctime >
 
-<<<<<<< HEAD
-      setInterval(function() {
-        var lis = $(".answer-content li").length;
-        for (var i = 0; i < lis; i++) {
-          var anstime = timer(anstimes[i]);
-          $(".answer-content li span").eq(i).text(anstime);
-        };
-        var times = timer(sss);
-        $(".wd-time a").text(times);
-        $(".wd-user span").text(times);
-      });
-    </script>
-=======
           var ctime1 = data.ctime;
           var ctime2;
           setInterval(function(){
@@ -763,7 +480,5 @@
       $(".wd-user span").text(times);
     });
   </script>
->>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
 </body>
-
 </html>

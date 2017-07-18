@@ -46,6 +46,7 @@ router.get("/index_hot", function(req, res, next) {//热门回答
     if(err){
       console.log(err);
     }else{
+
       users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
     if(err){
       console.log(err);
@@ -63,6 +64,7 @@ router.get("/index_hot", function(req, res, next) {//热门回答
     });
   }
 });
+
 }
 });
 });
@@ -274,8 +276,7 @@ router.get(/\/c([0-9]{1,2})/, function(req, res, next) {
             if(typeof(req.session.name) == 'undefined'){
               req.session.name = null;
             }
-            res.render('index',{active0:"",active1:"",active2:"active",active3:"",page:"c",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
-
+            res.render('index',{active0:"",active1:"",active2:"active",active3:"",page:"c",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name});
 
         });
         }
@@ -288,7 +289,7 @@ router.get(/\/c([0-9]{1,2})/, function(req, res, next) {
 });
 
 
-
+router.get("/taggs")
 
 
 

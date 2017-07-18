@@ -12,7 +12,7 @@
 </head>
 <style>
   body {
-    height: 2500px;
+    /*height: 2500px;*/
     position: relative;
   }
   .clearfix::before,
@@ -191,8 +191,8 @@
 
 <body>
   <% include homepage-header %>
-    <div class="container">
-      <div class="index_all">
+    <div class="container clearfix">
+      <div class="index_all clearfix">
         <div class="row">
           <div class="col-xs-12 col-md-9 ">
             <ul class="nav nav-tabs clearfix index_css">
@@ -234,7 +234,6 @@
                         </a>
                         <span></span>
                         <a id="index_col" class="ltimes1" herf="#">
-
                         </a>
                       </div>
                       <div>
@@ -245,7 +244,7 @@
                         </div>
                         <% data.tags.forEach(function(data){ %>
                           <div class="index_summary_tag">
-                            <a class="index_tag" href="#">
+                            <a class="index_tag" href="/tags/<%= data %>">
                               <%= data %>
                             </a>
                           </div>
@@ -255,10 +254,27 @@
                   </li>
                   <% }); %>
               </ul>
-            </div>
+              <div class="btn-group" role="group" aria-label="...">
+        <a href='/<%= page %>99' type="button" class="btn btn-default">上一页</a>
+
+        <a href='/<%= page %>0' type="button" class="btn btn-default page-click">1</a>
+        <a href='/<%= page %>1' type="button" class="btn btn-default page-click">2</a>
+        <a href='/<%= page %>2' type="button" class="btn btn-default page-click">3</a>
+        <a href='/<%= page %>3' type="button" class="btn btn-default page-click">4</a>
+        <a href='/<%= page %>4' type="button" class="btn btn-default page-click">5</a>
+        <a href='/<%= page %>5' type="button" class="btn btn-default page-click">6</a>
+        <a href='/<%= page %>6' type="button" class="btn btn-default page-click">7</a>
+        <a href='/<%= page %>7' type="button" class="btn btn-default page-click">8</a>
+        <a href='/<%= page %>8' type="button" class="btn btn-default page-click">9</a>
+        <a href='/<%= page %>9' type="button" class="btn btn-default page-click">10</a>
+
+        <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
+        <a href="/<%= page %>98" type="button" class="btn btn-default">下一页</a>
+      </div>
+    </div>
           </div>
           <div class="col-md-3">
-            <div class="index_widget">
+            <div class="index_widget clearfix">
               <div class="index_widget_title">
                 <span class="index_span">排行榜</span>
                 <!-- 排行榜 <span class="index_span">
@@ -268,7 +284,7 @@
          </span> -->
 
               </div>
-              <ol class="index_user">
+              <ol class="index_user clearfix">
 
                 <% data_use.forEach(function(data){ %>
                   <li>
@@ -288,7 +304,7 @@
 
 
       </div>
-      <div class="btn-group" role="group" aria-label="...">
+      <!-- <div class="btn-group" role="group" aria-label="...">
         <a href='/<%= page %>99' type="button" class="btn btn-default">上一页</a>
 
         <a href='/<%= page %>0' type="button" class="btn btn-default page-click">1</a>
@@ -303,8 +319,8 @@
         <a href='/<%= page %>9' type="button" class="btn btn-default page-click">10</a>
 
         <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
-        <a href="/<%= page %>98" type="button" class="btn btn-default">下一页</a>
-      </div>
+        <!-- <a href="/<%= page %>98" type="button" class="btn btn-default">下一页</a> -->
+      <!-- </div> -->
     </div>
     <% include homepage-footer.ejs %>
 
@@ -348,7 +364,6 @@
         //   })(i)
         //
         // }
-
 
         var img = document.getElementById("lunbo");
         setInterval(function dong() {

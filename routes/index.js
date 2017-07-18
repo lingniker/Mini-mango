@@ -290,9 +290,95 @@ router.get(/\/c([0-9]{1,2})/, function(req, res, next) {
 
 
 
+router.get("/taggs",function(req,res,next){
+  data = req.query;
+  console.log(data.tags);
+  questions.where("tags").in([data.tags]).limit(20).exec(function(err,data_que){
+    console.log(data_que);
+        if(err){
+          console.log(err);
+        }else{
+          users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
+        if(err){
+          console.log(err);
+
+        }else{
+          users.findOne({
+            nick:req.session.name // ======== ? 登录状态下的用户名
+          },function(err,top_data){
+            // console.log(data);
+            if(typeof(req.session.name) == 'undefined'){
+              req.session.name = null;
+            }
+            res.render('index',{active0:"active",active1:"",active2:"",active3:"",page:"e",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
+
+
+        });
+        }
+
+      });
+    }
+
+  });
+})
 
 
 
+router.get(/\/e([0-9]{1,2})/, function(req, res, next) {
+  var k = 0;
+  if (req.params[0]==98) {
+    k++;
+  }else if(req.params[0] == 99) {
+    k--;
+  }else{
+    k = req.params[0];
+  }
+   var count;
+    questions.count({},function(err,n){
+      if(err){
+        console.log(err);
+      }else{
+        count = Math.ceil(n/20) ;
+        console.log(count);
+          console.log("-------",k);
+       if(k < 0){
+        k = 0;
+      }else if(k >= count){
+        k = 0;
+        }
+      }
+
+      data = req.query;
+      console.log(data.tags);
+      questions.where("tags").in([data.tags]).skip(k*20).limit(20).exec(function(err,data_que){
+        console.log(data_que);
+            if(err){
+              console.log(err);
+            }else{
+              users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
+            if(err){
+              console.log(err);
+
+            }else{
+              users.findOne({
+                nick:req.session.name // ======== ? 登录状态下的用户名
+              },function(err,top_data){
+                // console.log(data);
+                if(typeof(req.session.name) == 'undefined'){
+                  req.session.name = null;
+                }
+                res.render('index',{active0:"active",active1:"",active2:"",active3:"",page:"e",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
+
+
+            });
+            }
+
+          });
+        }
+
+      });
+});
+});
 
 
 

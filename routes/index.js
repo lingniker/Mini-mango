@@ -8,7 +8,6 @@ var tags = require('../db/tags');
 
 var router = express.Router();
 
-
 /* GET home page. */
 // \/([0-9]{1,2})?
 
@@ -16,11 +15,15 @@ var router = express.Router();
 
 
 router.get("/", function(req, res, next) {//主页
+  console.log(req.query);
+
   questions.find({}).sort({"ltime":-1}).skip(0).limit(20).exec(function(err,data_que){
 
     if(err){
       console.log(err);
     }else{
+
+
       users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
     if(err){
       console.log(err);
@@ -33,7 +36,11 @@ router.get("/", function(req, res, next) {//主页
           req.session.name = null;
         }
 
-      res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
+
+
+              res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que,data_use:datas, top_data:top_data, name:req.session.name})
+
+
 
     });
   }

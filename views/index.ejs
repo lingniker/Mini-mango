@@ -14,6 +14,7 @@
   body {
     height: 2500px;
     position: relative;
+
   }
   .clearfix::before,
   .clearfix::after {
@@ -216,7 +217,7 @@
                       </div>
                       <div class="index_answer">
                         <div class="index_answernum">
-                          <%= data.answers %>
+                           <%= data.answers %>
                         </div>
                         <smail>回答</smail>
                       </div>
@@ -325,36 +326,10 @@
             });
           })(i);
         }
-
-        // var img = document.getElementById("lunbo");
-        // setInterval(function dong() {
-        //   if (img.style.left == "0px") {
-        //     img.style.left = '-257px';
-        //     console.log(img.style.left);
-        //   } else {
-        //     img.style.left = '0px';
-        //     console.log(img.style.left);
-        //   }
-        // }, 1000);
-        // var allanswer = document.getElementsByClassName('allanswer');
-        // for(var i = 0; i < 4; i ++){
-        //   (function(i){
-        //     $(allanswer[i]).find("a").click(function(){
-        //
-        //    console.log(allanswer);
-        //   $(allanswer[i]).addClass("active");
-        //   $(allanswer[i]).siblings().removeClass("active");
-        // })
-        //   })(i)
-        //
-        // }
-
-      <script type="text/javascript">
         var img = document.getElementById("lunbo");
         setInterval(function dong() {
           if (img.style.left == "0px") {
             img.style.left = '-257px';
-
 
           } else {
             img.style.left = '0px';

@@ -8,7 +8,13 @@ var users = require("../db/users");
 
 
 router.get(/^\/[a-zA-Z|0-9]{10,24}?$/, function(req, res, next) {
+
   var str = req.url.substr(1,24);
+
+  questions.findByIdAndUpdate(str,{$inc:{scans:1}},function (err,data) {
+
+  });
+
   console.log(str);
   //str是问题的id
   questions.findOne({_id:str},function(err,data){

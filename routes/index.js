@@ -8,7 +8,6 @@ var tags = require('../db/tags');
 
 var router = express.Router();
 
-
 /* GET home page. */
 // \/([0-9]{1,2})?
 
@@ -16,11 +15,15 @@ var router = express.Router();
 
 
 router.get("/", function(req, res, next) {//主页
+  console.log(req.query);
+
   questions.find({}).sort({"ltime":-1}).skip(0).limit(20).exec(function(err,data_que){
 
     if(err){
       console.log(err);
     }else{
+
+
       users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
     if(err){
       console.log(err);
@@ -32,7 +35,9 @@ router.get("/", function(req, res, next) {//主页
         if(typeof(req.session.name) == 'undefined'){
           req.session.name = null;
         }
+
       res.render('index',{ active0:"active",active1:"",active2:"",active3:"",page:"a",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
+
 
     });
   }
@@ -46,7 +51,6 @@ router.get("/index_hot", function(req, res, next) {//热门回答
     if(err){
       console.log(err);
     }else{
-
       users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
     if(err){
       console.log(err);
@@ -64,7 +68,6 @@ router.get("/index_hot", function(req, res, next) {//热门回答
     });
   }
 });
-
 }
 });
 });
@@ -276,7 +279,8 @@ router.get(/\/c([0-9]{1,2})/, function(req, res, next) {
             if(typeof(req.session.name) == 'undefined'){
               req.session.name = null;
             }
-            res.render('index',{active0:"",active1:"",active2:"active",active3:"",page:"c",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name});
+            res.render('index',{active0:"",active1:"",active2:"active",active3:"",page:"c",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
+
 
         });
         }
@@ -289,10 +293,96 @@ router.get(/\/c([0-9]{1,2})/, function(req, res, next) {
 });
 
 
-router.get("/taggs")
+
+router.get("/taggs",function(req,res,next){
+  data = req.query;
+  console.log(data.tags);
+  questions.where("tags").in([data.tags]).limit(20).exec(function(err,data_que){
+    console.log(data_que);
+        if(err){
+          console.log(err);
+        }else{
+          users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
+        if(err){
+          console.log(err);
+
+        }else{
+          users.findOne({
+            nick:req.session.name // ======== ? 登录状态下的用户名
+          },function(err,top_data){
+            // console.log(data);
+            if(typeof(req.session.name) == 'undefined'){
+              req.session.name = null;
+            }
+            res.render('index',{active0:"active",active1:"",active2:"",active3:"",page:"e",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
+
+
+        });
+        }
+
+      });
+    }
+
+  });
+})
 
 
 
+router.get(/\/e([0-9]{1,2})/, function(req, res, next) {
+  var k = 0;
+  if (req.params[0]==98) {
+    k++;
+  }else if(req.params[0] == 99) {
+    k--;
+  }else{
+    k = req.params[0];
+  }
+   var count;
+    questions.count({},function(err,n){
+      if(err){
+        console.log(err);
+      }else{
+        count = Math.ceil(n/20) ;
+        console.log(count);
+          console.log("-------",k);
+       if(k < 0){
+        k = 0;
+      }else if(k >= count){
+        k = 0;
+        }
+      }
+
+      data = req.query;
+      console.log(data.tags);
+      questions.where("tags").in([data.tags]).skip(k*20).limit(20).exec(function(err,data_que){
+        console.log(data_que);
+            if(err){
+              console.log(err);
+            }else{
+              users.find({}).sort({'likes':-1}).limit(10).exec(function(err,datas){
+            if(err){
+              console.log(err);
+
+            }else{
+              users.findOne({
+                nick:req.session.name // ======== ? 登录状态下的用户名
+              },function(err,top_data){
+                // console.log(data);
+                if(typeof(req.session.name) == 'undefined'){
+                  req.session.name = null;
+                }
+                res.render('index',{active0:"active",active1:"",active2:"",active3:"",page:"e",data_que:data_que, data_use:datas, top_data:top_data, name:req.session.name})
+
+
+            });
+            }
+
+          });
+        }
+
+      });
+});
+});
 
 
 

@@ -23,6 +23,9 @@
     display: block;
     visibility: hidden;
   }
+  .index_all{
+    margin-bottom: 30px;
+  }
   .index_question {
     margin-left: -40px;
   }
@@ -191,8 +194,8 @@
 
 <body>
   <% include homepage-header %>
-    <div class="container clearfix">
-      <div class="index_all clearfix">
+    <div class="container">
+      <div class="index_all">
         <div class="row">
           <div class="col-xs-12 col-md-9 ">
             <ul class="nav nav-tabs clearfix index_css">
@@ -216,7 +219,7 @@
                       </div>
                       <div class="index_answer">
                         <div class="index_answernum">
-                          <%= data.answers %>
+                           <%= data.answers %>
                         </div>
                         <smail>回答</smail>
                       </div>
@@ -234,6 +237,7 @@
                         </a>
                         <span></span>
                         <a id="index_col" class="ltimes1" herf="#">
+                          <%= data.ltime %>
                         </a>
                       </div>
                       <div>
@@ -244,7 +248,7 @@
                         </div>
                         <% data.tags.forEach(function(data){ %>
                           <div class="index_summary_tag">
-                            <a class="index_tag" href="/tags/<%= data %>">
+                            <a class="index_tag" href="/taggs?tags=<%= data %>">
                               <%= data %>
                             </a>
                           </div>
@@ -271,10 +275,10 @@
         <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
         <a href="/<%= page %>98" type="button" class="btn btn-default">下一页</a>
       </div>
-    </div>
+            </div>
           </div>
-          <div class="col-md-3">
-            <div class="index_widget clearfix">
+          <div class="col-md-3 hidden-col-sm">
+            <div class="index_widget">
               <div class="index_widget_title">
                 <span class="index_span">排行榜</span>
                 <!-- 排行榜 <span class="index_span">
@@ -284,7 +288,7 @@
          </span> -->
 
               </div>
-              <ol class="index_user clearfix">
+              <ol class="index_user">
 
                 <% data_use.forEach(function(data){ %>
                   <li>
@@ -304,28 +308,11 @@
 
 
       </div>
-      <!-- <div class="btn-group" role="group" aria-label="...">
-        <a href='/<%= page %>99' type="button" class="btn btn-default">上一页</a>
 
-        <a href='/<%= page %>0' type="button" class="btn btn-default page-click">1</a>
-        <a href='/<%= page %>1' type="button" class="btn btn-default page-click">2</a>
-        <a href='/<%= page %>2' type="button" class="btn btn-default page-click">3</a>
-        <a href='/<%= page %>3' type="button" class="btn btn-default page-click">4</a>
-        <a href='/<%= page %>4' type="button" class="btn btn-default page-click">5</a>
-        <a href='/<%= page %>5' type="button" class="btn btn-default page-click">6</a>
-        <a href='/<%= page %>6' type="button" class="btn btn-default page-click">7</a>
-        <a href='/<%= page %>7' type="button" class="btn btn-default page-click">8</a>
-        <a href='/<%= page %>8' type="button" class="btn btn-default page-click">9</a>
-        <a href='/<%= page %>9' type="button" class="btn btn-default page-click">10</a>
-
-        <!-- <a href="/0" type="button" class="btn btn-default">刷新</a> -->
-        <!-- <a href="/<%= page %>98" type="button" class="btn btn-default">下一页</a> -->
-      <!-- </div> -->
     </div>
     <% include homepage-footer.ejs %>
-
       <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
-      <script src="/js/time.js" charset="utf-8"></script>
+      <script src="js/time.js"></script>
       <script type="text/javascript">
         var timess = [];
         <% data_que.forEach(function(data){ %>
@@ -341,43 +328,14 @@
             });
           })(i);
         }
-
-        // var img = document.getElementById("lunbo");
-        // setInterval(function dong() {
-        //   if (img.style.left == "0px") {
-        //     img.style.left = '-257px';
-        //     console.log(img.style.left);
-        //   } else {
-        //     img.style.left = '0px';
-        //     console.log(img.style.left);
-        //   }
-        // }, 1000);
-        // var allanswer = document.getElementsByClassName('allanswer');
-        // for(var i = 0; i < 4; i ++){
-        //   (function(i){
-        //     $(allanswer[i]).find("a").click(function(){
-        //
-        //    console.log(allanswer);
-        //   $(allanswer[i]).addClass("active");
-        //   $(allanswer[i]).siblings().removeClass("active");
-        // })
-        //   })(i)
-        //
-        // }
-
         var img = document.getElementById("lunbo");
         setInterval(function dong() {
           if (img.style.left == "0px") {
             img.style.left = '-257px';
-
-
           } else {
             img.style.left = '0px';
-
           }
         }, 1000);
-
-
       </script>
 
 </body>

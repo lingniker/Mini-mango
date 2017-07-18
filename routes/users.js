@@ -5,47 +5,51 @@ var questions = require('../db/questions');
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {
-    var str = req.query.user;
-    console.log(str);
-    console.log(req.query.info);
-    if (true) {
-        if (req.query.info === "info") {
-            users.findOne({
-                "nick": str
-            }, ["info", "nick", "focuselist"], function(err, mydata) { //查找一个
-                res.render("info", {
-                    mydata: mydata,
-                    page: "my",
-                    info: "info"
-                });
-            });
-        } else if (req.query.info === "focuslist") {
-            users.findOne({
-                "nick": str
-            }, ["info", "nick", "focuslist"], function(err, mydata) { //查找一个
-                res.render("info", {
-                    mydata: mydata,
-                    page: "my",
-                    info: "focuslist"
-                });
-            });
-        } else if (req.query.info === "puber") {
-            users.findOne({
-                "nick": str
-            }, ["info", "nick", "focuslist"], function(err, mydata) {
-                questions.find({
-                    puber: [req.query.user]
-                }, function(err, qdata) {
-                    res.render("info", {
-                        mydata: mydata,
-                        page: "my",
-                        info: "puber"
-                    });
-                });
-            });
-        }
-    }
+  var str = req.query.user;
+  console.log(str);
+  console.log(req.query.info);
+  if(req.query.user === req.session.name){
+    if(req.query.info === "info"){
+      users.findOne({"nick":str},function(err,top_data){   //查找一个
+        res.render("info",{top_data:top_data,page:"my",info:"info",name:req.session.name});
+      });
+    }else  if(req.query.info === "focuslist"){
+    users.findOne({"nick":str},function(err,top_data){   //查找一个
+      res.render("info",{top_data:top_data,page:"my",info:"focuslist",name:req.session.name});
+    });
+  }else if(req.query.info === "puber"){
+    users.findOne({"nick":str},function(err,top_data){
+    questions.find({puber:[req.query.user]},function(err,qdata){
+      console.log(qdata);
+      res.render("info",{top_data:top_data,page:"my",info:"puber",qdata:qdata,name:req.session.name});
+    });
+  });
+  }
+}else{
+
+
+  if(req.query.info === "info"){
+    users.findOne({"nick":str},function(err,top_data){   //查找一个
+      res.render("info",{top_data:top_data,page:"other",info:"info",name:req.session.name});
+    });
+  }else  if(req.query.info === "focuslist"){
+  users.findOne({"nick":str},function(err,top_data){   //查找一个
+    res.render("info",{top_data:top_data,page:"other",info:"focuslist",name:req.session.name});
+  });
+}else if(req.query.info === "puber"){
+  users.findOne({"nick":str},function(err,top_data){
+  questions.find({puber:[req.query.user]},function(err,qdata){
+    console.log(qdata);
+    res.render("info",{top_data:top_data,page:"other",info:"puber",qdata:qdata,name:req.session.name});
+  });
 });
+}
+
+}
+});
+
+
+
 
 // router.get('/:name/:info',function(req,res,next){
 //   console.log("-----------------");

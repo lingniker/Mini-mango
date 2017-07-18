@@ -267,6 +267,7 @@
             <!-- <p><= info.issuesid ></p> -->
 
           </h4>
+<<<<<<< HEAD
             <div class="head-two">
               关键字：
               <div class="wd-tag">
@@ -279,6 +280,18 @@
                   <%  }); %>
                     <!-- ************************************ -->
                     <!-- <a href="#" class="tag">html</a>
+=======
+          <div class="head-two">
+            关键字：
+            <div class="wd-tag">
+
+      <!-- ****************标签***************** -->
+              <% info.tags.forEach(function(info){ %>
+                <a class="tag"><%= info %></a>
+              <%  }); %>
+      <!-- ************************************ -->
+              <!-- <a href="#" class="tag">html</a>
+>>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
               <a href="#" class="tag">html</a> -->
               </div>
               <div class="wd-user">
@@ -294,6 +307,7 @@
               <a href="#" class="guanzhu guanzhu1">关注</a>
               <span class="guanzhu2">0</span>关注
             </div>
+<<<<<<< HEAD
             <div class="right-top shouceng">
               <a href="#" class="guanzhu shoucang">收藏</a>
               <span class="shoucang1">0</span>收藏
@@ -338,10 +352,48 @@
             <h3>撰写答案：</h3>
             <textarea class="contents" placeholder="撰写答案..."></textarea>
             <button class="btn1" type="submit">提交答案</button>
+=======
+            <div class="wd-user">
+              <a class="user"><%= info.puber[0] %></a>
+              <span>0</span>提问
+            </div>
+          </div>
+        </div>
+        <div class="wd-head-right  col-xs-12 col-md-3">
+          <div class="right-top">
+            <a class="guanzhu guanzhu1">关注</a>
+            <span class="guanzhu2"><%= info.focus %></span>关注
+          </div>
+          <div class="right-top shouceng">
+            <a class="guanzhu shoucang">收藏</a>
+            <span class="shoucang1"><%= info.collects %></span>收藏
           </div>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="wd-center col-md-9 col-sm-12">
+        <h3>问题描述：</h3>
+        <div class="wd-zan">
+          <p>问题对人有帮助，内容完整，我也想知道答案</p>
+          <p>问题没有实际价值，缺少关键内容，没有改进余地</p>
+          <span class="zan-top glyphicon glyphicon-triangle-top"></span>
+          <span class="zan-center">0</span>
+          <span class="zan-down glyphicon glyphicon-triangle-bottom"></span>
+        </div>
+        <div class="wd-content"><%= info.content %></div>
+        <div class="wd-time">
+          <a>0</a>提问
+        </div>
+        <div class="wd-answer">
+          <div class="answers">
+            <span>0</span>个回答
+>>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
+          </div>
+        </div>
+      </div>
+    </div>
+<<<<<<< HEAD
 
     <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -407,6 +459,76 @@
         }
         $(".shoucang1").text(shoucang);
         <% }else { %>
+=======
+  </div>
+
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/time.js" charset="utf-8"></script>
+  <script>
+
+//点赞内容
+  var zan = 0,guanzhu = 0,shoucang = 0;
+    $(".zan-down").hover(function(){
+      $(".wd-zan p:nth-child(2)").css("display","block");
+    },function(){
+      $(".wd-zan p:nth-child(2)").css("display","none");
+    });
+
+    $(".zan-top").hover(function(){
+      $(".wd-zan p:nth-child(1)").css("display","block");
+    },function(){
+      $(".wd-zan p:nth-child(1)").css("display","none");
+    });
+//关注
+    var names1 = "<%= name %>";
+
+      <% if(name) { %>
+        var user1 = "<%= info.ansuser %>";
+        if(user1.indexOf(names1) != -1){
+          $(".guanzhu1").text("已关注");
+        }
+      <% } %>
+
+      $(".guanzhu1").click(function(){
+        <% if(name) { %>
+          var str = $(this).text();
+          if(str == "关注"){
+            $(".guanzhu1").text("已关注");
+            $(".guanzhu1").css({"background":"#fdb933","color":'#fff'});
+            guanzhu += 1;
+          }else {
+            $(".guanzhu1").text("关注");
+            $(".guanzhu1").css({"background":"#eee","color":'#757575'});
+            guanzhu -= 1;
+          }
+          // $(".guanzhu2").text(guanzhu);
+          <% }else { %>
+            alert("请先登录！");
+          <% } %>
+        });
+
+//收藏
+    <% if(name) { %>
+    var user2 = "<%= info.ansuser1 %>";
+    if(user2.indexOf(names1) != -1){
+      $(".shoucang").text("已收藏");
+    }
+    <% } %>
+    $(".shoucang").click(function(){
+        <% if(name) { %>
+      var strs = $(this).text();
+      if(strs == "收藏"){
+        $(this).text("已收藏");
+        $(this).css({"background":"#fdb933","color":'#fff'});
+        shoucang += 1;
+      }else {
+        $(this).text("收藏");
+        $(this).css({"background":"#eee","color":'#757575'});
+        shoucang -= 1;
+      }
+      <% }else { %>
+>>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
         alert("请先登录！");
         <% } %>
       })
@@ -424,6 +546,7 @@
           zan = 0;
         }
         $(".zan-center").text(zan);
+<<<<<<< HEAD
       });
 
       //提交回答
@@ -499,10 +622,61 @@
               var strs = $(this).text();
               console.log("lilili =====", strs);
               if (strs == "采纳") {
+=======
+      }
+    });
+    $(".zan-down").click(function(){
+      zan -= 1;
+      if(zan < 0){
+        zan = 0;
+      }
+      $(".zan-center").text(zan);
+    });
+
+//提交回答
+    var lis;
+    var huidas = "<%= huidas %>";
+    $(".answers span").text(huidas);
+    var pusers = "<%= info.puber[0] %>";
+    $(".btn1").click(function(){
+      <% if(name) { %>
+      var datas = $(".contents").val();
+      if(datas) {
+        var ids = "<%= info._id %>";
+        var username = "<%= username %>";
+        /***********将回答内容和用户名传到后台*************/
+        var infos = {
+          issuesid:ids,
+          user:username,
+          content:datas,
+          huidas:huidas,
+          guanzhu:guanzhu,
+          shoucang:shoucang,
+          ctime:parseInt(new Date().getTime())
+        }
+        $.ajax({
+          url:"/answers",
+          data:infos,
+          method: 'post',
+        }).then(function(data, textStatus, jqXHR) {
+          console.log(data);
+          $(".answer-content").append($("<li>").text(data.content));
+          $(".answer-content li:last").prepend($("<div>").text(data.ansuser[1]).addClass("ans"));
+          $(".answer-content li:last").append($("<button>").text("采纳").addClass("caina btn btn-danger"));
+          $(".answer-content li:last").append($("<br><br>$nbsp;"));
+          $(".answer-content li:last").append($("<span>").addClass("ansuser"));
+          $(".answer-content li:last").append($("<i>").text("回答").addClass("tiwen"));
+  //采纳
+          if(names1 == pusers) {
+            $(".answer-content li .caina:last").click(function(){
+              var strs = $(this).text();
+              if(strs == "采纳"){
+>>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
                 $(this).text("已采纳");
               } else {
                 $(this).text("采纳");
               }
+<<<<<<< HEAD
             })
           })(i);
         };
@@ -515,9 +689,15 @@
       <% }); %>
       var sss = <%= info.ctime %>;
       console.log(anstimes);
+=======
+            });
+           }
+           $(".answers span").text(parseInt(huidas) + 1);
+>>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
 
       // var sss = <= info.ctime >
 
+<<<<<<< HEAD
       setInterval(function() {
         var lis = $(".answer-content li").length;
         for (var i = 0; i < lis; i++) {
@@ -529,6 +709,61 @@
         $(".wd-user span").text(times);
       });
     </script>
+=======
+          var ctime1 = data.ctime;
+          var ctime2;
+          setInterval(function(){
+            ctime2 = timer(ctime1);
+            $(".answer-content li:last span").text(ctime2);
+          });
+        }, function(jqXHR, textStatus, errorThrown) {
+          console.log(textStatus);
+        });
+        /****************************************************/
+        $(".contents").val("");
+      }else {
+        alert("内容不能为空，请输入内容！");
+      }
+    <% }else { %>
+      alert("请登录后再回答！");
+    <% }; %>
+  })
+  if(names1 == pusers) {
+    var lens = $(".answer-content li .caina").length;
+    for(var i = 0;i < lens;i++){
+      (function(i){
+        $(".answer-content li .caina").eq(i).click(function(){
+          var strs = $(this).text();
+          if(strs == "采纳"){
+            $(this).text("已采纳");
+          }else {
+            $(this).text("采纳");
+          }
+        })
+      })(i);
+    };
+  }
+//时间
+
+    var anstimes = [];
+    <% info2.forEach(function(times){ %>
+    anstimes.push(<%= times.ctime %>);
+    <% }); %>
+    var sss = <%= info.ctime %>;
+    // var sss = <= info.ctime >
+
+    setInterval(function(){
+      var lis = $(".answer-content li").length;
+      for(var i = 0;i < lis;i++){
+        var anstime = timer(anstimes[i]);
+        $(".answer-content li span").eq(i).text(anstime);
+      };
+      var times = timer(sss);
+      $(".wd-time a").text(times);
+      $(".wd-user span").text(times);
+    });
+  </script>
+>>>>>>> 3aba7cfcdc6a9b777a50191d9b358b5b8e4b0aab
 </body>
 
 </html>

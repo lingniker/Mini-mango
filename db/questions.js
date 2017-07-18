@@ -9,6 +9,7 @@ var questionSchema = new Schema({
   ctime:Number,
   offered:{type:Number,default:0},
   ansuser:{type:Array,default:[]},
+  ansuser1:{type:Array,default:[]},
   ltime:Number,
   votes:{type:Number,default:0},
   answers:{type:Number,default:0},

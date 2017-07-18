@@ -235,26 +235,26 @@
 
       <!-- ****************标签***************** -->
               <% info.tags.forEach(function(info){ %>
-                <a href="#" class="tag"><%= info %></a>
+                <a class="tag"><%= info %></a>
               <%  }); %>
       <!-- ************************************ -->
               <!-- <a href="#" class="tag">html</a>
               <a href="#" class="tag">html</a> -->
             </div>
             <div class="wd-user">
-              <a href="#" class="user"><%= info.puber[0] %></a>
+              <a class="user"><%= info.puber[0] %></a>
               <span>0</span>提问
             </div>
           </div>
         </div>
         <div class="wd-head-right  col-xs-12 col-md-3">
           <div class="right-top">
-            <a href="#" class="guanzhu guanzhu1">关注</a>
-            <span class="guanzhu2">0</span>关注
+            <a class="guanzhu guanzhu1">关注</a>
+            <span class="guanzhu2"><%= info.focus %></span>关注
           </div>
           <div class="right-top shouceng">
-            <a href="#" class="guanzhu shoucang">收藏</a>
-            <span class="shoucang1">0</span>收藏
+            <a class="guanzhu shoucang">收藏</a>
+            <span class="shoucang1"><%= info.collects %></span>收藏
           </div>
         </div>
       </div>
@@ -271,7 +271,7 @@
         </div>
         <div class="wd-content"><%= info.content %></div>
         <div class="wd-time">
-          <a href="#">0</a>提问
+          <a>0</a>提问
         </div>
         <div class="wd-answer">
           <div class="answers">
@@ -314,24 +314,40 @@
       $(".wd-zan p:nth-child(1)").css("display","none");
     });
 //关注
-    $(".guanzhu1").click(function(){
+    var names1 = "<%= name %>";
+
       <% if(name) { %>
-      var str = $(this).text();
-      if(str == "关注"){
-        $(".guanzhu1").text("已关注");
-        $(".guanzhu1").css({"background":"#fdb933","color":'#fff'});
-        guanzhu += 1;
-      }else {
-        $(".guanzhu1").text("关注");
-        $(".guanzhu1").css({"background":"#eee","color":'#757575'});
-        guanzhu -= 1;
-      }
-      $(".guanzhu2").text(guanzhu);
-      <% }else { %>
-        alert("请先登录！");
-        <% } %>
-    });
+        var user1 = "<%= info.ansuser %>";
+        if(user1.indexOf(names1) != -1){
+          $(".guanzhu1").text("已关注");
+        }
+      <% } %>
+
+      $(".guanzhu1").click(function(){
+        <% if(name) { %>
+          var str = $(this).text();
+          if(str == "关注"){
+            $(".guanzhu1").text("已关注");
+            $(".guanzhu1").css({"background":"#fdb933","color":'#fff'});
+            guanzhu += 1;
+          }else {
+            $(".guanzhu1").text("关注");
+            $(".guanzhu1").css({"background":"#eee","color":'#757575'});
+            guanzhu -= 1;
+          }
+          // $(".guanzhu2").text(guanzhu);
+          <% }else { %>
+            alert("请先登录！");
+          <% } %>
+        });
+
 //收藏
+    <% if(name) { %>
+    var user2 = "<%= info.ansuser1 %>";
+    if(user2.indexOf(names1) != -1){
+      $(".shoucang").text("已收藏");
+    }
+    <% } %>
     $(".shoucang").click(function(){
         <% if(name) { %>
       var strs = $(this).text();
@@ -344,7 +360,6 @@
         $(this).css({"background":"#eee","color":'#757575'});
         shoucang -= 1;
       }
-      $(".shoucang1").text(shoucang);
       <% }else { %>
         alert("请先登录！");
         <% } %>
@@ -368,8 +383,8 @@
 //提交回答
     var lis;
     var huidas = "<%= huidas %>";
+    $(".answers span").text(huidas);
     var pusers = "<%= info.puber[0] %>";
-    var names1 = "<%= name %>";
     $(".btn1").click(function(){
       <% if(name) { %>
       var datas = $(".contents").val();
@@ -382,6 +397,8 @@
           user:username,
           content:datas,
           huidas:huidas,
+          guanzhu:guanzhu,
+          shoucang:shoucang,
           ctime:parseInt(new Date().getTime())
         }
         $.ajax({
@@ -398,10 +415,8 @@
           $(".answer-content li:last").append($("<i>").text("回答").addClass("tiwen"));
   //采纳
           if(names1 == pusers) {
-
             $(".answer-content li .caina:last").click(function(){
               var strs = $(this).text();
-              console.log("lilili =====",strs);
               if(strs == "采纳"){
                 $(this).text("已采纳");
               }else {
@@ -409,7 +424,7 @@
               }
             });
            }
-
+           $(".answers span").text(parseInt(huidas) + 1);
 
 
           var ctime1 = data.ctime;
@@ -426,26 +441,25 @@
       }else {
         alert("内容不能为空，请输入内容！");
       }
-    if(names1 == pusers) {
-      var lens = $(".answer-content li .caina").length;
-      for(var i = 0;i < lens;i++){
-        (function(i){
-          $(".answer-content li .caina").eq(i).click(function(){
-            var strs = $(this).text();
-            console.log("lilili =====",strs);
-            if(strs == "采纳"){
-              $(this).text("已采纳");
-            }else {
-              $(this).text("采纳");
-            }
-          })
-        })(i);
-      };
-    }
     <% }else { %>
       alert("请登录后再回答！");
     <% }; %>
   })
+  if(names1 == pusers) {
+    var lens = $(".answer-content li .caina").length;
+    for(var i = 0;i < lens;i++){
+      (function(i){
+        $(".answer-content li .caina").eq(i).click(function(){
+          var strs = $(this).text();
+          if(strs == "采纳"){
+            $(this).text("已采纳");
+          }else {
+            $(this).text("采纳");
+          }
+        })
+      })(i);
+    };
+  }
 //时间
 
     var anstimes = [];
@@ -453,8 +467,6 @@
     anstimes.push(<%= times.ctime %>);
     <% }); %>
     var sss = <%= info.ctime %>;
-    console.log(anstimes);
-
     // var sss = <= info.ctime >
 
     setInterval(function(){

@@ -7,13 +7,8 @@
 6 silly lifecycle mini-mango@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle mini-mango@0.0.0~start: mini-mango@0.0.0
 8 verbose lifecycle mini-mango@0.0.0~start: unsafe-perm in lifecycle true
-<<<<<<< HEAD
 9 verbose lifecycle mini-mango@0.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/linux/git/nodejs/wenda/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 10 verbose lifecycle mini-mango@0.0.0~start: CWD: /home/linux/git/nodejs/wenda
-=======
-9 verbose lifecycle mini-mango@0.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/linux/nodejs/mini-mango/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-10 verbose lifecycle mini-mango@0.0.0~start: CWD: /home/linux/nodejs/mini-mango
->>>>>>> 96764dfc5f534c869da8630d7b04cac9f948f6ab
 11 silly lifecycle mini-mango@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle mini-mango@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle mini-mango@0.0.0~start: Failed to exec start script
@@ -28,13 +23,8 @@
 14 verbose stack     at maybeClose (internal/child_process.js:891:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid mini-mango@0.0.0
-<<<<<<< HEAD
 16 verbose cwd /home/linux/git/nodejs/wenda
 17 error Linux 4.8.11-040811-generic
-=======
-16 verbose cwd /home/linux/nodejs/mini-mango
-17 error Linux 4.4.0-83-generic
->>>>>>> 96764dfc5f534c869da8630d7b04cac9f948f6ab
 18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
 19 error node v6.11.0
 20 error npm  v3.10.10

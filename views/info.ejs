@@ -1,95 +1,81 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <title></title>
-  <style media="screen">
-    * {
+  <head>
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title></title>
+    <style media="screen">
+    *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    ul {
+     }
+    ul{
       list-style-type: none;
+     }
+    .a_color{
+      color: #FF6D00;
+     }
 
-    }
-
-    a {
-      color: #ff6d00;
-    }
-
-    div {
-      /*border: 1px solid gray;*/
-      /*height: 200px;*/
-    }
-
-    .box {
-      padding: 40px 0px 0px 0px;
-      width: 100%;
-      background: #f6f6f6;
-    }
-
-    .image-bxo {}
-
-    @media screen and (max-width:768px) {
-      .info-left1 {
-        float: none;
+      div{
+        /*border: 1px solid gray;*/
+        /*height: 200px;*/
       }
+      .box{
+        padding: 40px 0px 0px 0px;
+        width: 100%;
+        background: #f6f6f6;
+      }
+      .image-bxo{
+      }
+      @media screen and (max-width:768px){
+	    .info-left1{
+	        float:  none;
+	      }
     }
 
-    .sn-inline {
-      list-style: none;
-      display: inline;
-      margin: 0;
-      padding: 0;
-      vertical-align: text-bottom;
+  .sn-inline {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    vertical-align: text-bottom;
+   }
+    .user-name{
+      margin:0;
     }
-
-    .user-name {
-      margin: 0;
-    }
-
-    .ml15 {
+    .ml15{
       font-size: 10px;
       margin-left: 10px;
     }
-
-    .profile__heading--award {
+    .profile__heading--award{
       margin-top: 30px;
       margin-bottom: 10px;
     }
-
-    .profile__rank-btn {
+    .profile__rank-btn{
       font-size: 20px;
-      padding: 3px 20px;
-      ;
+      padding: 3px 20px;;
       background: #3873D9;
-      border-radius: 100px;
+      border-radius:  100px;
     }
+    .profile__heading--award-badge ul li{
+      padding:2px 0px 2px 5px;
 
-    .profile__heading--award-badge ul li {
-      padding: 2px 0px 2px 5px;
     }
-
-    .jianjie-top {
+    .jianjie-top{
       height: 30px;
       background: gray;
       position: relative;
     }
-
     .jianjie-dian {
       position: absolute;
       top: 9px;
-      left: 10px;
+      left:10px;
     }
-
-    .jianjie-dian li {
+    .jianjie-dian li{
       float: left;
       width: 10px;
       height: 10px;
@@ -98,101 +84,88 @@
       background: yellow;
     }
 
-    .info-left li {
+    .info-left li{
       /*background: red;*/
       padding: 5px 0 5px 10px;
       height: 40px;
       line-height: 40px;
     }
-
-    .info-left li span {
+    .info-left li span{
       float: right;
     }
-
-    .info-md-top {
+    .info-md-top{
       height: 200px;
       border-radius: 10px;
       margin: 10px 0px;
       text-align: center;
-      line-height: 200px;
+      line-height:200px;
       border: 1px solid lightgray;
     }
-
-    .jianjie-connet {
+    .jianjie-connet{
       height: 180px;
-      background: #ddd;
+      background:#ddd;
     }
-
-    .info-left1 {
-      margin-top: 20px;
+    .info-left1{
+      margin-top:20px;
       height: 30px;
     }
-
-    .info-top-ask {
+    .info-top-ask{
       width: 100%;
       height: 50px;
       line-height: 50px;
-      border-bottom: 1px solid gray;
+      border-bottom:1px solid gray;
     }
-
-    .info-top-ask1 {
+    .info-top-ask1{
       font-size: 22px;
     }
+    .info-top-ask2 li{
 
-    .info-top-ask2 li {
+       border-bottom: 1px solid gray;
 
-      border-bottom: 1px solid gray;
     }
-
-    .info-top-ask2 li span {
+    .info-top-ask2 li span{
       /*background:#EFEA6B;*/
       /*display: inline-block;*/
       /*padding:0 10px;*/
     }
-
-    .info-ask {
-      padding: 0px 30px;
+    .info-ask{
+     padding: 0px 30px;
     }
-
-    info-xinxi li i {
+    info-xinxi li i{
       width: 20px;
       display: inline-block;
     }
-
-    .info-xinxi li button {
+    .info-xinxi li button{
       border: none;
       border-radius: 5px;
       box-shadow: 0px 0px 0px red;
     }
-
-    .info-xinxi li span {
-      display: inline-block;
-      width: 30px;
-      text-align: center;
-      color: gray;
+    .info-xinxi li span{
+       display: inline-block;
+       width: 30px;
+       text-align: center;
+       color: gray;
     }
-
-    .shengwang {
+    .shengwang{
       margin-left: 10px;
-      display: inline-block;
+      display:inline-block;
     }
-
-    .info-guanzhu {
+    .info-guanzhu{
       display: inline-block;
       height: 10px;
       border: none;
       margin-top: 20px;
       padding-top: 20px;
     }
-
-    .info-div-btu {
+    .info-div-btu{
       /*height: 30px;*/
     }
-  </style>
-</head>
 
-<body>
-  <div class="box">
+    </style>
+  </head>
+  <body>
+    <% include homepage-header.ejs %>
+    <div class="box">
     <div class="container user-top">
       <div class="row">
         <div class="col-md-2 col-sm-3 col-xs-3">
@@ -200,21 +173,21 @@
         </div>
         <div class="col-md-5 col-sm-9 col-xs-9">
           <h2 class="user-name">
-            <%= mydata.nick %>
-            <a class="ml15">查看完整文档</a>
+            <%= top_data.nick %>
+            <a class="a_color ml15">查看完整文档</a>
           </h2>
           <div class="profile__heading--award">
-            <a class="profile__rank-btn" href="#">
+            <a class="a_color profile__rank-btn" href="#">
               <span class="h4">5</span>
               <span class="profile__rank-btn-text">声望</span>
             </a>
-            <div class="profile__heading--award-badge">
-              <ul class="info-xinxi">
-                <li><span><i class="fa fa-map-marker"></i></span><button type="button" name="button"><%= mydata.info.address %></button></li>
-                <li><span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><button type="button" name="button"><%= mydata.info.school %></button></li>
-                <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span><button type="button" name="button"><%= mydata.info.wherecompany %></button></li>
-                <li><span><i class="fa fa-link"></i></span><button type="button" name="button"><%= mydata.info.personalurl %></button></li>
-              </ul>
+              <div class="profile__heading--award-badge">
+                <ul class="info-xinxi">
+                  <li><span><i class="fa fa-map-marker"></i></span><button type="button" name="button"><%= top_data.info.address %></button></li>
+                  <li><span><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><button type="button" name="button"><%= top_data.info.school %></button></li>
+                  <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span><button type="button" name="button"><%= top_data.info.wherecompany %></button></li>
+                  <li><span><i class="fa fa-link"></i></span><button type="button" name="button"><%= top_data.info.personalurl %></button></li>
+                </ul>
             </div>
           </div>
 
@@ -230,70 +203,71 @@
           <div class="jianjie-connet">
           </div>
           <div>
-          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="info-left col-lg-2 col-md-2 hidden-sm hidden-xs ">
-        <ul>
-          <% if(page == "m1y"){ %>
-            <li><a href="/users?user=<%= mydata.nick %>&info=info">我的主页<span>1</span></a></li>
-            <li><a href="users?user=<%= mydata.nick %>&info=focuslist">关注了列表<span>3人</span></a></li>
-            <li><a href="users?user=<%= mydata.nick %>&info=foucus">粉丝<span>1人</span></a></li>
-            <li><a href="users?user=<%= mydata.nick %>&info=foucus">我的回答<span>1</span></a></li>
-            <li><a href="users?user=<%= mydata.nick %>&info=puber">我的提问<span>1</span></a></li>
-            <li><a href="users?user=<%= mydata.nick %>&info=foucus">我的收藏夹<span>1</span></a></li>
-            <li><a href="users?user=<%= mydata.nick %>&info=issuesr">我的关注<span>1</span></a></li>
-            <% }else{ %>
-              <li><a href="/users?user=<%= mydata.nick %>&info=info">他的主页<span>1</span></a></li>
-              <li><a href="users?user=<%= mydata.nick %>&info=focuslist">关注了<span>3人</span></a></li>
-              <li><a href="users?user=<%= mydata.nick %>&info=foucus">粉丝<span>1人</span></a></li>
-              <li><a href="users?user=<%= mydata.nick %>&info=foucus">他的回答<span>1</span></a></li>
-              <li><a href="users?user=<%= mydata.nick %>&info=puber">他的提问<span>1</span></a></li>
-              <li><a href="users?user=<%= mydata.nick %>&info=foucus">他的收藏夹<span>1</span></a></li>
-              <li><a href="users?user=<%= mydata.nick %>&info=issuesr">他的关注<span>1</span></a></li>
-              <% } %>
-        </ul>
-      </div>
-      <div class="info-left info-left1 hidden-lg hidden-md col-sm-12 col-xs-12">
-        <select class="form-control">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="info-left col-lg-2 col-md-2 hidden-sm hidden-xs ">
+      <ul>
+      <% if(page == "my"){ %>
+        <li><a class="a_color" href="/users?user=<%= top_data.nick %>&info=info">我的主页<span>1</span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=focuslist">关注了列表<span></span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">粉丝<span>人</span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">我的回答<span></span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=puber">我的提问<span>?条</span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">我的收藏夹<span></span></a></li>
+        <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=issuesr">我的关注<span></span></a></li>
+        <% }else{ %>
+          <li><a class="a_color" href="/users?user=<%= top_data.nick %>&info=info">他的主页<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=focuslist">关注了<span>3人</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">粉丝<span>1人</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">他的回答<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=puber">他的提问<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=foucus">他的收藏夹<span>1</span></a></li>
+          <li><a class="a_color" href="users?user=<%= top_data.nick %>&info=issuesr">他的关注<span>1</span></a></li>
+        <% } %>
+      </ul>
+    </div>
+    <div class="info-left info-left1 hidden-lg hidden-md col-sm-12 col-xs-12">
+      <select class="form-control">
        <option><a>关注了<span>3人</span></a></option>
        <option><a>粉丝<span>1人</span></a></option>
        <option><a>主页<span>1</span></a></option>
        <option><a>回答<span>1</span></a></option>
        <option><a>提问<span>1</span></a></option>
      </select>
-      </div>
-      <div class=" col-lg-10 col-md-10 col-sm-12 col-sx-12">
+    </div>
+    <div class=" col-lg-10 col-md-10 col-sm-12 col-sx-12">
 
         <% if(info === "info"){ %>
-          <div class="info-md-left col-lg-8 col-md-8 col-sm-12 col-sx-12">
-            <div class="info-md-top">
-              我是一个很帅的人
-            </div>
-            <div class="info-md-top">
-              为甚么我这么帅
-            </div>
-            <div class="info-md-top">
-              哎 就是帅
-            </div>
-            <div class="info-md-top">
-              帅炸天啊
-            </div>
-          </div>
-          <div class="info-md-right col-lg-4 col-md-4 hidden-sm hidden-sx">
-          </div>
+      <div class="info-md-left col-lg-8 col-md-8 col-sm-12 col-sx-12">
+        <div class="info-md-top">
+          我是一个很帅的人
+        </div>
+        <div class="info-md-top">
+          为甚么我这么帅
+        </div>
+        <div class="info-md-top">
+          哎 就是帅
+        </div>
+        <div class="info-md-top">
+          帅炸天啊
+        </div>
+      </div>
+      <div class="info-md-right col-lg-4 col-md-4 hidden-sm hidden-sx">
+        <img src="images/mango.jpg" width="100%"alt="" />
+      </div>
 
 
-          <% }else if(info === "focuslist"){ %>
-            <div class="info-top-ask">
-              <div class="info-top-ask1">
-                关注人
-              </div>
-              <!-- <ul class="info-top-ask2">
+      <% }else if(info === "focuslist"){ %>
+        <div class="info-top-ask">
+          <div class="info-top-ask1">
+            关注人
+          </div>
+          <!-- <ul class="info-top-ask2">
             < mydata.focuslist.forEach(data){ >
               <li>
                 <div class="row">
@@ -306,43 +280,43 @@
             < } >
 
           </ul> -->
+        </div>
+        <% }else if(info == "puber"){ %>
+          <div class="info-top-ask">
+            <div class="info-top-ask1">
+              回答
             </div>
-            <% }else if(info === "puber"){ %>
-              <div class="info-top-ask">
-                <div class="info-top-ask1">
-                  回答
-                </div>
-                <!-- <ul class="info-top-ask2">
-              < mydata.forEach(data){ >
+            <ul class="info-top-ask2">
+              <% qdata.forEach(function(data){ %>
 
               <li>
                 <div class="row">
                   <span class="col-md-1">0 票</span>
-                  <a class="info-ask col-md-9" href="/question/<= mydata._id >" ><= mydata.title ></a>
-                  <span class="col-md-2"><= mydata.ltime ></span>
+                  <a class="info-ask col-md-9" href="/answers/<%= data._id %>" ><%= data.title %></a>
+                  <span class="col-md-2"><%= data.ltime %></span>
                 </div>
               </li>
 
-              < } >
-            </ul> -->
-              </div>
-              <% } %>
+              <% }); %>
+            </ul>
+          </div>
+        <% } %>
 
 
 
 
 
 
-
-      </div>
 
     </div>
 
   </div>
-  <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
-  <script type="text/javascript">
-  </script>
 
-</body>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript">
 
+</script>
+
+  </body>
 </html>

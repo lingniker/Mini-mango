@@ -34,6 +34,7 @@ router.post('/', function(req, res, next) {
      } else {
        bcrypt.hash(data.passwd, salt, function(err, hash){
           m.password = hash;
+          m.tagfocuslist=['php','javascript','css','sass','html'];
 
           m.save(function(err){
             if (err) {

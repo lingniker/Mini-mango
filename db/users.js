@@ -34,7 +34,6 @@ var users =  mongoose.model("users",userSchema);
 //   phone: 11111111111,
 //   password: "123456",
 //   ltime:45565
-
 // });
 // m.save(function(err){
 //   if(err){

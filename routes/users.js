@@ -44,6 +44,27 @@ router.get("/", function(req, res, next) {
   });
 });
 }
+// else if(req.query.info === "answer"){
+//   questions.where("answer").in(req.query.user).exec(function(err,data){
+//
+//   });
+// }else if(req.query.info === "answer1"){
+//   questions.where("answer1").in(req.query.user).exec(function(err,data){
+//
+//   });
+// }else if(req.query.info === "focusf"){
+//   answers.where("answer").in(req.query.user).exec(function(err,data){
+//     var arr = [];
+//     for(var i=0;i<data.length;i++){
+//       arr[i]._id = data[i].questionsid;
+//     }
+//     console.log(arr);
+//    questions.find(arr,function(err,data){
+//
+//    });
+//   });
+//
+// }
 
 }
 });

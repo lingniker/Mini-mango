@@ -25,8 +25,15 @@ router.get("/", function(req, res, next) {
     });
   });
   }
+  else if(req.query.info === "answer"){
+    users.findOne({"nick":str},function(err,top_data){
+    questions.where("ansuser").in([req.query.user]).exec(function(err,adata){
+      console.log(adata,"aaaa");
+    res.render("info",{top_data:top_data,page:"my",info:"puber",qdata:adata,name:req.session.name});
+      });
+    });
+  }
 }else{
-
 
   if(req.query.info === "info"){
     users.findOne({"nick":str},function(err,top_data){   //查找一个
@@ -44,15 +51,19 @@ router.get("/", function(req, res, next) {
   });
 });
 }
-// else if(req.query.info === "answer"){
-//   questions.where("answer").in(req.query.user).exec(function(err,data){
-//
-//   });
-// }else if(req.query.info === "answer1"){
+else if(req.query.info === "answer"){
+  users.findOne({"nick":str},function(err,top_data){
+  questions.where("ansuser").in([req.query.user]).exec(function(err,adata){
+  res.render("info",{top_data:top_data,page:"other",info:"puber",qdata:adata,name:req.session.name});
+    });
+  });
+}
+//   else if(req.query.info === "answer1"){
 //   questions.where("answer1").in(req.query.user).exec(function(err,data){
 //
 //   });
-// }else if(req.query.info === "focusf"){
+// }
+//   else if(req.query.info === "focusf"){
 //   answers.where("answer").in(req.query.user).exec(function(err,data){
 //     var arr = [];
 //     for(var i=0;i<data.length;i++){

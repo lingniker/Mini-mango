@@ -182,16 +182,16 @@
           </div>
           <ul class="nav navbar-nav nav-foot-ul">
             <% if(top_data.tagfocuslist == null){ %>
-              <li><a href="#">node.js</a></li>
-              <li><a href="#">html5</a></li>
-              <li><a href="#">vim</a></li>
-              <li><a href="#">python</a></li>
-              <li><a href="#">mongodb</a></li>
-              <li><a href="#">css</a></li>
+              <li><a href="/taggs?tags=node.js">node.js</a></li>
+              <li><a href="/taggs?tags=html5">html5</a></li>
+              <li><a href="/taggs?tags=vim">vim</a></li>
+              <li><a href="/taggs?tags=python">python</a></li>
+              <li><a href="/taggs?tags=mongodb">mongodb</a></li>
+              <li><a href="/taggs?tags=css">css</a></li>
               <% }else{ %>
                 <% top_data.tagfocuslist.forEach(function(data){ %>
                   <li>
-                    <a href="/users/<%= data %>">
+                    <a href="/taggs?tags=<%= data %>">
                       <%= data %>
                     </a>
                   </li>

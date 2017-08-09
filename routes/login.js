@@ -45,9 +45,7 @@ router.post("/", function(req, res, next) {
             }
          })
       } else {
-
          return res.render("login",{nick:"该昵称不存在", passwd: ""});
-
       }
 
     });

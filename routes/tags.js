@@ -29,7 +29,8 @@ router.get(/^\/$/, function(req, res, next) {
       };
       // 查询用户所关注的标签
 
-      if(req.session.name !== undefined){
+      if(req.session.name !== null){
+        console.log(req.session.name);
         users.find({nick:req.session.name},function(err,data1){
           if(err){
             console.log(err);
@@ -56,8 +57,8 @@ router.get(/^\/$/, function(req, res, next) {
       }
 
       setTimeout(function(){
-        // console.log("asd:",asd);
-        if(asd.length !== 0){
+        console.log("asd:",asd);
+
           // console.log("====",asd);
           users.findOne({
             nick:req.session.name // ======== ? 登录状态下的用户名
@@ -70,7 +71,7 @@ router.get(/^\/$/, function(req, res, next) {
             console.log("doc:",doc);
           return res.render("tags",{info:doc,biaoqian:asd,biaoqian2:asd2,top_data:top_data, name:req.session.name});
         });
-      }
+    
       },10);
     }
   });

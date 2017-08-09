@@ -22,6 +22,8 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var register = require('./routes/register');
 var reset = require("./routes/reset");
+var api = require("./routes/api");
+
 
 
 
@@ -59,6 +61,7 @@ app.use("/login",login);
 app.use("/logout",logout);
 app.use("/register",register);
 app.use("/reset", reset);
+app.use("/api", api);
 
 
 

@@ -13,7 +13,6 @@ var router = express.Router();
 
 
 
-
 router.get("/", function(req, res, next) {//主页
   console.log(req.query);
 

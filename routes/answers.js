@@ -20,6 +20,7 @@ router.get(/^\/[a-zA-Z|0-9]{10,24}?$/, function(req, res, next) {
   questions.findOne({_id:str},function(err,data){
   //通过问题的id找到集合
     var username = req.session.name;
+    // res.json(data);
     answers.find({issuesid:data._id},function(err,result){
       users.findOne({
         nick:req.session.name // ======== ? 登录状态下的用户名

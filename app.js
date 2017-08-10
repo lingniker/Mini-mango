@@ -31,9 +31,9 @@ var reset = require("./routes/reset");
 var api = require("./routes/api");
 
 
-var tags = require("./routes/tags");
 
-var apis = require("./routes/apis");
+
+
 
 
 
@@ -82,7 +82,7 @@ app.use("/reset", reset);
 app.use("/api", api);
 
 app.use("/tags", tags);
-app.use("/api",apis);
+
 
 
 

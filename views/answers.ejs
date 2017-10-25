@@ -65,6 +65,10 @@
     height:100%;
     display: inline-block;
   }
+  .wd-question {
+
+    font-size: 25px;
+  }
   .wd-question p{
     color:red;
     display: inline-block;
@@ -153,6 +157,7 @@
   }
   .wd-content {
     color:red;
+    font-size: 18px;
     margin-left: 60px;
   }
   .wd-time {
@@ -181,6 +186,7 @@
     padding:20px;
     margin:10px;
     position: relative;
+    word-wrap:break-word;
     border-bottom: 1px solid #757575;
   }
   .btn {
@@ -231,12 +237,12 @@
           </h4>
           <div class="head-two">
             关键字：
-            <div class="wd-tag">
+            <div class="wd-tag" id="tag">
 
       <!-- ****************标签***************** -->
               <% info.tags.forEach(function(info){ %>
                 <a class="tag"><%= info %></a>
-              <%  }); %>
+              <% }); %>
       <!-- ************************************ -->
               <!-- <a href="#" class="tag">html</a>
               <a href="#" class="tag">html</a> -->
@@ -294,8 +300,11 @@
       </div>
     </div>
   </div>
+  <% include ./homepage-footer.ejs %>
 
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<!-- <script src="/js/vender.js" charset="utf-8"></script>
+<script src="/js/answers.js" charset="utf-8"></script> -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/time.js" charset="utf-8"></script>
   <script>
@@ -344,6 +353,7 @@
 //收藏
     <% if(name) { %>
     var user2 = "<%= info.ansuser1 %>";
+
     if(user2.indexOf(names1) != -1){
       $(".shoucang").text("已收藏");
     }

@@ -4,6 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var webpack = require('webpack');
+var WebpackHotMiddleware = require('webpack-hot-middleware');
+var WebpackDevMiddleware = require('webpack-dev-middleware');
+var config = require('./webpack.config.js');
+var compiler = webpack(config);
 
 var session = require("express-session");
 
@@ -23,10 +28,12 @@ var logout = require('./routes/logout');
 var register = require('./routes/register');
 var reset = require("./routes/reset");
 
-var api = require("./routes/api");
 
 
-var tags = require("./routes/tags");
+
+
+
+
 
 
 
@@ -45,6 +52,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(WebpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath,
+  stats: { colors: true }
+}));
+app.use(WebpackHotMiddleware(compiler));
 
 app.use(session({
   resave:true,
@@ -67,9 +80,10 @@ app.use("/logout",logout);
 app.use("/register",register);
 app.use("/reset", reset);
 
-app.use("/api", api);
+
 
 app.use("/tags", tags);
+
 
 
 

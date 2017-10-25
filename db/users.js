@@ -2,7 +2,7 @@ var mongoose = require("./mongoose");
 
 var Schema = mongoose.Schema;
 var userSchema = new Schema({
-    phone:Number,
+    phone:String,
     nick:String,
     password:String,
     likes:{type:Number,default:0},

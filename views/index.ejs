@@ -238,7 +238,7 @@
                         </a>
                         <span></span>
                         <a id="index_col" class="ltimes1" herf="#">
-                          <%= data.ltime %>
+                        <%= data.ltime %>
                         </a>
                       </div>
                       <div>
@@ -317,8 +317,8 @@
       <script type="text/javascript">
         var timess = [];
         <% data_que.forEach(function(data){ %>
-          var times1 = <%= data.ltime %>;
-          timess.push(times1);
+
+          timess.push(<%= data.ltime %>);
         <% }); %>
         var lens = $(".ltimes .ltimes1").length;
         for(var i = 0;i < lens;i++ ){

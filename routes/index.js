@@ -11,6 +11,11 @@ var router = express.Router();
 /* GET home page. */
 // \/([0-9]{1,2})?
 
+router.route('/api/registry')
+.post(function(req,res){
+  console.log(req.body);
+  res.json(req.body);
+});
 
 
 router.get("/", function(req, res, next) {//主页

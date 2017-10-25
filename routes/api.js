@@ -8,6 +8,13 @@ var salt = 10;
 
 var router = express.Router();
 
+router.route("/registry")
+.post((req,res)=>{
+  console.log(req.body);
+  res.json(req.body);
+})
+
+
 // 获取用户信息列表
 router.route("/userslist")
 .get(  (req,res) => {
